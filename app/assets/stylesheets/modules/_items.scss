@@ -17,6 +17,17 @@ img {
   vertical-align: bottom;
 }
 
+// ::after {
+//   content: "";
+//   width: 70px;
+//   height: 4px;
+//   background-color: #3CCACE;
+//   position: absolute;
+//   bottom: 0;
+//   left: 50%;
+//   transform: translateX(-50%);
+// }
+
 .main {
   // background-color: #f8f8f8;
   background-color: gray;
@@ -57,7 +68,62 @@ img {
   }
   &__introduction {
     padding: 60px 20px;
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
+    .subtitle {
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    .lists {
+      text-align: center;
+      display: flex;
+      max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
+      .list {
+        width: 30%;
+        margin: 16px 5% 0 0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .list__pict {
+          position: relative;
+          margin-bottom: 20px;
+          .number {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: #3CCACE;
+            color: #fff;
+          }
+        }
+        .list__text {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 50px;
+          margin-left: 2px;
+          span {
+            color: #3CCACE;
+          }
+        }
+        .list__description {
+          font-size: 18px;
+          line-height: 1.5;
+          margin-top: 16px;
+        }
+      }
+    }
   }
   &__middle__visual {
     height: 400px;
