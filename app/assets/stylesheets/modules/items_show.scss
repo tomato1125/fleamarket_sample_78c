@@ -1,2 +1,102 @@
-.test {color: red;
+
+
+
+.wrapper {
+  background-color: black;
+  height: 1500px;
+}
+
+.itemMain {
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.itemBox {
+  background-color: white;
+  // height: 800px;
+  width: 40%;
+  padding: 0 40px 0 40px;
+  &__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  &__body {
+    & ul>li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &--main {
+    }
+    &--others {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__price {
+    text-align :center;
+      font-weight: bold;
+      font-size: 36px;
+    &-detail {
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+
+  &__detail h1 {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__table {
+    table {
+      width: 100%;
+      font-size: 14px;
+      & tbody {
+        border-collapse: collapse;
+        border-spacing: 0;
+        tr { 
+          width: 100%;
+          border: 1px solid #dedede;
+        }
+        th {
+          width: 20%;
+          background-color: #eee;
+          font-weight: 400;
+          padding: 8px;
+          text-align: center;
+          vertical-align: inherit;
+        }
+        td {
+          width: 200px;
+          padding: 15px;
+        }
+      }
+    }
+    
+  }
+}
+
+.commentBox {
+  background-color: red;
+  height: 400px;
+  width: 40%;
+}
+
+.links {
+  background-color: green;
+  height: 400px;
+  width: 40%;
+  padding: 15px;
+}
+
+.relatedItems {
+  background-color: red;
+  height: 400px;
+  width: 40%;
 }
