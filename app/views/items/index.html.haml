@@ -1,7 +1,18 @@
 .main
   a
   .main__top__visual
-    b
+    .content
+      %h2.content__subtitle
+        人生を変えるフリマアプリ
+      %p.content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .content__btn
+        =link_to "#", class: "app__btn" do
+          = image_tag "app-store.svg", class:"image", alt:"app"
+        =link_to "#", class: "google__btn" do
+          = image_tag "google-play.svg", class:"image", alt:"app"
   .main__introduction
     %h2.subtitle
       FURIMAが選ばれる3つの理由
