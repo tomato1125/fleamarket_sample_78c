@@ -7,7 +7,7 @@
 |password|string|null: false|
 ### Association
 - has_one :profile
-- has_one :send_information
+- has_many :send_informations
 - has_many :items
 - has_one :credit
 
@@ -18,8 +18,10 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birthday|datea|null: false|
-|user_id|reference|null: false, foreign_key: true|
+|birth_year|datea|null: false|
+|birth_month|datea|null: false|
+|birth_day|datea|null: false|
+|user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -31,12 +33,12 @@
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |post_code|integer|null: false|
-|prefecture_id|reference|null: false, foreign_key: true|
+|prefecture_id|reference|foreign_key: true|
 |city|string|null: false|
 |house_number|string|null: false|
-|apartment|string|null: false|
+|apartment|string||
 |phone-number|integer|unique: true|
-|user_id|reference|null: false, foreign_key: true|
+|user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to_active_hash :prefecture_id
@@ -50,11 +52,11 @@
 |price|integer|null: false|
 |delivery_fee|integer|null: false|
 |brand_id|reference||
-|category_id|reference|null: false, foreign_key: true|
-|condition_id|reference|null: false, foreign_key: true|
-|prefecture_id|reference|null: false, foreign_key: true|
-|date_id|reference|null: false, foreign_key: true|
-|user_id|reference|null: false, foreign_key: true|
+|category_id|reference|foreign_key: true|
+|condition_id|reference|foreign_key: true|
+|prefecture_id|reference|foreign_key: true|
+|date_id|reference|foreign_key: true|
+|user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :images
@@ -68,7 +70,7 @@
 |Coumn|Type|Options|
 |-----|----|-------|
 |image|text|null: false|
-|item_id|reference|null: false, foreign_key: true|
+|item_id|reference|foreign_key: true|
 ### Association
 - belongs_to :item
 
@@ -80,6 +82,42 @@
 |year|integer|null: false|
 |month|integer|null: false|
 |security_code|integer|null: false|
-|user_id|reference|null: false, foreign_key: true|
+|user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
+
+# categories(active_hash)
+|Coumn|Type|Options|
+|-----|----|-------|
+|number|string|null: false|
+### Association
+- has_many :items
+
+# brands(active_hash)
+|Coumn|Type|Options|
+|-----|----|-------|
+|number|string||
+### Association
+- has_many :items
+
+# conditions(active_hash)
+|Coumn|Type|Options|
+|-----|----|-------|
+|number|string|null: false|
+### Association
+- has_many :items
+
+# prefectures(active_hash)
+|Coumn|Type|Options|
+|-----|----|-------|
+|number|string|null: false|
+### Association
+- has_many :send_informations
+- has_many :items
+
+# dates(active_hash)
+|Coumn|Type|Options|
+|-----|----|-------|
+|number|string|null: false|
+### Association
+- has_many :items
