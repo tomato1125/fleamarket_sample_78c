@@ -46,10 +46,20 @@
         .list__description
           最大3%でお得に出品&購入！
   .main__middle__visual
-    会員数日本一位
-    FURIMAは、フリマアプリで最も人気。
-    出品・購入回数も業界最多です！
-    ほしかったあの商品に出会えるかもしれません。
+    .main__middle__visual__box
+      %h2.main__middle__visual__box__subtitle
+        会員数日本一位
+      %p.main__middle__visual__box__text 
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .main__middle__visual__box__btn
+        =link_to "#", class: "app__btn main__middle__visual__box__btn__link" do
+          = image_tag "app-store.svg", class: "image", alt: "app-store"
+        =link_to "#", class: "google__btn main__middle__visual__box__btn__link" do
+          = image_tag "google-play.svg", class: "image", alt: "google-play"
   .main__key__features
     FURIMAの特徴
 
