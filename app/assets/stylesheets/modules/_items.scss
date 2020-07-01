@@ -2,19 +2,19 @@
   box-sizing: border-box;
 }
 
-.app__btn {
-  height: auto;
-  width: 180px;
-}
-
-.google__btn {
-  height: auto;
-  width: 180px;
-}
-
-img {
+.banner {
   width: 100%;
   vertical-align: bottom;
+}
+
+.app--btn {
+  height: auto;
+  width: 180px;
+}
+
+.google--btn {
+  height: auto;
+  width: 180px;
 }
 
 // ::after {
@@ -296,7 +296,34 @@ img {
     background-color: cyan;
   }
 }
-.app__banner {
+
+.top__banner{
+  background-image: url("bg-appBanner-pict.jpg");
   padding: 100px 40px;
-  background-color: red;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  .top__banner__box {
+    color: #fff;
+    text-align: center;
+    .top__banner__box__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    .top__banner__box__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    .top__banner__box__icon {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      .top__banner__box__icon--link {
+        margin-right: 10px;
+      }
+    }
+  }
 }

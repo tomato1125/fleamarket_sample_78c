@@ -10,9 +10,9 @@
         フリマアプリです
       .content__btn
         =link_to "#", class: "app__btn" do
-          = image_tag "app-store.svg", class: "image", alt: "app-store"
+          = image_tag "app-store.svg", class: "banner app--btn", alt: "app-store"
         =link_to "#", class: "google__btn" do
-          = image_tag "google-play.svg", class: "image", alt: "google-play"
+          = image_tag "google-play.svg", class: "banner google--btn", alt: "google-play"
   .main__introduction
     %h2.subtitle
       FURIMAが選ばれる3つの理由
@@ -57,9 +57,9 @@
         ほしかったあの商品に出会えるかもしれません。
       .main__middle__visual__box__btn
         =link_to "#", class: "app__btn main__middle__visual__box__btn__link" do
-          = image_tag "app-store.svg", class: "image", alt: "app-store"
+          = image_tag "app-store.svg", class: "banner app--btn", alt: "app-store"
         =link_to "#", class: "google__btn main__middle__visual__box__btn__link" do
-          = image_tag "google-play.svg", class: "image", alt: "google-play"
+          = image_tag "google-play.svg", class: "banner google--btn", alt: "google-play"
   .key__features
     %h2.key__features__title
       FURIMAの特徴
@@ -225,5 +225,15 @@
                 %p.pickup__container__item__tax
                   (税込)
 
-.app__banner
-  h
+.top__banner
+  .top__banner__box
+    %h2.top__banner__box__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.top__banner__box__text
+      今すぐ無料ダウンロード！
+    .top__banner__box__icon
+      = link_to "#", class: "top__banner__box__icon--link" do
+        = image_tag "app-store.svg", class: "banner app--btn", alt: "app-store"
+      = link_to "#", class: "top__banner__box__icon--link" do
+        = image_tag "google-play.svg", class: "banner google--btn", alt: "google-play"
+      
