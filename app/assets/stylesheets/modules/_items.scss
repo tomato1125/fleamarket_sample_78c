@@ -158,7 +158,7 @@ img {
       }
     }
   }
-  &__key__features {
+  .key__features {
     padding: 60px 100px;
     background-color: #fff;
     &__title {
@@ -201,10 +201,95 @@ img {
       }
     }
   }
-  &__container {
+  .pickup__container {
     padding: 80px 0 0;
     height: 100%;
+    // background-color: #f8f8f8;
     background-color: cornflowerblue;
+    &__title {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    &__items__box {
+      &__head {
+        text-align: center;
+        &__link {
+          font-size: 24px;
+          text-decoration: none;
+          color: #3CCACE;
+          &__title {
+            font-weight: bold;
+          }  
+        }
+      }
+      .pickup__container__items__box__lists {
+        width: 780px;
+        margin: 26px auto;
+        display: flex;
+        justify-content: space-around;
+        .pickup__container__items__box__list {
+          width: 220px;
+          display: inline-block;
+          float: left;
+          &__link {
+            background-color: #fff;
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+            &__img {
+              width: 220px;
+              height: 150px;
+              position: relative;
+              overflow: hidden;
+              margin: 0;
+              z-index: auto;
+              &--tag {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                z-index: auto;
+                height: 150px;
+                object-fit: cover;
+              }
+            }
+            &__body {
+              background-color: white;
+              color: #333;
+              padding: 16px;
+              &__item__name {
+                overflow: hidden;
+                line-height: 1.5;
+                font-size: 16px;
+                text-align: left;
+              }
+              &__item__details {
+                font-size: 16px;
+                &--ul {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+                .likeIcon {
+                  display: inline-block;
+                  font-size: inherit;
+                  text-rendering: auto;
+                  -webkit-font-smoothing: antialiased;
+                }
+                .pickup__container__item__tax {
+                  font-size: 10px;
+                  text-align: left;
+                }
+              }
+            }  
+          }
+        }
+      }
+    }
   }
   &__container {
     padding-bottom: 80px;

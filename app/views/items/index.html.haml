@@ -60,10 +60,10 @@
           = image_tag "app-store.svg", class: "image", alt: "app-store"
         =link_to "#", class: "google__btn main__middle__visual__box__btn__link" do
           = image_tag "google-play.svg", class: "image", alt: "google-play"
-  .main__key__features
-    %h2.main__key__features__title
+  .key__features
+    %h2.key__features__title
       FURIMAの特徴
-    .main__key__features__points
+    .key__features__points
       .features__point
         .features__point__img
           = image_tag "features_icon-01.png", alt: "features_icon-01"
@@ -86,7 +86,121 @@
         %p.features__point__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   .pickup__container
-    ピックアップカテゴリー
+    %h2.pickup__container__title
+      ピックアップカテゴリー
+    .pickup__container__items__box
+      .pickup__container__items__box__head
+        = link_to "#", class: "pickup__container__items__box__head__link" do
+          %h3.pickup__container__items__box__head__link__title
+            新規投稿商品
+      .pickup__container__items__box__lists
+        .pickup__container__items__box__list
+          = link_to "#", class: "pickup__container__items__box__list__link" do
+            .pickup__container__items__box__list__link__img
+              = image_tag "item1.jpeg", alt: "item1", class: "pickup__container__items__box__list__link__img--tag"
+            .pickup__container__items__box__list__link__body
+              %h3.pickup__container__items__box__list__link__body__item__name
+                ee
+              .pickup__container__items__box__list__link__body__item__details
+                %ul.pickup__container__items__box__list__link__body__item__details--ul
+                  %li 1000円
+                  %li
+                    = icon("fa", "star", class: "likeIcon")
+                    0
+                %p.pickup__container__item__tax
+                  (税込)
+        .pickup__container__items__box__list
+          = link_to "#", class: "pickup__container__items__box__list__link" do
+            .pickup__container__items__box__list__link__img
+              = image_tag "item2.png", alt: "item2", class: "pickup__container__items__box__list__link__img--tag"
+            .pickup__container__items__box__list__link__body
+              %h3.pickup__container__items__box__list__link__body__item__name
+                product3
+              .pickup__container__items__box__list__link__body__item__details
+                %ul.pickup__container__items__box__list__link__body__item__details--ul
+                  %li 30000円
+                  %li
+                    = icon("fa", "star", class: "likeIcon")
+                    0
+                %p.pickup__container__item__tax
+                  (税込)
+        .pickup__container__items__box__list
+          = link_to "#", class: "pickup__container__items__box__list__link" do
+            .pickup__container__items__box__list__link__img
+              = image_tag "item3.png", alt: "item3", class: "pickup__container__items__box__list__link__img--tag"
+            .pickup__container__items__box__list__link__body
+              %h3.pickup__container__items__box__list__link__body__item__name
+                product2
+              .pickup__container__items__box__list__link__body__item__details
+                %ul.pickup__container__items__box__list__link__body__item__details--ul
+                  %li 20000円
+                  %li
+                    = icon("fa", "star", class: "likeIcon")
+                    0
+                %p.pickup__container__item__tax
+                  (税込)
+        .pickup__container__items__box__list
+          = link_to "#", class: "pickup__container__items__box__list__link" do
+            .pickup__container__items__box__list__link__img
+              = image_tag "item4.png", alt: "item4", class: "pickup__container__items__box__list__link__img--tag"
+            .pickup__container__items__box__list__link__body
+              %h3.pickup__container__items__box__list__link__body__item__name
+                product1
+              .pickup__container__items__box__list__link__body__item__details
+                %ul.pickup__container__items__box__list__link__body__item__details--ul
+                  %li 10000円
+                  %li
+                    = icon("fa", "star", class: "likeIcon")
+                    0
+                %p.pickup__container__item__tax
+                  (税込)
+
+
+        -# .pickup__container__items__box__list
+        -#   = link_to "#" do
+        -#     .pickup__container__items__box__list__img
+        -#       = image_tag "item2.png", alt: "item2"
+        -#     .pickup__container__items__box__list__body
+        -#       %h3.pickup__container__items__box__list__body__item__name
+        -#         product3
+        -#       .pickup__container__items__box__list__body__item__details
+        -#         %ul
+        -#           %li 30000円
+        -#           %li
+        -#             = icon("fa", "star", class: "likeIcon")
+        -#             0
+        -#         %p.pickup__container__item__tax
+        -#           (税込)
+        -# .pickup__container__items__box__list
+        -#   = link_to "#" do
+        -#     .pickup__container__items__box__list__img
+        -#       = image_tag "item3.png", alt: "item3"
+        -#     .pickup__container__items__box__list__body
+        -#       %h3.pickup__container__items__box__list__body__item__name
+        -#         product2
+        -#       .pickup__container__items__box__list__body__item__details
+        -#         %ul
+        -#           %li 20000円
+        -#           %li
+        -#             = icon("fa", "star", class: "likeIcon")
+        -#             0
+        -#         %p.pickup__container__item__tax
+        -#           (税込)
+        -# .pickup__container__items__box__list
+        -#   = link_to "#" do
+        -#     .pickup__container__items__box__list__img
+        -#       = image_tag "item4.png", alt: "item4"
+        -#     .pickup__container__items__box__list__body
+        -#       %h3.pickup__container__items__box__list__body__item__name
+        -#         product1
+        -#       .pickup__container__items__box__list__body__item__details
+        -#         %ul
+        -#           %li 10000円
+        -#           %li
+        -#             = icon("fa", "star", class: "likeIcon")
+        -#             0
+        -#         %p.pickup__container__item__tax
+        -#           (税込)
   .pickup__container
     ピックアップブランド
 .app__banner
