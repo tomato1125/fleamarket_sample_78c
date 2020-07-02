@@ -2,16 +2,7 @@
   box-sizing: border-box;
 }
 
-// ::after {
-//   content: "";
-//   width: 70px;
-//   height: 4px;
-//   background-color: #3CCACE;
-//   position: absolute;
-//   bottom: 0;
-//   left: 50%;
-//   transform: translateX(-50%);
-// }
+
 
 .Main {
   // background-color: #f8f8f8;
@@ -73,6 +64,16 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     position: relative;
+    &::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   & ul {
     text-align: center;
@@ -173,6 +174,16 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     position: relative;
+    &::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   &__points {
     max-width: calc(1040px + 20px);
