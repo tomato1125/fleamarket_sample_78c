@@ -160,7 +160,43 @@ $link-color: rgb(60,202,206)
 }
 
 .relatedItems {
-  background-color: red;
   height: 400px;
   width: 40%;
+}
+
+.itemLists {
+  width: 100%;
+}
+
+.itemsList {
+  background-color: white;
+  width: 30%;
+  &__name {
+    padding: 0 20px;
+  }
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+  &__details {
+    padding: 0 20px;
+    & ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & li {
+        font-weight: bold;
+        }
+      }
+    & p {
+      font-size: 12px;
+    }
+    }
+  }
+  
+
+.imageLink {
+  height: 140px;
+  width: 100%;
+  object-fit: cover;
 }
