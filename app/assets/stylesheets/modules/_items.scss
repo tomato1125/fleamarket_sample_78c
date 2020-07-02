@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.Main {
+.TopPageMain {
   background-color: #f8f8f8;
 }
 
@@ -242,7 +242,8 @@
     }
     .pickupContainer__itemsBox__lists {
       width: 780px;
-      margin: 26px auto;
+      margin: 0 auto;
+      padding: 26px 0 60px;
       display: flex;
       justify-content: space-around;
       .pickupContainer__itemsBox__list {

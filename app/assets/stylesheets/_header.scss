@@ -1,4 +1,4 @@
-.Header {
+.CommonHeader {
   padding: 0 60px;
   &__inner {
     padding: 15px 0 0;
@@ -51,7 +51,7 @@
     }
   }
 }
-.Header__contents {
+.CommonHeader__contents {
   font-size: 14px;
   display: flex;
   justify-content: space-between;

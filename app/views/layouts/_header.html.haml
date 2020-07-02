@@ -1,5 +1,5 @@
-.Header
-  .Header__inner
+.CommonHeader
+  .CommonHeader__inner
     .mainHeader
       %h.mainHeader__iconLogo
         = link_to "#" do
@@ -9,19 +9,18 @@
           = f.text_field :keyword, placeholder: "キーワードから探す", class: "mainHeader__searchForm__area__input"
           %button{type: "submit", class: "mainHeader__searchForm__area__btn"}
             = image_tag "icon-search 1.png", alt: "search"
-    .Header__contents
-      %ul.Header__contents__listsLeft
-        %li.Header__contents__listsLeft__firstItem
+    .CommonHeader__contents
+      %ul.CommonHeader__contents__listsLeft
+        %li.CommonHeader__contents__listsLeft__firstItem
           = link_to '#' do
             カテゴリー
-        %li.Header__contents__listsLeft__secondItem
+        %li.CommonHeader__contents__listsLeft__secondItem
           = link_to '#' do
             ブランド
-      %ul.Header__contents__listsRight
-        %li.Header__contents__listsRight__firstItem
+      %ul.CommonHeader__contents__listsRight
+        %li.CommonHeader__contents__listsRight__firstItem
           = link_to '#' do
             ログイン
-        %li.Header__contents__listsLeft__secondItem
+        %li.CommonHeader__contents__listsLeft__secondItem
           = link_to '#' do
             新規会員登録
-  -# = yield
