@@ -297,31 +297,31 @@
   }
 }
 
-.top__banner{
+.main__bottom--banner{
   background-image: url("bg-appBanner-pict.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
   background-position: center;
-  .top__banner__box {
+  &__box {
     color: #fff;
     text-align: center;
-    .top__banner__box__title {
+    &--title {
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
     }
-    .top__banner__box__text {
+    &--text {
       font-size: 35px;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
-    .top__banner__box__icon {
+    &--icon {
       width: 100%;
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
-      .top__banner__box__icon--link {
+      &--link {
         margin-right: 10px;
       }
     }
