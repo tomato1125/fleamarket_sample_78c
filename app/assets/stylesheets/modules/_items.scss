@@ -152,8 +152,12 @@
     }
     &__btn {
       display: flex;
-      &__link {
+      & li {
         margin-right: 10px;
+        & img {
+          width: 180px;
+          vertical-align: bottom;
+        }
       }
     }
   }
