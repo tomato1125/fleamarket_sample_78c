@@ -220,24 +220,24 @@
     line-height: 1.4;
     font-weight: bold;
   }
-  &__items__box {
+  &__itemsBox {
     &__head {
       text-align: center;
-      &__link {
+      & a {
         font-size: 24px;
         text-decoration: none;
         color: #3CCACE;
-        &__title {
+        .pickupContainer__itemsBox__head__title {
           font-weight: bold;
         }  
       }
     }
-    .pickupContainer__items__box__lists {
+    .pickupContainer__itemsBox__lists {
       width: 780px;
       margin: 26px auto;
       display: flex;
       justify-content: space-around;
-      .pickupContainer__items__box__list {
+      .pickupContainer__itemsBox__list {
         width: 220px;
         display: inline-block;
         float: left;
@@ -253,7 +253,7 @@
             overflow: hidden;
             margin: 0;
             z-index: auto;
-            &--tag {
+            & img {
               position: absolute;
               top: 0;
               left: 0;
@@ -269,15 +269,15 @@
             background-color: white;
             color: #333;
             padding: 16px;
-            &__item__name {
+            &__itemName {
               overflow: hidden;
               line-height: 1.5;
               font-size: 16px;
               text-align: left;
             }
-            &__item__details {
+            &__itemDetails {
               font-size: 16px;
-              &--ul {
+              & ul {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -288,7 +288,7 @@
                 text-rendering: auto;
                 -webkit-font-smoothing: antialiased;
               }
-              .pickupContainer__item__tax {
+              .pickupContainer__itemTax {
                 font-size: 10px;
                 text-align: left;
               }
