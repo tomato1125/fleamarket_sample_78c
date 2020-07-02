@@ -61,10 +61,11 @@
     }
   }
 }
+
 .mainIntroduction {
   padding: 60px 20px;
   // background-color: yellowgreen;
-  .subtitle {
+  &__subtitle {
     text-align: center;
     font-size: 26px;
     line-height: 1.4;
@@ -73,23 +74,23 @@
     padding-bottom: 15px;
     position: relative;
   }
-  .lists {
+  & ul {
     text-align: center;
     display: flex;
     max-width: 1020px;
     width: 100%;
     margin: 0 auto;
-    .list {
+    .mainIntroduction__list {
       width: 30%;
       margin: 16px 5% 0 0;
       text-align: left;
       display: flex;
       flex-direction: column;
       align-items: center;
-      .list__pict {
+      &__pict {
         position: relative;
         margin-bottom: 20px;
-        .number {
+        &__number {
           display: inline-block;
           position: absolute;
           top: 0;
@@ -102,8 +103,12 @@
           background-color: #3CCACE;
           color: #fff;
         }
+        & img {
+          width: 100%;
+          vertical-align: bottom;
+        }
       }
-      .list__text {
+      &__text {
         font-weight: bold;
         font-size: 24px;
         line-height: 50px;
@@ -112,7 +117,7 @@
           color: #3CCACE;
         }
       }
-      .list__description {
+      &__description {
         font-size: 18px;
         line-height: 1.5;
         margin-top: 16px;
