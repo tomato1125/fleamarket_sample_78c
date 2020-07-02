@@ -144,10 +144,19 @@ $link-color: rgb(60,202,206)
 }
 
 .links {
-  background-color: green;
-  height: 400px;
   width: 40%;
   padding: 15px;
+  display: block;
+  & li {
+    float: left;
+  & a {
+    text-decoration: none;
+    color: $link-color;
+  }
+  &:last-child {
+    float: right;
+  }
+  }
 }
 
 .relatedItems {
