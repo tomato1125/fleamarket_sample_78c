@@ -86,5 +86,15 @@
               %i.fa.fa-flag
               不適切な商品の通報
     .commentBox
+      = form_with url:"#",method: :post, class: "commentBox__form",local: true do |f|
+        = f.text_area :comment, class: "commentBox__inputArea"
+        %p.commentBox__inputArea--notice
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br
+          不適切な言葉遣いなどは利用制限や退会処分となることがあります。
+        .commentBox__inputArea--submit
+          = button_tag type: 'submit',class: "submitBtn" do
+            %i.fa.fa-comment
+            コメントする
     .links
     .relatedItems
