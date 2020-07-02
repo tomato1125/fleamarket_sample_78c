@@ -1,0 +1,80 @@
+.Header {
+  padding: 0 60px;
+  &__inner {
+    padding: 15px 0 0;
+    margin: 0 auto;
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    .mainHeader {
+      position: relative;
+      display: flex;
+      align-items: center;
+      &__iconLogo {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        .iconLogo--link {
+          width: 140px;
+          display: block;
+          .iconLogo--img {
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+      }
+      &__searchForm {
+        margin-left: auto;
+        width: 100%;
+        &__area {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          &__input {
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          &__btn {
+            width: 36px;
+            cursor: pointer;
+            border: 0;
+            padding: 8px;
+            background-color: #3CCACE;
+            .iconSearch--img {
+              width: 100%;
+              vertical-align: bottom;
+            }
+          }
+        }
+      }
+    }
+    .Header__contents {
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      &__listsLeft {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        &__firstItem {
+          margin-right: 30px;
+        }
+        &__secondItem {
+          margin-left: 16px;
+        }
+      }
+      &__listsRight {
+        display: flex;
+        list-style: none;
+        padding-right: 0;
+      }
+      &--link {
+        color: #000000;
+        text-decoration: none;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,29 @@
+%body
+  %header
+    .Header
+      .Header__inner
+        .mainHeader
+          %h.mainHeader__iconLogo
+            = link_to "#", class: "iconLogo--link" do
+              = image_tag "logo.png", class: "iconLogo--img", alt: "logo"
+          .mainHeader__searchForm
+            = form_with url: root_path, method: :get, class: "mainHeader__searchForm__area", local: true do |f|
+              = f.text_field :keyword, placeholder: "キーワードから探す", class: "mainHeader__searchForm__area__input"
+              %button{type: "submit", class: "mainHeader__searchForm__area__btn"}
+                = image_tag "icon-search 1.png", class: "iconSearch--img", alt: "search"
+        .Header__contents
+          %ul.Header__contents__listsLeft
+            %li.Header__contents__listsLeft__firstItem
+              = link_to '#', class: "Header__contents--link" do
+                カテゴリー
+            %li.Header__contents__listsLeft__secondItem
+              = link_to '#', class: "Header__contents--link" do
+                ブランド
+          %ul.Header__contents__listsRight
+            %li.Header__contents__listsRight__firstItem
+              = link_to '#', class: "Header__contents--link" do
+                ログイン
+            %li.Header__contents__listsLeft__secondItem
+              = link_to '#', class: "Header__contents--link" do
+                新規会員登録
+  -# = yield
