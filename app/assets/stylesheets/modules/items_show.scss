@@ -5,7 +5,7 @@ $link-color: rgb(60,202,206)
 
 
 .wrapper {
-  background-color:#ffffee;
+  background-color:#f8f8f8;
 }
 
 .itemMain {
@@ -18,13 +18,13 @@ $link-color: rgb(60,202,206)
 
 .itemBox {
   background-color: white;
-  // height: 800px;
   width: 40%;
   padding: 0 40px 0 40px;
   &__name {
     text-align: center;
     font-weight: bold;
     font-size: 24px;
+    margin: 20px 0px 10px 0px;
   }
   &__body {
     & ul>li {
@@ -33,14 +33,27 @@ $link-color: rgb(60,202,206)
       align-items: center;
     }
     &--main {
+      margin-bottom: 10px;
     }
     &--others {
       display: flex;
       justify-content: center;
     }
   }
+  .mainImage {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+  }
+
+  .subImage {
+    width: 30%;
+    object-fit: cover;
+    height: 80px;
+  }
 
   &__price {
+    margin-top: 20px;
     text-align :center;
       font-weight: bold;
       font-size: 36px;
@@ -50,12 +63,12 @@ $link-color: rgb(60,202,206)
     }
   }
 
-  &__detail h1 {
-    font-weight: bold;
-    font-size: 16px;
+  &__detail {
+    margin-top: 20px;
   }
 
   &__table {
+    margin-top: 20px;
     table {
       width: 100%;
       font-size: 14px;
@@ -87,7 +100,7 @@ $link-color: rgb(60,202,206)
   &__option {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 20px 0;
     &--btn {
       & a {
         text-decoration: none;
@@ -120,7 +133,7 @@ $link-color: rgb(60,202,206)
   &__inputArea {
     width: 100%;
     &--notice {
-      background-color: #ffffee;
+      background-color: #f8f8f8;
       font-size: 14px;
       margin-bottom: 20px;
     }
@@ -162,6 +175,13 @@ $link-color: rgb(60,202,206)
 .relatedItems {
   height: 400px;
   width: 40%;
+  & a {
+  text-decoration: none;
+  color: $link-color;
+  font-size: 22px;
+  font-weight: bold;
+  }
+
 }
 
 .itemLists {
@@ -169,10 +189,12 @@ $link-color: rgb(60,202,206)
 }
 
 .itemsList {
+  margin-top: 20px;
   background-color: white;
-  width: 30%;
+  width: 25%;
   &__name {
     padding: 0 20px;
+    font-size: 16px;
   }
   & a {
     text-decoration: none;
@@ -186,15 +208,15 @@ $link-color: rgb(60,202,206)
       justify-content: space-between;
       & li {
         font-weight: bold;
+        font-size: 16px;
         }
       }
     & p {
-      font-size: 12px;
+      font-size: 10px;
+      padding-bottom: 20px;
     }
     }
   }
-  
-
 .imageLink {
   height: 140px;
   width: 100%;
