@@ -2,11 +2,8 @@
   box-sizing: border-box;
 }
 
-
-
 .Main {
-  // background-color: #f8f8f8;
-  background-color: gray;
+  background-color: #f8f8f8;
 }
 
 .mainTopVisual {
@@ -55,7 +52,6 @@
 
 .mainIntroduction {
   padding: 60px 20px;
-  // background-color: yellowgreen;
   &__subtitle {
     text-align: center;
     font-size: 26px;
@@ -126,6 +122,7 @@
     }
   }
 }
+
 .mainMiddleVisual {
   background-image: url(bg-topMiddleDl-pict.jpg);
   background-position: bottom right;
@@ -133,7 +130,6 @@
   background-size: cover;
   display: flex;
   align-items: center;
-  // background-color: yellow;
   &__box {
     color: #fff;
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -163,6 +159,7 @@
     }
   }
 }
+
 .keyFeatures {
   padding: 60px 100px;
   background-color: #fff;
@@ -220,11 +217,11 @@
     }
   }
 }
+
 .pickupContainer {
   padding: 80px 0 0;
   height: 100%;
-  // background-color: #f8f8f8;
-  background-color: cornflowerblue;
+  background-color: #f8f8f8;
   &__title {
     text-align: center;
     font-size: 28px;
@@ -310,11 +307,6 @@
     }
   }
 }
-// .pickupContainer {
-//   padding-bottom: 80px;
-//   background-color: cyan;
-// }
-
 
 .topPage__bottomBanner{
 background-image: url("bg-appBanner-pict.jpg");
