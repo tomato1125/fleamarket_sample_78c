@@ -1,0 +1,25 @@
+.Header
+  .headerInner
+  .mainHeader
+  %h.iconlogo
+    = image_tag src=“logo.png”, size: "140x40"
+  .searchForm
+    = form_with url: ‘search_posts_path’, method: :get, class: “searchForm”, local: true do |f|
+      = f.text_field :keyword, placeholder: “キーワードから探す“, class: “searchForm__input”
+      %button{type: “submit”, class: “searchForm__button”}
+        = image_tag src=“icon-search1.png”, size: “20x20”
+  .contents
+    %ul.listsLeft
+      %li.listsLeft__firstItem
+        = link_to ‘#’ do
+          カテゴリー
+      %li.listsLeft__secondItem
+        = link_to ‘#’ do
+          ブランド
+    %ul.listsRight
+      %li.listsRight__firstItem
+        = link_to ‘#’ do
+          ログイン
+      %li.listsLeft__secondItem
+        = link_to ‘#’ do
+          新規会員登録
