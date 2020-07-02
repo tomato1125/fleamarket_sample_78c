@@ -5,8 +5,8 @@
   border-bottom: gray solid 8px;
 }
 .Back{
-  background-color: #fefefe;
-  height: 800px;
+  background-color: #eeeeee;
+  height: 100%x;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@
   .Wrapper{
     background-color:#fefefe;
     height: 100vh;
-    width: calc(100vw - 500px);
+    width: calc(100vw - 400px);
     margin: 40px 100px;
     display: flex;
     justify-content: space-between;
@@ -22,9 +22,9 @@
     .l-side{
       background-color: #fafafa ;
       border: solid #eeeeee 1px;
-      width: 250px;
+      width: 400px;
       height: 171px;
-      margin-top: 60px;
+      margin-top: 50px;
       margin-left: 60px;
       margin-right: 50px;
       display: block;
@@ -37,8 +37,9 @@
         border: solid #eeeeee 1px;
         height: 40px;
         font-size: 17px;
-        text-align: center;
+        text-align: start;
         padding-top: 15px;
+        padding-left: 10px;
       }
       a{
         border: solid #eeeeee 1px;
@@ -47,8 +48,9 @@
         display: block;
         color: black;
         text-decoration: none;
-        text-align: center;
+        text-align: start;
         padding-top: 15px;
+        padding-left: 10px;
       }
       .l{
         .l-contents{
