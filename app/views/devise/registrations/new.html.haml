@@ -1,0 +1,41 @@
+.AccountPage
+  .AccountPage__title
+    = image_tag 'logo.png', class: "logo"
+  .Main
+    .AccountPage__box
+      .AccountPage__box--name
+        %h2 新規会員登録
+      .AccountPage__box--form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .FormField
+            .FormField__lavel
+              .FormField__lavel--normal
+                = f.label :nickname, "ニックネーム"
+              %span 必須
+            .FormField__input--normal 
+              = f.text_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"例）FURIMA太朗"
+          .FormField
+            .FormField__lavel
+              .FormField__lavel--normal
+                = f.label :email, "メールアドレス"
+              %span 必須
+            .FormField__input--normal  
+              = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"PC・携帯どちらでも可"
+          .FormField
+            .FormField__lavel
+              .FormField__lavel--normal
+                = f.label :password,"パスワード"
+              %span 必須
+            .FormField__input--normal
+              = f.password_field :password, autocomplete: "new-password", class:"field", placeholder:"７文字以上"
+          .FormField
+            .FormField__lavel
+              .FormField__lavel--normal
+                = f.label :password_confirmation, "パスワード（確認用）"
+              %span 必須
+            .FormField__input--normal
+              = f.password_field :password_confirmation, autocomplete: "new-password", class:"field", placeholder:"７文字以上"
+          .actions
+            = f.submit "次へ進む", class:"next__btn"
+          = render "devise/shared/links"
