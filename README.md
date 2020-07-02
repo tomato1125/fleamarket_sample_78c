@@ -18,9 +18,9 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birth_year|datea|null: false|
-|birth_month|datea|null: false|
-|birth_day|datea|null: false|
+|birth_year|date|null: false|
+|birth_month|date|null: false|
+|birth_day|date|null: false|
 |user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
@@ -89,28 +89,28 @@
 # categories(active_hash)
 |Coumn|Type|Options|
 |-----|----|-------|
-|number|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :items
 
 # brands(active_hash)
 |Coumn|Type|Options|
 |-----|----|-------|
-|number|string||
+|name|string||
 ### Association
 - has_many :items
 
 # conditions(active_hash)
 |Coumn|Type|Options|
 |-----|----|-------|
-|number|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :items
 
 # prefectures(active_hash)
 |Coumn|Type|Options|
 |-----|----|-------|
-|number|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :send_informations
 - has_many :items
@@ -118,6 +118,6 @@
 # dates(active_hash)
 |Coumn|Type|Options|
 |-----|----|-------|
-|number|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :items
