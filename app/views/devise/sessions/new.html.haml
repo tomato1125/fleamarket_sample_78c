@@ -1,17 +1,25 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.AccountPage
+  .AccountPage__title
+    = image_tag 'logo.png', class: "logo"
+  .Main
+    .AccountPage__box
+      .AccountPage__box--name
+        %h2 ログインページ
+      .AccountPage__box--form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .FormField
+            .FormField__lavel
+              .FormField__lavel--normal
+                = f.label :email, "メールアドレス"
+            .FormField__input--normal  
+              = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"PC・携帯どちらでも可"
+          .FormField
+            .FormField__lavel
+              .FormField__lavel--normal
+                = f.label :password,"パスワード"
+            .FormField__input--normal
+              = f.password_field :password, autocomplete: "new-password", class:"field", placeholder:"７文字以上"
+          .actions
+            = f.submit "ログイン", class:"next__btn"
+          = render "devise/shared/links"
