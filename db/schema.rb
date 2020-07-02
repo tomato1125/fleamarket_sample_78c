@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_075434) do
+ActiveRecord::Schema.define(version: 2020_07_02_075720) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "image", null: false
@@ -41,6 +41,24 @@ ActiveRecord::Schema.define(version: 2020_07_02_075434) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "send_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.integer "post_code", null: false
+    t.bigint "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "apartment"
+    t.integer "phone_number"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["prefecture_id"], name: "index_send_informations_on_prefecture_id"
+    t.index ["user_id"], name: "index_send_informations_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -53,4 +71,5 @@ ActiveRecord::Schema.define(version: 2020_07_02_075434) do
 
   add_foreign_key "images", "items"
   add_foreign_key "items", "users"
+  add_foreign_key "send_informations", "users"
 end
