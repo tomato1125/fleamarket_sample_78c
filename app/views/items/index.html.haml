@@ -225,16 +225,16 @@
                 %p.pickupContainer__itemTax
                   (税込)
 
-.main__bottom--banner
-  .main__bottom--banner__box
-    %h2.main__bottom--banner__box--title
+.topPage__bottomBanner
+  .topPage__bottomBanner__box
+    %h2.topPage__bottomBanner__box--title
       だれでもかんたん、人生を変えるフリマアプリ
-    %p.main__bottom--banner__box--text
+    %p.topPage__bottomBanner__box--text
       今すぐ無料ダウンロード！
-    .main__bottom--banner__box--icon
-      = link_to "#", class: "main__bottom--banner__box--icon--link" do
-        = image_tag "app-store.svg", class: "banner app--btn", alt: "app-store"
-      = link_to "#", class: "main__bottom--banner__box--icon--link" do
-        = image_tag "google-play.svg", class: "banner google--btn", alt: "google-play"
+    .topPage__bottomBanner__box--icon
+      = link_to "#" do
+        = image_tag "app-store.svg", alt: "app-store"
+      = link_to "#" do
+        = image_tag "google-play.svg", alt: "google-play"
 
 = render "footer"

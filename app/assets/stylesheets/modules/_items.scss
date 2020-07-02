@@ -305,7 +305,7 @@
 // }
 
 
-.main__bottom--banner{
+.topPage__bottomBanner{
 background-image: url("bg-appBanner-pict.jpg");
 padding: 100px 40px;
 position: relative;
@@ -329,8 +329,12 @@ background-position: center;
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
-      &--link {
+      & a {
         margin-right: 10px;
+        & img {
+          width: 180px;
+          vertical-align: bottom;
+        }
       }
     }
   }
