@@ -1,54 +1,62 @@
 .SendInformationsWrapper
   .SendInformations__topLogo
-    フリマロゴ
-  .SendInformations__inner
-    .SendInformations__inner__title
-      お届け先住所登録
-    = form_with url:"#", method: :post, class: "SendInformations__inner__lists", local: true do |f|
-      .sendFromGroup
-        .sendFromGroup__name
-          お名前
-          .sendFromGroup__name__inputArea1
-            = f.text_area :family_name, class: "sendFromGroup__inputArea", placeholder: "例) 山田"
-          .sendFromGroup__name__inputArea2
-            = f.text_area :first_name, class: "sendFromGroup__inputArea", placeholder: "例) 花子"
-      .sendFromGroup
-        .sendName--kana
-          お名前カナ
-          .sendName--kana__inputArea1
-            = f.text_area :family_name_kana, class: "sendFromGroup__inputArea", placeholder: "例) ヤマダ"
-          .sendName--kana__inputArea2
-            = f.text_area :first_name_kana, class: "sendFromGroup__inputArea", placeholder: "例) ハナコ"
-      .sendFromGroup
-        .sendPostalCode
-          郵便番号
-          .sendPostalCode__inputArea
-            = f.text_area :post_code, class: "sendFromGroup__inputArea", placeholder: "例) 123-45678"
-      .sendFromGroup
-        .sendPrefecture
-          都道府県
-          .sendPrefecture__inputArea
-            = f.text_area :prefecture, class: "sendFromGroup__inputArea", placeholder: "例) 神奈川県"
-      .sendFromGroup
-        .sendCity
-          市町村
-          .sendCity__inputArea
-            = f.text_area :city, class: "sendFromGroup__inputArea", placeholder: "例) 横浜市緑区"
-      .sendFromGroup
-        .sendAddress1
-          番地
-          .sendAddress1__inputArea
-            = f.text_area :house_number, class: "sendFromGroup__inputArea", placeholder: "例) 青山１丁目１−１"
-      .sendFromGroup
-        .sendAddress2
-          建物名
-          .sendAddress2__inputArea
-            = f.text_area :apartment, class: "sendFromGroup__inputArea", placeholder: "例) 柳ビル103"
-      .sendFromGroup
-        .sendAddress2
-          電話番号
-          .sendAddress2__inputArea
-            = f.text_area :phone_number, class: "sendFromGroup__inputArea", placeholder: "例) 09012345678"
-      .SendInformations__submit
-        = button_tag type: 'submit', class: "SendInformations__btn" do
-          登録する
+    = image_tag "logo.png", alt: "logo"
+    .SendInformations__inner
+      %h2.SendInformations__inner__title
+        お届け先住所登録
+      = form_with url:"#", method: :post, class: "SendInformations__inner__lists", local: true do |f|
+        .sendFormGroup
+          .sendName.sendFormGroup__box1
+            お名前
+            %span 必須
+            .sendName__inputArea1
+              = f.text_field :family_name, class: "sendFormGroup__inputArea", placeholder: "例) 山田"
+            .sendName__inputArea2
+              = f.text_field :first_name, class: "sendFormGroup__inputArea", placeholder: "例) 花子"
+        .sendFormGroup
+          .sendName--kana.sendFormGroup__box1
+            お名前カナ
+            %span 必須
+            .sendName--kana__inputArea1
+              = f.text_field :family_name_kana, class: "sendFormGroup__inputArea", placeholder: "例) ヤマダ"
+            .sendName--kana__inputArea2
+              = f.text_field :first_name_kana, class: "sendFormGroup__inputArea", placeholder: "例) ハナコ"
+        .sendFormGroup
+          .sendPostalCode.sendFormGroup__box1
+            郵便番号
+            %span 必須
+            .sendPostalCode__inputArea
+              = f.text_field :post_code, class: "sendFormGroup__inputArea", placeholder: "例) 123-45678"
+        .sendFormGroup
+          .sendPrefecture.sendFormGroup__box1
+            都道府県
+            %span 必須
+            .sendPrefecture__inputArea
+              = f.text_field :prefecture, class: "sendFormGroup__inputArea", placeholder: "例) 神奈川県"
+        .sendFormGroup
+          .sendCity.sendFormGroup__box1
+            市町村
+            %span 必須
+            .sendCity__inputArea
+              = f.text_field :city, class: "sendFormGroup__inputArea", placeholder: "例) 横浜市緑区"
+        .sendFormGroup
+          .sendAddress1.sendFormGroup__box1
+            番地
+            %span 必須
+            .sendAddress1__inputArea
+              = f.text_field :house_number, class: "sendFormGroup__inputArea", placeholder: "例) 青山１丁目１−１"
+        .sendFormGroup
+          .sendAddress2.sendFormGroup__box2
+            建物名
+            %span 任意
+            .sendAddress2__inputArea
+              = f.text_field :apartment, class: "sendFormGroup__inputArea", placeholder: "例) 柳ビル103"
+        .sendFormGroup
+          .sendAddress2.sendFormGroup__box2
+            電話番号
+            %span 任意
+            .sendAddress2__inputArea
+              = f.text_field :phone_number, class: "sendFormGroup__inputArea", placeholder: "例) 09012345678"
+        .SendInformations__submit
+          = button_tag type: 'submit', class: "SendInformations__btn" do
+            登録する
