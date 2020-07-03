@@ -1,0 +1,195 @@
+.productlisting
+  .productlistingPage
+    .header
+      .headerlogo
+        = image_tag src="logo.png", size: "140x40"
+    .products
+      .productImage
+        .productImageSpace
+          .productImageSpace__name
+            出品画像
+          .required
+            必須
+        .productImageIntroduce
+          最大10枚までアップロードできます
+        .imageUpload
+          = form_with url: '#', method: :post, class: "imageUploadForm", local: true do |f|
+            .imageUploadForm__imageFormSection
+              = f.label :image, class: 'imageUploadForm__inputImage' do
+                = icon('fas', 'camera', class: 'imageUploadForm__icon')
+                = f.file_field :image, class: 'imageHidden'
+              %p.ImageUploadIntroduce
+                ドラッグアンドドロップ
+              %p.ImageUploadIntroduce
+                またはクリックしてファイルをアップロード
+        .imageExistenceContent
+
+      .productIntroduce
+        .productNameSpace
+          .productName__name
+            商品名
+          .required
+            必須
+        .productNameForm
+          = form_with url: '#', method: :post, class: "productNameForm", local: true do |f|
+            .productNameForm__contents
+              = f.text_field :content, class: 'productNameForm__input', placeholder: '40文字以内'
+        .ContentExistenceWord
+        .productIntroduceContent
+          .productIntroduceSpace
+            .introduceContent
+              商品の説明
+            .required
+              必須
+          .productIntroduceForm
+            = form_with url: '#', method: :post, class: "productIntroduceForm", local: true do |f|
+              .productIntroduceForm__contents
+                %textarea{cols: "30", class: "productIntroduceForm__Input", placeholder: "商品の説明（必須1,000文字以内\n（色、素材、重さ、定価、注意点など）\r\r例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありませ\rん。あわせやすいのでおすすめです。", rows: "10"}
+                -# = f.text_area :content, class: 'productIntroduceForm__Input', cols: 1000, row: 8, :placeholder => "商品の説明（必須 1,000文字以内)\r（色、素材、重さ、定価、注意点など）"
+          .CharacterLimit
+            .CharacterLimit__wordlimit
+              0/1000
+      .productDetails
+        .detailWord
+          商品の詳細
+        .productCategorySpace
+          .productCategory
+            .productCategory__name
+              カテゴリー
+            .required
+              必須
+          .categorySelecter
+            = form_with url: '#', method: :post, class: "categorySelecter", local: true do |f|
+              .categorySelecter__contents
+                = f.collection_select :productType_id, ProductType.all.collect, :id, :name, {}, {class: "categorySelecter__input"}
+          .blankMessage
+          .productBrandSpace
+            .productBrand
+              .productBrand__name
+                ブランド
+              .optional
+                任意
+            .productBrandForm
+              = form_with url: '#', method: :post, class: "productBrandForm", local: true do |f|
+                .productBrandForm__contents
+                  = f.text_field :content, class: 'productBrandForm__Content', placeholder: '例)シャネル'
+          .productConditionSpace
+            .productCondition
+              .productCondition__name
+                商品の状態
+              .required
+                必須
+            .conditionSelecter
+              = form_with url: '#', method: :post, class: "conditionSelecter", local: true do |f|
+                .conditionSelecter__contents
+                  = f.collection_select :productType_id, ProductType.all.collect, :id, :name, {}, {class: "conditionSelecter__input"}
+            .blankMessage
+      .sendInfomation
+        .sendWord
+          %p.sendWord__title
+            配送について
+          .send__icon
+            = link_to '#' do
+              = icon('far', 'question-circle', class: 'questionmark')
+        .sendFeeBurdenSpace
+          .sendFeeBurden
+            .sendFeeBurden__name
+              配送料の負担
+            .required
+              必須
+          .sendFeeBurdenSelect
+            = form_with url: '#', method: :post, class: "sendFeeBurdenSelect", local: true do |f|
+              .sendFeeBurdenSelect__contents
+                = f.collection_select :productType_id, ProductType.all.collect, :id, :name, {}, {class: "sendFeeBurdenSelect__input"}
+        .shipfromSpace
+          .shipfrom
+            .shipfrom__name
+              発送元の地域
+            .required
+              必須
+          .shipfromSelecter
+            = form_with url: '#', method: :post, class: "shipfromSelecter", local: true do |f|
+              .shipfromSelecter__contents
+                = f.collection_select :productType_id, ProductType.all.collect, :id, :name, {}, {class: "shipfromSelecter__input"}
+        .shippingdaysSpace
+          .shippingdays
+            .shippingdays__name
+              発送までの日数
+            .required
+              必須
+          .shippingdaysSelecter
+            = form_with url: '#', method: :post, class: "shippingdaysSelecterForm", local: true do |f|
+              .shippingdaysSelecter__contents
+                = f.collection_select :productType_id, ProductType.all.collect, :id, :name, {}, {class: "shippingdaysSelecter__input"}
+      .productPrice
+        .productPriceWord
+          %p.productPriceWord__title
+          価格（¥300~9,999,999）
+          .productPriceWord__icon
+            = link_to '#' do
+              = icon('far', 'question-circle', class: 'questionmark')
+        .sellingPriceSpace
+          .sellingPrice
+            .sellingPrice__name
+              販売価格
+            .required
+              必須
+          .sellingPriceForm
+            %p.sellingPriceForm__symbol
+              ¥
+            .sellingPriceSelecter
+              = form_with url: '#', method: :post, class: "sellingPriceSelecter", local: true do |f|
+                .sellingPriceSelecter__contents
+                  = f.number_field :content, class: 'sellingPriceSelecter__input', placeholder: '0'
+        .sellingFee
+          %p.sellingFee__word
+            販売手数料(10%)
+          %span.sellingFee__price
+            ー
+        .selesProfit
+          %p.selesProfit__word
+            販売利益
+          %span.selesProfit__price
+            ー
+      .buttonSpace
+        .Button
+          = form_with url: '#', method: :post, class: "Button", local: true do |f|
+            %button{type: "submit", class: "Button__send"}
+              出品する
+            %button{type: "submit", class: "Button__save"}
+              下書きを保存
+            .returnButton
+              = link_to '#' do
+                もどる
+      .precautions
+        %p.precautionsWord
+          禁止されている
+          %a{:href => '#'}>行為
+          および
+          %a{:href => '#'}>出品物
+          を必ずご確認ください。
+          %a{:href => '#'}>偽ブランド品
+          や
+          %a{:href => '#'}>窃盗品
+          などの販売は犯罪であり、法律に
+          %br
+          より処罰される可能性があります。また、出品をもちまして
+          %a{:href => '#'}>加盟店契約
+          に同意したことになります。
+  .PageFooder
+    .fooderContents
+      %ul.lists
+        %li.lists__firstItem
+          = link_to '#' do
+            プライバシーポリシー
+        %li.lists__secondItem
+          = link_to '#' do
+            メルカリ利用規約
+        %li.lists__thirdItem
+          = link_to '#' do
+            特定商取引に関する表記
+    .fooderLogo
+      .iconlogo
+        = image_tag src="logo-white.png", size: "140x40"
+      .copyright
+        ©︎ FURIMA, Inc.

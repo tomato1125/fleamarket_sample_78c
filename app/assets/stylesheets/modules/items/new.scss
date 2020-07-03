@@ -1,0 +1,547 @@
+.required {
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 3px;
+  width: 25px;
+  height: 20px;
+  margin-left: 8px;
+  padding: 0 4px;
+  line-height: 1.8em;
+  background-color: #3ccace;
+}
+a {
+  color: #0095EE;
+}
+
+.productlisting {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #EEEEEE;
+}
+
+.headerlogo {
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.products {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.productImage {
+  padding: 40px 40px;
+}
+.productImageSpace {
+  display: flex;
+  &__name {
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+  }
+}
+
+.productImageIntroduce{
+  margin-top: 16px;
+  align-items: center;
+  font-size: 14px;
+  color: #333333;
+}
+
+.imageUpload{
+  margin-top: 16px;
+} 
+
+.imageUpload {
+  min-height: 150px;
+  margin-bottom: 5px;
+  border: 1px dotted #ccc;
+  background-color: #EEEEEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.imageUploadForm {
+  &__imageFormSection {
+    font-size: 12px;
+    color: #333333;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__inputImage {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .imageHidden {
+    display: none;
+  }
+}
+.ImageUploadIntroduce {
+  margin: 0 0;
+}
+
+.imageExistenceContent {
+  margin: 16px 0;
+}
+
+.productIntroduce {
+  border-top: 1px solid #C0C0C0;
+  padding: 40px 40px;
+}
+
+.productNameSpace {
+  display: flex;
+  font-weight: bold;
+  font-size: 14px;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+
+.productNameForm {
+  margin-top: 16px;
+  width: 99%;
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+    width: 96%;
+    padding: 0 16px;
+  }
+}
+
+.ContentExistenceWord {
+  margin-top: 16px;
+  color: #FF0000;
+}
+
+.productIntroduceContent {
+  margin-top: 32px;
+}
+
+.productIntroduceSpace {
+  display: flex;
+  font-size: 14px;
+}
+
+.introduceContent {
+  font-weight: bold;
+}
+
+.productIntroduceForm {
+  width: 97%;
+  margin-top: 16px;
+  &__contents {
+    width: 100%;
+  }
+  &__Input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    height: 200px;
+    padding: 13px 16px;
+  }
+}
+.CharacterLimit {
+  margin-top: 12px;
+  color: #C0C0C0;
+  display: flex;
+  justify-content: flex-end;
+  &__wordlimit {
+    display: flex;
+    justify-content: right;
+    font-size: 12px;
+    margin: 0 0;
+  }
+}
+
+.productDetails {
+  border-top: 1px solid #C0C0C0;
+  margin-top: 40px;
+  padding: 40px 40px;
+}
+.detailWord {
+  color: #777777;
+  font-size: 14px;
+  font-weight: bold;
+}
+.productCategorySpace {
+  margin-top: 32px;
+}
+.productCategory {
+  display: flex;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+.categorySelecter {
+  margin-top: 16px;
+  width: 100%;
+  &__contetns {
+    width: 100%;
+    height: 40px;
+    padding: 0 56px 0 4px;
+  }
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 56px 0 4px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.blankMessage {
+  margin-top: 16px;
+  color: #FF0000;
+}
+.productBrandSpace {
+  margin-top: 32px;
+}
+.productBrand {
+  display: flex;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+.optional {
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 3px;
+  width: 25px;
+  height: 20px;
+  margin-left: 8px;
+  padding: 0 4px;
+  line-height: 1.8em;
+  background-color: #C0C0C0;
+}
+
+.productBrandForm {
+  margin-top: 16px;
+  width: 100%;
+  &__Content {
+    border: 1px solid #ccc;
+    padding: 0 16px;
+    border-radius: 4px;
+    width: 95%;
+    height: 40px;
+  }
+}
+
+.productConditionSpace {
+  margin-top: 32px;
+}
+
+.productCondition {
+  display: flex;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+
+.conditionSelecter {
+  margin-top: 16px;
+  width: 100%;
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
+.sendInfomation {
+  border-top: 1px solid #C0C0C0;
+  padding: 40px 40px;
+}
+.sendWord {
+  color: #777777;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  &__title {
+    margin-right: 4px;
+  }
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.sendFeeBurdenSpace {
+  margin-top: 32px;
+}
+
+.sendFeeBurden {
+  display: flex;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+
+.sendFeeBurdenSelect {
+  margin-top: 16px;
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 4px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.shipfromSpace {
+  margin-top: 32px;
+}
+.shipfrom {
+  display: flex;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+
+.shipfromSelecter {
+  margin-top: 16px;
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 4px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+
+.shippingdaysSpace {
+  margin-top: 40px;
+}
+
+.shippingdays {
+  display: flex;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+.shippingdaysSelecter {
+  margin-top: 16px;
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 4px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.productPrice {
+  margin-top: 40px;
+  padding: 40px 40px;
+  border-top: 1px solid #C0C0C0;
+}
+
+.productPriceWord {
+  font-size: 14px;
+  font-weight: bold;
+  color: #888888;
+  display: flex;
+  align-items: center;
+  &__title {
+    margin-right: 4px;
+  }
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.sellingPriceSpace {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.sellingPrice {
+  display: flex;
+  align-items: center;
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+
+.sellingPriceForm {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  &__symbol {
+    font-size: 14px;
+    color: #333333;
+  }
+}
+
+.sellingPriceSelecter {
+  margin-left: 3px;
+  width: 100%;
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: end;
+    height: 40px;
+    width: 99%;
+    cursor: pointer;
+  }
+}
+
+.sellingFee {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__word {
+    font-size: 14px;
+    color: #333333;
+  }
+  &__price {
+    font-size: 14px;
+    color: #333333;
+  }
+}
+
+.selesProfit {
+  margin-top: 16px;
+  padding-top: 4px;
+  border-top: 1px solid #C0C0C0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__word {
+    font-size: 14px;
+    color: #333333;
+  }
+  &__price {
+    font-size: 14px;
+    color: #333333;
+  }
+}
+
+.buttonSpace {
+  margin-top: 40px;
+}
+.Button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  &__send {
+    min-height: 48px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3ccace;
+    width: 400px;
+  }
+  &__save {
+    min-height: 48px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #C0C0C0;
+    width: 400px;
+  }
+}
+.returnButton {
+  margin-top: 30px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.precautions {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  margin-top: 30px;
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.PageFooder {
+  padding: 40px 0;
+}
+.fooderContents {
+}
+.lists {
+  font-size: 12px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  li {
+    margin-left: 40px;
+  }
+  a {
+    color: #333333;
+    text-decoration: none;
+  }
+}
+
+.fooderLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+  .iconlogo {
+    margin-right: 0;
+    padding: 0 0;
+  }
+  .copyright {
+    font-size: 12px;
+  }
+}
