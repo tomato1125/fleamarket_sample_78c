@@ -1,0 +1,2 @@
+class SendInformationsController < ApplicationController
+end
