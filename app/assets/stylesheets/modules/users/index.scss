@@ -14,7 +14,7 @@
   .Wrapper{
     background-color:#fefefe;
     height: 100vh;
-    width: calc(100vw - 400px);
+    width: 70vw;
     margin: 40px 100px;
     display: flex;
     justify-content: space-between;
@@ -22,8 +22,8 @@
     .l-side{
       background-color: #fafafa ;
       border: solid #eeeeee 1px;
-      width: 400px;
-      height: 171px;
+      width: 30vw;
+      height: 100vh;
       margin-top: 50px;
       margin-left: 60px;
       margin-right: 50px;
