@@ -1,6 +1,7 @@
 .SendInformationsWrapper
   .SendInformations__topLogo
     = image_tag "logo.png", alt: "logo"
+  .SendInformations__main
     .SendInformations__inner
       %h2.SendInformations__inner__title
         お届け先住所登録
@@ -32,7 +33,7 @@
             都道府県
             %span 必須
             .sendPrefecture__inputArea
-              = f.text_field :prefecture, class: "sendFormGroup__inputArea", placeholder: "例) 神奈川県"
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: false}, {class: "sendFormGroup__inputArea sendFormGroup__select"}
         .sendFormGroup
           .sendCity.sendFormGroup__box1
             市町村

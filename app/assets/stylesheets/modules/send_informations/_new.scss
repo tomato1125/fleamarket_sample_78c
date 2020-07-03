@@ -1,18 +1,22 @@
 .SendInformationsWrapper {
   background-color: rgb(245, 245, 245);
-  text-align: center;
 }
 
 .SendInformations__topLogo {
-  padding: 50px 150px;
+  padding-top: 50px;
+  text-align: center;
   & img {
     width: 200px;
     height: 50px;
   }
+}
+
+.SendInformations__main {
   .SendInformations__inner {
     background-color: white;
-    margin-top: 40px;
-    .SendInformations__inner__title {
+    width: 700px;
+    margin: 40px auto 0;
+    &__title {
       font-size: 25px;
       font-weight: bold;
       color: #333;
@@ -24,9 +28,9 @@
 }
 
 .sendFormGroup {
-  text-align: left;
-  padding: 0 150px;
+  width: 350px;
   font-size: 14px;
+  margin: 0 auto;
   &__box1 {
     margin-top: 20px;
     & span {
@@ -50,7 +54,7 @@
       border-radius: 0.2rem;
     }
   }
-  .sendFormGroup__inputArea {
+  &__inputArea {
     width: 100%;
     height: 50px;
     margin-bottom: 10px;
@@ -59,12 +63,15 @@
     border: 0.5px solid #ccc;
     border-radius: 0.3rem;
   }
+  &__select {
+    cursor: pointer;
+  }
 }
 
 .SendInformations__submit {
   padding: 20px 0 70px;
   & button {
-    width: 400px;
+    width: 350px;
     height: 50px;
     border-radius: 0.5rem;
     border: none;
