@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
-  resources :users, only: [:edit, :update]
+  root 'items#index'
+  resources :users, only: [:index, :edit, :update]
   devise_for :users
 
-  resources :items, only: [:index, :show, :index, :new]
-  root 'items#index'
+  resources :items, only: [:index, :show, :new]
+  resources :send_informations, only: [:new, :edit, :update]
 end
 
