@@ -12,15 +12,20 @@
     .CommonHeader__contents
       %ul.CommonHeader__contents__listsLeft
         %li.CommonHeader__contents__listsLeft__firstItem
-          = link_to '#' do
+          = link_to "#" do
             カテゴリー
         %li.CommonHeader__contents__listsLeft__secondItem
           = link_to '#' do
             ブランド
       %ul.CommonHeader__contents__listsRight
-        %li.CommonHeader__contents__listsRight__firstItem
-          = link_to '#' do
-            ログイン
-        %li.CommonHeader__contents__listsLeft__secondItem
-          = link_to '#' do
-            新規会員登録
+        - if user_signed_in?
+          %li.CommonHeader__contents__listsLeft__secondItem
+            = link_to '#' do
+              マイページ
+        - else
+          %li.CommonHeader__contents__listsRight__firstItem
+            = link_to new_user_session_path do
+              ログイン
+          %li.CommonHeader__contents__listsLeft__secondItem
+            = link_to new_user_registration_path do
+              新規会員登録
