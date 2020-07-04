@@ -164,17 +164,22 @@
       .precautions
         %p.precautionsWord
           禁止されている
-          %a{:href => '#'}>行為
+          = link_to '#', class: 'precautions__link' do
+            行為
           および
-          %a{:href => '#'}>出品物
+          = link_to '#', class: 'precautions__link' do
+            出品物
           を必ずご確認ください。
-          %a{:href => '#'}>偽ブランド品
+          = link_to '#', class: 'precautions__link' do
+            偽ブランド品
           や
-          %a{:href => '#'}>窃盗品
+          = link_to '#', class: 'precautions__link' do
+            窃盗品
           などの販売は犯罪であり、法律に
           %br
           より処罰される可能性があります。また、出品をもちまして
-          %a{:href => '#'}>加盟店契約
+          = link_to '#', class: 'precautions__link' do
+            加盟店契約
           に同意したことになります。
   .PageFooder
     .fooderContents
