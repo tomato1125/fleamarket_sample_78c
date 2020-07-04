@@ -14,5 +14,5 @@ class User < ApplicationRecord
   has_one :profile
   has_many :send_informations
   has_many :items
-  has_one :credit  
+  has_one :credit
 end

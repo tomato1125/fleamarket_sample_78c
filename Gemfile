@@ -68,6 +68,7 @@ gem 'payjp'
 gem "font-awesome-sass"
 gem "active_hash"
 gem "devise"
+gem "rails-i18n"
 
 group :production do
   gem 'unicorn'
