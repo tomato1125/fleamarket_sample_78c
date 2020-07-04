@@ -1,11 +1,11 @@
-.SendInformationsWrapper
-  .SendInformations__topLogo
+.SendInformationWrapper
+  .SendInformation__topLogo
     = image_tag "logo.png", alt: "logo"
-  .SendInformations__main
-    .SendInformations__inner
-      %h2.SendInformations__inner__title
+  .SendInformation__main
+    .SendInformation__inner
+      %h2.SendInformation__inner__title
         お届け先住所登録
-      = form_with url:"#", method: :post, class: "SendInformations__inner__lists", local: true do |f|
+      = form_with url:"#", method: :post, class: "SendInformation__inner__lists", local: true do |f|
         .sendFormGroup
           .sendName.sendFormGroup__box1
             お名前
@@ -58,6 +58,6 @@
             %span 任意
             .sendAddress2__inputArea
               = f.text_field :phone_number, class: "sendFormGroup__inputArea", placeholder: "例) 09012345678"
-        .SendInformations__submit
-          = button_tag type: 'submit', class: "SendInformations__btn" do
+        .SendInformation__submit
+          = button_tag type: 'submit', class: "SendInformation__btn" do
             登録する
