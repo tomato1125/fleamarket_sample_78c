@@ -47,7 +47,7 @@ $link-color: rgb(60,202,206)
   }
 
   .subImage {
-    width: 30%;
+    width: 100%;
     object-fit: cover;
     height: 80px;
   }
@@ -75,7 +75,7 @@ $link-color: rgb(60,202,206)
       & tbody {
         border-collapse: collapse;
         border-spacing: 0;
-        tr { 
+        tr {
           width: 100%;
           border: 1px solid #dedede;
         }
@@ -142,7 +142,7 @@ $link-color: rgb(60,202,206)
     justify-content: center;
   }
   }
-  
+
 }
 
 .submitBtn {

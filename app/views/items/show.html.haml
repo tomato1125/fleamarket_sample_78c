@@ -7,16 +7,11 @@
       .itemBox__body
         %ul
           %li.itemBox__body--main
-            -# - @item.images each do |i|
-            -#   - i.image
-            -# = image_tag "show_sample1.png",size: "560x346",class: "mainImage"
+            = image_tag @item.images[0].image.url,size: "560x346",class: "mainImage"
           %ul.itemBox__body--others
-            %li
-            = image_tag "show_sample1.png",class: "subImage"
-            %li
-            = image_tag "show_sample2.png",class: "subImage"
-            %li
-            = image_tag "show_sample3.png",class: "subImage"
+            - @item.images.each do |i|
+              %li
+                = image_tag i.image.url,class: "subImage"
       .itemBox__price
         %span
           = "¥#{@item.price}"
