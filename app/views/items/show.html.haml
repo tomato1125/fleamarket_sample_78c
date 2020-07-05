@@ -2,7 +2,8 @@
 .wrapper
   .itemMain
     .itemBox
-      %h2.itemBox__name product
+      %h2.itemBox__name
+        = @item.name
       .itemBox__body
         %ul
           %li.itemBox__body--main
@@ -16,17 +17,14 @@
             = image_tag "show_sample3.png",class: "subImage"
       .itemBox__price
         %span
-          ¥20000
+          = "¥#{@item.price + @item.delivery_fee}"
         .itemBox__price-detail
           %span
             (税込)
           %span
             送料込み
       .itemBox__detail
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
+        = @item.produce
       .itemBox__table
         %table
           %tbody
@@ -34,32 +32,28 @@
               %th
                 出品者
               %td
-                斎藤
+                = @item.user.nickname
             %tr
               %th
                 カテゴリー
               %td
-                = link_to "ベビー・キッズ","#"
-                %br
-                = link_to "ベビー服(男の子様)","#"
-                %br
-                = link_to "アウター","#"
-                %br
+                = link_to "#" do
+                  = @item.category.name
             %tr
               %th
                 ブランド
               %td
-                
+                = @item.brand.name
             %tr
               %th
                 商品のサイズ
               %td
-                
+
             %tr
               %th
                 商品の状態
               %td
-                新品/未使用
+                = @item.condition.name
             %tr
               %th
                 配送料の負担
@@ -69,12 +63,13 @@
               %th
                 発送元の地域
               %td
-                =link_to "北海道","#"
+                =link_to "#" do
+                  = @item.prefecture.name
             %tr
               %th
                 発送日の目安
               %td
-                1~2日以内に発送
+                = @item.deliverydate.name
       .itemBox__option
         %ul
           %li.itemBox__option--btn.likeBtn

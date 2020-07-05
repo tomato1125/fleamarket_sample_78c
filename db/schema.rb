@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_054618) do
+ActiveRecord::Schema.define(version: 2020_07_05_070311) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "number", null: false
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2020_07_03_054618) do
     t.bigint "category_id", null: false
     t.bigint "condition_id", null: false
     t.bigint "prefecture_id", null: false
-    t.bigint "date_id", null: false
+    t.bigint "deliverydate_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
-    t.index ["date_id"], name: "index_items_on_date_id"
+    t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
