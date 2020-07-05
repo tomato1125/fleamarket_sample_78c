@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   # root 'items#index'
-  root 'items#buy'
+  # root 'items#buy'
   resources :items do
     member do
       get 'buy'
