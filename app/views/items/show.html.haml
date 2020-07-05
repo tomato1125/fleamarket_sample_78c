@@ -17,12 +17,12 @@
             = image_tag "show_sample3.png",class: "subImage"
       .itemBox__price
         %span
-          = "¥#{@item.price + @item.delivery_fee}"
+          = "¥#{@item.price}"
         .itemBox__price-detail
           %span
             (税込)
           %span
-            送料込み
+            = @item.deliveryfee.name
       .itemBox__detail
         = @item.produce
       .itemBox__table
@@ -58,7 +58,7 @@
               %th
                 配送料の負担
               %td
-                送料込み(出品者負担)
+                = @item.deliveryfee.name
             %tr
               %th
                 発送元の地域
