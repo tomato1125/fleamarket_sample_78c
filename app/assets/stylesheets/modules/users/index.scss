@@ -1,0 +1,143 @@
+.Header{
+  background-color: white;
+  height: 100px;
+  width: 100vw;
+  border-bottom: gray solid 8px;
+}
+.Back{
+  background-color: #eeeeee;
+  height: 100%x;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+ 
+  .Wrapper{
+    background-color:#fefefe;
+    height: 100vh;
+    width: 70vw;
+    margin: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    border: #eeeeee solid 1px;
+    .l-side{
+      background-color: #fafafa ;
+      border: solid #eeeeee 1px;
+      width: 30vw;
+      height: 100vh;
+      margin-top: 50px;
+      margin-left: 60px;
+      margin-right: 50px;
+      display: block;
+      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
+      }
+      .title{
+        background-color: #eeeeee;
+        border: solid #eeeeee 1px;
+        height: 40px;
+        font-size: 17px;
+        text-align: start;
+        padding-top: 15px;
+        padding-left: 10px;
+      }
+      a{
+        border: solid #eeeeee 1px;
+        height: 40px;
+        font-size: 17px;
+        display: block;
+        color: black;
+        text-decoration: none;
+        text-align: start;
+        padding-top: 15px;
+        padding-left: 10px;
+      }
+      .l{
+        .l-contents{
+          background-color: #fafafa;
+          border: #eeeeee solid 1px;
+          height: 280px;
+          width: 600px;
+          float: right;
+          margin-right: 50px;
+          margin-top: 50px;
+          padding: 10px;
+          &__card{
+            font-size: 20px;
+            text-align: center;
+          }
+          &__records{
+            font-size: 15px;
+            background-color: #ffffff;
+            height: 126px;
+            width: 500px;
+            border: #eeeeee solid 1px;
+            margin-left: 50px;
+            margin-top: 5px;
+          }
+            &__num{
+              border: #eeeeee solid 1px;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              padding-left: 10px;
+              justify-content: space-between;
+            }
+            &__period{
+              border: #eeeeee solid 1px;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              padding-left:10px;
+              justify-content: space-between;
+            }
+            &__cord{
+              border: #eeeeee solid 1px;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              padding-left: 10px;
+              justify-content: space-between;
+            }
+              &__fill{
+                color: gray;
+                margin-right: 10px;
+              }
+          &__btn{
+            background-color: #3ccace;
+            height: 50px;
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: #ffffff;
+            margin-top: 30px;
+            margin-left: 50px;
+          }  
+        }
+        .l-content{
+          background-color: #fafafa;
+          border: #eeeeee solid 1px;
+          height: 150px;
+          width: 600px;
+          float: right;
+          margin-right: 50px;
+          margin-top: 50px;
+          padding: 10px;
+          &__log-out{
+            background-color: #3ccace;
+            height: 50px;
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: #ffffff;
+            margin-top: 50px;
+            margin-left: 50px;
+          }  
+        }
+    }
+  }
+}

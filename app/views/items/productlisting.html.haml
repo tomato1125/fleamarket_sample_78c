@@ -1,0 +1,150 @@
+.productlisting
+  .productlistingPage
+    .headerlogo
+      .headerlogo__logo
+    .productImage
+      .productImageContent
+      .productImageIntroduce
+      .ImageUpload
+        = form_with model: [@group, @message], html: {class: "imageForm"}, local: true do |f|
+          .imageForm
+            = f.label :image, class: 'imageForm__inputImage' do
+              = icon('far', 'image', class: 'imageForm__icon')
+              = f.file_field :image, class: 'Hidden'
+            %p.ImageUploadIntroduce
+      .imageExistenceContent
+        画像を選択してください
+    .productIntroduce
+      .productNameSpace
+        .productName
+          .productName__content
+          .required
+        .puroductNameForm
+          = form_with model: [@group, @message], html: {class: "productNameForm"}, local: true do |f|
+            .Form__contents
+              = f.text_field :content, class: 'Form__productNameContent', placeholder: 'type a message'
+      .productIntroduceContent
+        .productIntroduceSpace
+          .productIntroduceWord
+            .productIntroduceWord__content
+            .required
+        .productIntroduceForm
+          = form_with model: [@group, @message], html: {class: "productIntroduceForm"}, local: true do |f|
+            .Form__contents
+              = f.text_field :content, class: 'productIntroduceForm__productIntroduceContent', placeholder: '商品の説明（必須 1,000文字以内)'
+        .introduceCharacterLimit
+    .productDetails
+      .detailWord
+        .productCategorySpace
+          .productCategory
+            .productCategory__content
+            .required
+          .categorySelecter
+            = form.collection_select include_blank: '選択してください'
+          .blankMessage
+            画像を選択してください
+        .productBrandSpace
+          .productBrand
+            .productBrand__content
+            .optional
+          .productBrandForm__contents
+              = f.text_field :content, class: 'productIntroduceForm__productIntroduceContent', placeholder: '例)シャネル'
+        .productConditionSpace
+          .productCondition
+            .productCondition__content
+            .required
+              必須
+          .categorySelecter
+            = form.collection_select include_blank: '選択してください'
+          .blankMessage
+            選択してください
+    .sendInfomation
+      .sendWord
+        配送について
+      .sendFeeBurdenSpace
+        .sendFeeBurden
+          .sendFeeBurden__content
+          .required
+        .sendFeeBurdenSelect
+          = form.collection_select include_blank: '選択してください'
+      .shipfromSpace
+        .shipfrom
+          .shipfrom__content
+          .required
+            必須
+        .shipfromSelecter
+          = form.collection_select include_blank: '選択してください'
+      .shippingdaysSpace
+        .shippingdays
+          .shippingdays__content
+          .required
+            必須
+        .shippingdaysSelecter
+          = form.collection_select include_blank: '選択してください'
+    .productPrice
+      .productPriceWord
+        価格（¥300~9,999,999）
+      .sellingPriceSpace
+        .sellingPrice
+          .sellingPrice__content
+          .required
+            必須
+        .productBrandForm__contents
+          %p.priceSymbol
+          = f.text_field :content, class: 'productIntroduceForm__productIntroduceContent', placeholder: '例)シャネル'
+        .sellingFee
+          %p.sellingFeeWord
+            販売手数料(10%)
+          %span.sellingFeePrice
+            -
+        .selesProfit
+          %p.selesProfit
+            販売利益
+          %span.selesProfitPrice
+            -
+    .sendButton
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__contents
+        = f.submit 'Send',value: '出品する' class: 'Form__submit'
+        = f.submit 'Send',value: '下書きに保存する' class: 'Form__submit'
+        = link_to '#', "もどる" do
+    .precautions
+      %p.precautionsWord
+        禁止されている
+      %a.action
+        行為
+      %p.precautionsWord
+        および
+      %a.exhibit
+        出品物
+      %p.precautionsWord
+        を必ずご確認ください。
+      %a.bootleg
+        偽ブランド品
+      %p.precautionsWord
+        や
+      %a.stolenGoods
+        窃盗品
+      %p.precautionsWord
+        などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
+      %a.menberStoreContract
+        加盟店規約
+      %p.precautionsWord
+        に同意したことになります。
+    .productlistingPageFooder
+      .fooderContetns
+        %ul.lists
+          %li.lists__firstItem
+            = link_to '#' do
+              プライバシーポリシー
+          %li.lists__secondItem
+            = link_to '#' do
+              メルカリ利用規約
+          %li.lists__thirdItem
+            = link_to '#' do
+              特定商取引に関する表記
+        .fooderLogoImage
+          ロゴ
+        .copyright
+          ©︎ FURIMA, Inc.
+

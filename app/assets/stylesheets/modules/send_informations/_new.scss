@@ -1,0 +1,86 @@
+.SendInformationWrapper {
+  background-color: rgb(245, 245, 245);
+}
+
+.SendInformation__topLogo {
+  padding-top: 50px;
+  text-align: center;
+  & img {
+    width: 200px;
+    height: 50px;
+  }
+}
+
+.SendInformation__main {
+  .SendInformation__inner {
+    background-color: white;
+    width: 700px;
+    margin: 40px auto 0;
+    &__title {
+      font-size: 25px;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 1px solid rgb(245, 245, 245);
+      padding: 20px 0;
+      text-align: center;
+    }
+  }
+}
+
+.sendFormGroup {
+  width: 350px;
+  font-size: 14px;
+  margin: 0 auto;
+  &__box1 {
+    margin-top: 20px;
+    & span {
+      padding: 3px 5px;
+      vertical-align: text-bottom;
+      margin-left: 5px;
+      font-size: 12px;
+      color: white;
+      background-color: #ea352d;
+      border-radius: 0.2rem;
+    }
+  }
+  &__box2 {
+    & span {
+      padding: 3px 5px;
+      vertical-align: text-bottom;
+      margin-left: 5px;
+      font-size: 12px;
+      color: white;
+      background-color: #ccc;
+      border-radius: 0.2rem;
+    }
+  }
+  &__inputArea {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding: 0 10px;
+    border: 0.5px solid #ccc;
+    border-radius: 0.3rem;
+  }
+  &__select {
+    cursor: pointer;
+  }
+}
+
+.SendInformation__submit {
+  padding: 20px 0 70px;
+  & button {
+    width: 350px;
+    height: 50px;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #3CCACE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 15px;
+  }
+}
