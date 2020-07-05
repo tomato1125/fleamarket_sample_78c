@@ -69,3 +69,5 @@ gem 'font-awesome-sass'
 group :production do
   gem 'unicorn'
 end
+
+gem 'active_hash'

@@ -1,0 +1,43 @@
+.InformationsPage
+  .Informations__title
+    = image_tag 'logo.png', class: "logo"
+  .InformationsMain
+    .InformationsPage__box
+      .InformationsPage__box--name
+        %h2 本人確認情報入力
+      .InformationsPage__box--form
+        = form_with url: '#', method: :post, class: "identification-form", local: true do |f|
+          .InformationsFormField
+            .InformationsFormField__lavel
+              .InformationsFormField__lavel--normal
+                = f.label :name, "お名前(全角)"
+              %span 必須
+            .InformationsFormField__input--normal 
+              = f.text_field :name, class:"input-half", placeholder:"例）山田"
+              = f.text_field :name, class:"input-half", placeholder:"例）太朗"
+          .InformationsFormField
+            .InformationsFormField__lavel
+              .InformationsFormField__lavel--normal
+                = f.label :name, "お名前カナ(全角)"
+              %span 必須
+            .InformationsFormField__input--normal  
+              = f.text_field :name, class:"input-half", placeholder:"例）ヤマダ"
+              = f.text_field :name, class:"input-half", placeholder:"例）タロウ"
+          .InformationsFormField
+            .InformationsFormField__lavel
+              .InformationsFormField__lavel--normal
+                = f.label :birthday, "生年月日"
+              %span 必須
+            .InformationsFormField__input--normal
+              = f.collection_select :birth_year_id, BirthYear.all.collect, :id, :name, {}, {class: "birth_daySelecter"}
+              %span 年
+              = f.collection_select :birth_month_id, BirthMonth.all.collect, :id, :name, {}, {class: "birth_daySelecter"}
+              %span 月
+              = f.collection_select :birth_day_id, BirthDay.all.collect, :id, :name, {}, {class: "birth_daySelecter"}
+              %span 日      
+          .Informationsactions
+            = f.submit "登録する", class:"register__btn"
+        
+    
+    
+
