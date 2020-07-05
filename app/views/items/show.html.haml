@@ -7,7 +7,9 @@
       .itemBox__body
         %ul
           %li.itemBox__body--main
-            = image_tag "show_sample1.png",size: "560x346",class: "mainImage"
+            -# - @item.images each do |i|
+            -#   - i.image
+            -# = image_tag "show_sample1.png",size: "560x346",class: "mainImage"
           %ul.itemBox__body--others
             %li
             = image_tag "show_sample1.png",class: "subImage"
@@ -100,7 +102,7 @@
           後ろの商品>
     .relatedItems
       = link_to "#" do
-        ベビー・キッズをもっと見る
+        = "#{@item.category.name}をもっと見る"
       .itemsLists
         .itemsList
           = link_to "#" do
