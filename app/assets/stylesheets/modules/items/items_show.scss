@@ -20,6 +20,26 @@ $link-color: rgb(60,202,206)
   background-color: white;
   width: 40%;
   padding: 0 40px 0 40px;
+  &__btns {
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .itemBtn {
+    color: white;
+    background-color: $link-color;
+    padding: 4px 8px;
+    border: 1px solid $link-color;
+    border-radius: 2px;
+    margin-right: 8px;
+    & a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+
   &__name {
     text-align: center;
     font-weight: bold;
@@ -205,8 +225,9 @@ $link-color: rgb(60,202,206)
 
 }
 
-.itemLists {
+.itemsLists {
   width: 100%;
+  display: flex;
 }
 
 .itemsList {
