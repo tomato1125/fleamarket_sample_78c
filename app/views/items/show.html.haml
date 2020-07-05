@@ -114,7 +114,7 @@
         - if @items
           - @items.each do |i|
             .itemsList
-              = link_to "#" do
+              = link_to item_path(i.id) do
                 = image_tag i.images[0].image.url,class:"imageLink"
                 .itemsList__name
                   %h3.name
