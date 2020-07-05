@@ -2,5 +2,6 @@
   .title
     マイページ
   = link_to "クレジットカード", '#', class: '.l-side__items'
-  = link_to "ログアウト", '#', method: :delete, class: '.l-side__items'
+  = link_to  destroy_user_session_path, method: :delete,class: '.l-side__items' do
+    ログアウト
   
