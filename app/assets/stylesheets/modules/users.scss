@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .Header{
   background-color: white;
   height: 100px;
@@ -6,7 +10,7 @@
 }
 .Back{
   background-color: #eeeeee;
-  height: 100%x;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
