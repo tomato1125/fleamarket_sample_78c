@@ -72,6 +72,8 @@ gem "font-awesome-sass"
 gem "active_hash",'~>2.3.0'
 gem "devise"
 gem "rails-i18n"
+gem "carrierwave"
+gem "mini_magick"
 
 gem 'carrierwave'
 gem 'fog-aws'
