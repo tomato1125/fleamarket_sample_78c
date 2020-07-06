@@ -54,9 +54,12 @@
 |condition_id|reference|null: false|
 |prefecture_id|reference|null: false|
 |deliverydate_id|reference|null: true|
-|user_id|reference|foreign_key: true|
+|selleruser_id|reference|foreign_key: true|
+|buyeruser_id|reference||
 ### Association
-- belongs_to :user
+- belongs_to :selleruser, class_name:"User"
+- belongs_to :buyeruser, class_name:"User"
+
 - has_many :images
 - belongs_to_active_hash :brand_id
 - belongs_to_active_hash :category_id
