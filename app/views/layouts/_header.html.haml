@@ -20,7 +20,7 @@
       %ul.CommonHeader__contents__listsRight
         - if user_signed_in?
           %li.CommonHeader__contents__listsLeft__secondItem
-            = link_to '#' do
+            = link_to user_path(current_user.id) do
               マイページ
         - else
           %li.CommonHeader__contents__listsRight__firstItem
