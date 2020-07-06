@@ -73,8 +73,9 @@ gem "active_hash",'~>2.3.0'
 gem "devise"
 gem "rails-i18n"
 
+gem 'carrierwave'
+gem 'fog-aws'
+
 group :production do
   gem 'unicorn'
 end
-
-
