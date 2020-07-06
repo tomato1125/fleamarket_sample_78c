@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :move_to_top, only: [:show]
+
   def edit
   end
 
@@ -9,5 +12,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def show
+    @user = User.find(current_user.id)
+  end
+
+  def move_to_top
+    if user_signed_in? == false || current_user.id != params[:id].to_i
+    redirect_to root_path
+    end
   end
 end
