@@ -11,7 +11,7 @@ class SendInformationsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = '必須項目を入力してください。'
-      render new
+      render action: :new
     end
   end
 
