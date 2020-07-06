@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :items, only: [:index, :show]
+
+  resources :profiles, only: [:new]
+
+  resources :items, only: [:index, :show, :new]
+  resources :send_informations, only: [:new, :edit, :update]
   root 'items#index'
-  root 'items#buy'
   resources :items do
     member do
       get 'buy'
