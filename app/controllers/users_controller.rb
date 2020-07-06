@@ -19,6 +19,8 @@ class UsersController < ApplicationController
   end
 
   def move_to_top
-    redirect_to root_path unless user_signed_in?
+    if user_signed_in? == false || current_user.id != params[:id].to_i
+    redirect_to root_path
+    end
   end
 end
