@@ -2,7 +2,7 @@
   .CommonHeader__inner
     .mainHeader
       %h.mainHeader__iconLogo
-        = link_to "#" do
+        = link_to root_path, method: :get do
           = image_tag "logo.png", alt: "logo"
       .mainHeader__searchForm
         = form_with url: root_path, method: :get, class: "mainHeader__searchForm__area", local: true do |f|
@@ -19,8 +19,8 @@
             ブランド
       %ul.CommonHeader__contents__listsRight
         %li.CommonHeader__contents__listsRight__firstItem
-          = link_to '#' do
+          = link_to new_user_session_path, method: :get do
             ログイン
         %li.CommonHeader__contents__listsLeft__secondItem
-          = link_to '#' do
+          = link_to new_user_registration_path, method: :get do
             新規会員登録
