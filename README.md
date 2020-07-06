@@ -33,7 +33,7 @@
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |post_code|integer|null: false|
-|prefecture_id|reference|foreign_key: true|
+|prefecture_id|reference|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |apartment|string||
@@ -50,12 +50,12 @@
 |name|string|null: false|
 |produce|text|null: false|
 |price|integer|null: false|
-|delivery_fee|integer|null: false|
+|deliveryfee_id|reference|null: false|
 |brand_id|reference||
-|category_id|reference|foreign_key: true|
-|condition_id|reference|foreign_key: true|
-|prefecture_id|reference|foreign_key: true|
-|date_id|reference|foreign_key: true|
+|category_id|reference|null: false|
+|condition_id|reference|null: false|
+|prefecture_id|reference|null: false|
+|deliverydate_id|reference|null: true|
 |user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
@@ -64,7 +64,8 @@
 - belongs_to_active_hash :category_id
 - belongs_to_active_hash :condition_id
 - belongs_to_active_hash :prefecture_id
-- belongs_to_active_hash :date_id
+- belongs_to_active_hash :deliverydate_id
+- belongs_to_active_hash :deliveryfee_id
 
 # imageテーブル
 |Coumn|Type|Options|
@@ -115,7 +116,14 @@
 - has_many :send_informations
 - has_many :items
 
-# dates(active_hash)
+# deliverydates(active_hash)
+|Coumn|Type|Options|
+|-----|----|-------|
+|name|string|null: false|
+### Association
+- has_many :items
+
+# deliveryfees(active_hash)
 |Coumn|Type|Options|
 |-----|----|-------|
 |name|string|null: false|
