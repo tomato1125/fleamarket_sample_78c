@@ -7,7 +7,6 @@ class SendInformationsController < ApplicationController
 
   def create
     @send_information = @user.send_informations.new(send_information_params)
-    binding.pry
     if @send_information.save
       redirect_to root_path
     else

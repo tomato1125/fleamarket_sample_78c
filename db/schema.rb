@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 2020_07_02_080413) do
-=======
-ActiveRecord::Schema.define(version: 2020_07_03_054618) do
->>>>>>> Stashed changes
+ActiveRecord::Schema.define(version: 2020_07_06_103644) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number", null: false
@@ -80,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_054618) do
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "apartment"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -89,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_054618) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
