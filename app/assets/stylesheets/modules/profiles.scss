@@ -2,11 +2,7 @@
   box-sizing: border-box;
 }
 
-#flash_alert {
-  padding: 24px;
-}
-
-.AccountPage{
+.InformationsPage{
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -15,7 +11,7 @@
   justify-content: center;
 }
 
-.AccountPage__title{
+.Informations__title{
   height: 128px;
   display: flex;
   justify-content: center;
@@ -25,10 +21,10 @@
   }
 }
 
-.AccountMain{
+.InformationsMain{
   display: flex;
   justify-content: center;
-  .AccountPage__box{
+  .InformationsPage__box{
     width: 700px;
     background-color: #fff;
     &--name{
@@ -44,11 +40,13 @@
     &--form{
       display: flex;
       justify-content: center;
-      .FormField{
+      
+      
+      .InformationsFormField{
         margin: 24px;
-        .FormField__lavel{
+        .InformationsFormField__lavel{
           display: flex;
-          .FormField__lavel--normal{
+          .InformationsFormField__lavel--normal{
             font-weight: 600;
           }
           span{
@@ -60,22 +58,34 @@
             border-radius: 4px;
           }
         }
-        .FormField__input--normal{
+        .InformationsFormField__input--normal{
           margin-top: 8px;
-          .field{
+          .input-half{
             height: 48px;
-            width: 343px;
+            width: 170px;
             font-size: 16px;
+            margin-top: 8px;
             padding: 10px 16px 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
           }
+          .birth_daySelecter{
+            height: 48px;
+            width: 76px;
+            margin-top: 8px;
+            
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+          span{
+            margin: 0px 2px;
+          }
         }
       }
-      .actions{
+      .Informationsactions{
         display: flex;
         justify-content: center;
-        .next__btn{
+        .register__btn{
           margin-bottom: 24px;
           background-color: #3CCACE;
           border: 1px solid #3CCACE;
@@ -85,12 +95,6 @@
           width: 343px;
           border-radius: 4px;
         }
-      }
-      a{
-        color: #3CCACE;
-        text-decoration: none;
-        margin-left: 20px;
-        margin-bottom: 24px;
       }
     }
   }
