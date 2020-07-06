@@ -1,0 +1,35 @@
+.header
+  = image_tag 'logo.png', class: "logo"
+.back
+  .contents
+    .contents__font
+      購入内容の確認
+    .contents__item
+      = image_tag "show_sample1.png",class: "subImage"
+      .contents__item__name
+        商品a
+      .contents__item__money
+        .contents__item__money__font
+          送料込み(税込)
+        .comtents__item__money__num
+          ¥2,900
+    .contents__money
+      .contents__money__font
+        支払い金額
+      .contents__money__num
+        ¥2,900
+    -# .contents__method
+    -#   .contents__method__font
+    -#     支払い方法
+    .contents__delivery
+      .contents__delivery__font
+        配送先
+        = link_to "登録してください", class: ".contents__delivery__record"      
+    .contents__note
+      .contents__note__font
+        配送先と支払の入力を完了してください。
+    .contents__btn
+      .contents__btn__font
+        購入する
+
+    
