@@ -12,7 +12,7 @@ FactoryBot.define do
     house_number            {"yamada-shi midori-ku"}
     apartment               {"building 501"}
     phone_number            {"00000000000"}
-    user_id                 {"1"}
+    user
 
     created_at              {"2020-07-07"}
     updated_at              {"2020-07-07"}
