@@ -8,7 +8,7 @@ class SendInformationsController < ApplicationController
   def create
     @send_information = @user.send_informations.new(send_information_params)
     if @send_information.save
-      redirect_to users_url
+      redirect_to root_path
     else
       render action: :new
     end
