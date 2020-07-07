@@ -5,7 +5,7 @@
     .SendInformation__inner
       %h2.SendInformation__inner__title
         お届け先住所登録
-      = form_with url:"#", method: :post, class: "SendInformation__inner__lists", local: true do |f|
+      = form_with model: [@user, @send_information], method: :post, id: 'new_send_information', class: "SendInformation__inner__lists", local: true do |f|
         .sendFormGroup
           .sendName.sendFormGroup__box1
             お名前
