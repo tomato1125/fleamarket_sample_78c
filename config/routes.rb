@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   # userに関する記載箇所
   devise_for :users
-  resources :users, only: [:index, :edit, :update, :show, :destroy]
+  resources :users, only: [:index, :edit, :update, :show, :destroy] do
+    resources :credits, only: [:index, :new , :create, :show, :destroy]
+  end
 
   # profileに関する記載箇所
   resources :profiles, only: [:new]
@@ -19,5 +21,9 @@ Rails.application.routes.draw do
       get 'buy'
     end
   end
+
+  # creditに関する記述
+
+
 end
 

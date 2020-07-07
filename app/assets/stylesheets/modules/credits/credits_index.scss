@@ -1,0 +1,35 @@
+
+
+.creditIndex {
+  height: 90%;
+  width: 90%;
+  margin: 50px;
+  &__btnarea {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+  }
+
+.creditBtn {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & a {
+    display: block;
+    width: 60%;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(60,202,206);
+    border: 1px solid rgb(60,202,206);
+  }
+}
+.Btntext {
+  text-align: center;
+  color: white;
+}
+

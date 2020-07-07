@@ -2,19 +2,13 @@
   box-sizing: border-box;
 }
 
-.Header{
-  background-color: white;
-  height: 100px;
-  width: 100vw;
-  border-bottom: gray solid 8px;
-}
 .Back{
   background-color: #eeeeee;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
- 
+
   .Wrapper{
     background-color:#fefefe;
     height: 100vh;
@@ -26,8 +20,8 @@
     .l-side{
       background-color: #fafafa ;
       border: solid #eeeeee 1px;
-      width: 30vw;
-      height: 100vh;
+      width: 300px;
+      height: 90%;
       margin-top: 50px;
       margin-left: 60px;
       margin-right: 50px;
@@ -118,7 +112,7 @@
             color: #ffffff;
             margin-top: 30px;
             margin-left: 50px;
-          }  
+          }
         }
         .l-content{
           background-color: #fafafa;
@@ -140,7 +134,7 @@
             color: #ffffff;
             margin-top: 50px;
             margin-left: 50px;
-          }  
+          }
         }
     }
   }
