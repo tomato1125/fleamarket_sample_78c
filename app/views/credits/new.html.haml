@@ -24,8 +24,14 @@
             月
             = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'dateSelect'
             年
-          -# .creditForm__securityfield
-          -# .creditForm__submitfield
+          .creditForm__securityfield
+            %label セキュリティコード
+            %span 必須
+            %br
+            = f.text_field :cvc, type: 'text', class: 'securityInput', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+          .creditForm__submitfield
+            = f.submit '追加する', class: 'creditsSubmit', id: 'token_submit'
+
 
   -# .main__content
   -#   %section.chapter__container
