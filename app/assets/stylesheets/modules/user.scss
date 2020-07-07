@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+#flash_alert {
+  padding: 24px;
+}
+
 .AccountPage{
   position: relative;
   height: 100vh;
@@ -21,7 +25,7 @@
   }
 }
 
-.Main{
+.AccountMain{
   display: flex;
   justify-content: center;
   .AccountPage__box{
@@ -53,6 +57,7 @@
             background-color: #3CCACE;
             font-size: 12px;
             color: #fff;
+            border-radius: 4px;
           }
         }
         .FormField__input--normal{
@@ -63,6 +68,7 @@
             font-size: 16px;
             padding: 10px 16px 8px;
             border: 1px solid #ccc;
+            border-radius: 4px;
           }
         }
       }
@@ -77,6 +83,7 @@
           color: #fff;
           height: 48px;
           width: 343px;
+          border-radius: 4px;
         }
       }
       a{

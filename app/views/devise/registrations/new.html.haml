@@ -1,7 +1,7 @@
 .AccountPage
   .AccountPage__title
     = image_tag 'logo.png', class: "logo"
-  .Main
+  .AccountMain
     .AccountPage__box
       .AccountPage__box--name
         %h2 新規会員登録
@@ -14,14 +14,14 @@
                 = f.label :nickname, "ニックネーム"
               %span 必須
             .FormField__input--normal 
-              = f.text_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"例）FURIMA太朗"
+              = f.text_field :nickname, autofocus: true, autocomplete: "email", class:"field", placeholder:"例）FURIMA太朗"
           .FormField
             .FormField__lavel
               .FormField__lavel--normal
                 = f.label :email, "メールアドレス"
               %span 必須
             .FormField__input--normal  
-              = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"PC・携帯どちらでも可"
+              = f.text_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"PC・携帯どちらでも可"
           .FormField
             .FormField__lavel
               .FormField__lavel--normal

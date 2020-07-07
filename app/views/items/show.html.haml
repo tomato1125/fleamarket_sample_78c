@@ -2,31 +2,38 @@
 .wrapper
   .itemMain
     .itemBox
-      %h2.itemBox__name product
+      -if user_signed_in? && @item.user_id == current_user.id
+        .itemBox__btns
+          .itemBox__btns--edit.itemBtn
+            = link_to "#" do
+              編集
+          .itemBox__btns--delete.itemBtn
+            = link_to "#" do
+              削除
+      %h2.itemBox__name
+        = @item.name
       .itemBox__body
         %ul
           %li.itemBox__body--main
-            = image_tag "show_sample1.png",size: "560x346",class: "mainImage"
+            = image_tag @item.images[0].image.url,size: "560x346",class: "mainImage"
           %ul.itemBox__body--others
-            %li
-            = image_tag "show_sample1.png",class: "subImage"
-            %li
-            = image_tag "show_sample2.png",class: "subImage"
-            %li
-            = image_tag "show_sample3.png",class: "subImage"
+            - @item.images.each do |i|
+              %li
+                = image_tag i.image.url,class: "subImage"
       .itemBox__price
         %span
-          ¥20000
+          = "¥#{@item.price}"
         .itemBox__price-detail
           %span
             (税込)
           %span
-            送料込み
+            = @item.deliveryfee.name
+      .itemBox__purchase
+        .itemBox__purchase--btn
+          = link_to "#" do
+            購入画面に進む
       .itemBox__detail
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
-        ここに商品説明文が入ります。ここに商品説明文が入ります。ここに商品説明文が入ります。
+        = @item.produce
       .itemBox__table
         %table
           %tbody
@@ -34,47 +41,44 @@
               %th
                 出品者
               %td
-                斎藤
+                = @item.user.nickname
             %tr
               %th
                 カテゴリー
               %td
-                = link_to "ベビー・キッズ","#"
-                %br
-                = link_to "ベビー服(男の子様)","#"
-                %br
-                = link_to "アウター","#"
-                %br
+                = link_to "#" do
+                  = @item.category.name
             %tr
               %th
                 ブランド
               %td
-                
+                = @item.brand.name
             %tr
               %th
                 商品のサイズ
               %td
-                
+
             %tr
               %th
                 商品の状態
               %td
-                新品/未使用
+                = @item.condition.name
             %tr
               %th
                 配送料の負担
               %td
-                送料込み(出品者負担)
+                = @item.deliveryfee.name
             %tr
               %th
                 発送元の地域
               %td
-                =link_to "北海道","#"
+                =link_to "#" do
+                  = @item.prefecture.name
             %tr
               %th
                 発送日の目安
               %td
-                1~2日以内に発送
+                = @item.deliverydate.name
       .itemBox__option
         %ul
           %li.itemBox__option--btn.likeBtn
@@ -105,19 +109,22 @@
           後ろの商品>
     .relatedItems
       = link_to "#" do
-        ベビー・キッズをもっと見る
+        = "#{@item.category.name}をもっと見る"
       .itemsLists
-        .itemsList
-          = link_to "#" do
-            = image_tag "show_sample4.jpg",class: "imageLink"
-            .itemsList__name
-              %h3.name ee
-            .itemsList__details
-              %ul
-                %li
-                  1000円
-                %li
-                  %i.fa.fa-star
-                  0
-              %p
-                (税込)
+        - if @items
+          - @items.each do |i|
+            .itemsList
+              = link_to item_path(i.id) do
+                = image_tag i.images[0].image.url,class:"imageLink"
+                .itemsList__name
+                  %h3.name
+                    = i.name
+                .itemsList__details
+                  %ul
+                    %li
+                      = i.price
+                    %li
+                      %i.fa.fa-star
+                      0
+                  %p
+                    (税込)

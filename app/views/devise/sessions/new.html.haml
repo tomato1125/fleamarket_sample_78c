@@ -1,19 +1,20 @@
 .AccountPage
   .AccountPage__title
     = image_tag 'logo.png', class: "logo"
-  .Main
+  .AccountMain
     .AccountPage__box
       .AccountPage__box--name
         %h2 ログインページ
       .AccountPage__box--form
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "devise/shared/error_messages", resource: resource
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
           .FormField
             .FormField__lavel
               .FormField__lavel--normal
                 = f.label :email, "メールアドレス"
-            .FormField__input--normal  
-              = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"PC・携帯どちらでも可"
+            .FormField__input--normal
+              = f.text_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"PC・携帯どちらでも可"
           .FormField
             .FormField__lavel
               .FormField__lavel--normal
