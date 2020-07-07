@@ -17,9 +17,15 @@
               = image_tag "master.gif", class:"creditsIcon"
               = image_tag "amex.gif", class:"creditsIcon"
           .creditForm__datefield
-
-          .creditForm__securityfield
-          .creditForm__submitfield
+            %label 有効期限
+            %span 必須
+            %br
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'dateSelect'
+            月
+            = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'dateSelect'
+            年
+          -# .creditForm__securityfield
+          -# .creditForm__submitfield
 
   -# .main__content
   -#   %section.chapter__container
