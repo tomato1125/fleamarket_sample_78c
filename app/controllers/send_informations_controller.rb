@@ -8,9 +8,8 @@ class SendInformationsController < ApplicationController
   def create
     @send_information = @user.send_informations.new(send_information_params)
     if @send_information.save
-      redirect_to root_path
+      redirect_to users_url
     else
-      flash.now[:alert] = '必須項目を入力してください。'
       render action: :new
     end
   end
