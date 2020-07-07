@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def move_to_top
+    # サインインをしていない、またはurlのidがログインユーザーのidと異なる場合リダイレクト
     if user_signed_in? == false || current_user.id != params[:id].to_i
     redirect_to root_path
     end
