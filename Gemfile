@@ -78,6 +78,7 @@ gem "mini_magick"
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem 'jquery-rails'
 
 group :production do
   gem 'unicorn'
