@@ -30,8 +30,11 @@
             = @item.deliveryfee.name
       .itemBox__purchase
         .itemBox__purchase--btn
-          = link_to "#" do
+          = link_to buy_item_path do
             購入画面に進む
+      - if flash.now[:alert]
+        .itemBox__purchase--flash
+          = flash.now[:alert]
       .itemBox__detail
         = @item.produce
       .itemBox__table

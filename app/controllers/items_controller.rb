@@ -9,8 +9,13 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    @item = Item.find(params[:id])
+    if @item.selleruser.id == current_user.id
+      flash.now[:alert] = "出品者は購入手続きはできません"
+      render :show
+    end
   end
-  
+
   def new
   end
 
