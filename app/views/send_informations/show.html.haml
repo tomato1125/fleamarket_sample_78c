@@ -1,0 +1,23 @@
+.SendInformationWrapper
+  .SendInformation__topLogo
+    = image_tag "logo.png", alt: "logo"
+  .SendInformation__main
+    .SendInformation__inner
+      %h2.SendInformation__inner__title
+        お届け先住所一覧
+      .sendInformationGroup
+        - @send_informations.each do |user|
+          .sendName
+            お名前
+            = user.family_name
+            = user.first_name
+          .sendAddress
+            住所
+            = user.post_code
+            = user.prefecture_id
+            = user.city
+            = user.house_number
+            = user.apartment
+          .sendPhoneNumber
+            電話番号
+            = user.phone_number

@@ -1,6 +1,10 @@
 class SendInformationsController < ApplicationController
   before_action :set_user
 
+  def show
+    @send_informations = @user.send_informations
+  end
+
   def new
     @send_information = SendInformation.new
   end
@@ -15,10 +19,17 @@ class SendInformationsController < ApplicationController
   end
 
   def edit
-
+    # @send_information = @user.send_informations.find(send_information_params)
   end
 
   def update
+    @send_information = @user.send_informations.find(send_information_params)
+    if @send_information.save
+      redirect_to root_path
+    else
+      render action: :edit
+    end
+
   end
 
   private
