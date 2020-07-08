@@ -29,9 +29,6 @@
         // text-align: center;
         // vertical-align: inherit;
         // display: flex;
-        & address {
-          width: 100%;
-        }
       }
       td {
         width: auto;
@@ -42,25 +39,25 @@
   }
 }
 
-.sendName {
-  // background-color: blue;
-  width: 500px;
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  padding: 5px;
-  border: 1px solid black;
-}
-.sendAddless__box {
-  // background-color: gray;
-  margin-left: 10px;
-  border: 1px solid black;
-}
-.sendAddress {
-  // background-color: pink;
-  margin-bottom: 5px;
-}
+// .sendName {
+//   // background-color: blue;
+//   width: 500px;
+//   display: flex;
+//   align-items: center;
+//   margin: 0 auto;
+//   padding: 5px;
+//   border: 1px solid black;
+// }
+// .sendAddless__box {
+//   // background-color: gray;
+//   margin-left: 10px;
+//   border: 1px solid black;
+// }
+// .sendAddress {
+//   // background-color: pink;
+//   margin-bottom: 5px;
+// }
 
-.sendPhoneNumber {
-  // background-color: yellow;
-}
+// .sendPhoneNumber {
+//   // background-color: yellow;
+// }

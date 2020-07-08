@@ -14,25 +14,30 @@
                   お名前
                 %th.address
                   ご住所 / 電話番号
+                %th
+                  変更
 
-        - @send_informations.each do |user|
+        - @send_informations.each do |data|
           %table
             %tbody
               %tr
                 %th
-                  = user.family_name
-                  = user.first_name
+                  = data.family_name
+                  = data.first_name
                 %td
                   住所：
-                  = user.prefecture_id
-                  = user.city
-                  = user.house_number
-                  = user.apartment
+                  = data.prefecture_id
+                  = data.city
+                  = data.house_number
+                  = data.apartment
+                %th
+                  = link_to edit_send_information_path(data.id) do
+                    変更
               %tr
                 %td
                 %td
                   電話番号：
-                  = user.phone_number
+                  = data.phone_number
 
             -# .sendAddless__box
             -#   .sendAddress
