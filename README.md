@@ -62,7 +62,7 @@
 
 - has_many :images
 - belongs_to_active_hash :brand_id
-- belongs_to_active_hash :category_id
+- belongs_to :itemcategory
 - belongs_to_active_hash :condition_id
 - belongs_to_active_hash :prefecture_id
 - belongs_to_active_hash :deliverydate_id
@@ -88,12 +88,14 @@
 ### Association
 - belongs_to :user
 
-# categories(active_hash)
+# itemcategoriesテーブル
 |Coumn|Type|Options|
 |-----|----|-------|
 |name|string|null: false|
+|ancestry|string|null: false|
 ### Association
 - has_many :items
+- has_ancestry
 
 # brands(active_hash)
 |Coumn|Type|Options|
