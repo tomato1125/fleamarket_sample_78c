@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 2020_07_06_135207) do
   end
 
   create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ancestry"
-    t.string "name"
     t.index ["ancestry"], name: "index_itemcategories_on_ancestry"
   end
 
