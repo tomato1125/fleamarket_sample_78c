@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  # 未ログイン者のマイページへのアクセスをリダイレクト
+  before_action :authenticate_user!,only: [:show]
+  # 他のユーザーのshowページへのアクセスをリダイレクト
   before_action :move_to_top, only: [:show]
 
   def edit
@@ -19,9 +22,9 @@ class UsersController < ApplicationController
   end
 
   def move_to_top
-    # サインインをしていない、またはurlのidがログインユーザーのidと異なる場合リダイレクト
-    if user_signed_in? == false || current_user.id != params[:id].to_i
+    if current_user.id != params[:id].to_i
     redirect_to root_path
     end
   end
+
 end

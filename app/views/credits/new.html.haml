@@ -5,7 +5,7 @@
       .creditCreate__title
         %h1 クレジットカード情報入力
       .creditForm
-        = form_with method: :post do |f|
+        = form_with model: @credit, method: :post, id: "cardCreateForm" do |f|
           .creditForm__numberfield
             %label(for="cardnumber-input") カード番号
             %span.creditPoint 必須

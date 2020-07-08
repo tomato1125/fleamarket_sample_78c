@@ -17,6 +17,5 @@ class Credit < ApplicationRecord
   #   )
   #   # 上記で作成したトークンをもとに顧客情報を作成
   #   Payjp::Customer.create(card: token.id)
-  end
 
 end

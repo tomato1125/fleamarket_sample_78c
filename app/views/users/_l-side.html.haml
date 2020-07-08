@@ -1,7 +1,7 @@
 .l-side
   .title
     マイページ
-  = link_to  user_credits_path(current_user.id) ,class: '.l-side__items' do
+  = link_to  new_credit_path,class: '.l-side__items' do
     支払い方法確認
   = link_to  destroy_user_session_path, method: :delete,class: '.l-side__items' do
     ログアウト

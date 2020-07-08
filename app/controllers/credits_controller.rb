@@ -1,18 +1,21 @@
 class CreditsController < ApplicationController
 
-def index
-end
+  before_action :authenticate_user!,only: [:new,:create]
 
-def show
-end
+  def index
+  end
 
-def new
-end
+  def show
+  end
 
-def create
-end
+  def new
+    @credit = Credit.new
+  end
 
-def destroy
-end
+  def create
+  end
+
+  def destroy
+  end
 
 end
