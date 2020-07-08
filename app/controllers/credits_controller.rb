@@ -1,6 +1,8 @@
 class CreditsController < ApplicationController
 
   before_action :authenticate_user!,only: [:new,:create]
+  before_action :set_payjp_key,only: [:new,:create]
+
 
   def index
   end
@@ -18,4 +20,9 @@ class CreditsController < ApplicationController
   def destroy
   end
 
+  def set_payjp_key
+    gon.payjp_public_key = ENV['PAYJP_PUBLIC_KEY']
+  end
+
 end
+

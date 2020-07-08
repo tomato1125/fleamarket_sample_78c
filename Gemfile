@@ -79,6 +79,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'jquery-rails'
+gem 'gon'
 
 group :production do
   gem 'unicorn'
