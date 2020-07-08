@@ -1,22 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # rootはトップページに指定
+  root 'items#index'
 
-  
+  # userに関する記載箇所
   devise_for :users
-  resources :users, only: [:edit, :update]
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users, only: [:index, :edit, :update, :show, :destroy] do
+    resources :send_informations, only: [:new, :create, :edit, :update]
+  end
 
-
+  # profileに関する記載箇所
   resources :profiles, only: [:new]
 
-  resources :items, only: [:index, :show, :new]
-  resources :send_informations, only: [:new, :edit, :update]
-  root 'items#index'
+  # itemに関する記載箇所
+  resources :items, only: [:index, :show, :new, :buy]
   resources :items do
     member do
       get 'buy'
     end
   end
 end
-
