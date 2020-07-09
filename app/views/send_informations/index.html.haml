@@ -5,6 +5,8 @@
     .SendInformation__inner
       %h2.SendInformation__inner__title
         お届け先住所一覧
+      = link_to new_user_send_information_path, class: "newSendInformation__link" do
+        新しいお届け先を登録する
       %p
         ※ お届け先は３件まで登録できます。
       .sendInformationGroup

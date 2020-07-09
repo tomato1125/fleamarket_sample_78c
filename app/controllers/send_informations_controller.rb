@@ -30,7 +30,12 @@ class SendInformationsController < ApplicationController
     else
       render action: :edit
     end
+  end
 
+  def destroy
+    @send_information = SendInformation.find_by(id: params[:id])
+    @send_information.destroy
+    redirect_to user_send_informations_path(@user)
   end
 
   private

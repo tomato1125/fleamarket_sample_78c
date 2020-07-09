@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # userに関する記載箇所
   devise_for :users
   resources :users, only: [:index, :edit, :update, :show, :destroy], shallow: true do
-    resources :send_informations, only: [:index, :show, :new, :create, :edit, :update]
+    resources :send_informations, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   # profileに関する記載箇所

@@ -61,3 +61,7 @@
         .SendInformation__submit
           = button_tag type: 'submit', class: "SendInformation__btn" do
             変更する
+
+        .link__delete__sendInformation
+          = link_to send_information_path(@send_information), method: :delete do
+            この登録先を削除する

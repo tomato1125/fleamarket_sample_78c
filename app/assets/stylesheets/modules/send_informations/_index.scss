@@ -1,7 +1,13 @@
 .SendInformation__inner {
+  .newSendInformation__link {
+    margin-left: 40px;
+    text-decoration: none;
+    font-weight: bold;
+  }
   & p {
-    margin: 30px 0 20px 40px;
+    margin: 10px 0 20px 40px;
     color: #333;
+    font-size: 13px;
   }
 }
 
