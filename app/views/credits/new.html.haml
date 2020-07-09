@@ -3,7 +3,6 @@
     = render "./users/l-side"
     .creditCreate
       .creditCreate__title
-        -# #v2-demo.payjs-outer
         %h1 クレジットカード情報入力
       .creditForm
         = form_with model: @credit, method: :post, id: "cardCreateForm" do |f|
@@ -30,5 +29,5 @@
             %span.creditPoint 必須
             %br
             = f.text_field :cvc, type: 'text', class: 'securityInput', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
-          .creditForm__submitfield
+          #card_token.creditForm__submitfield
             = f.submit '追加する', class: 'creditsSubmit', id: 'token_submit'
