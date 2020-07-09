@@ -40,12 +40,11 @@ class CreditsController < ApplicationController
 
   def destroy
     credit = Credit.where(user_id: current_user.id).first
-    binding.pry
     if credit.blank?
     else
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-      binding.pry
       customer = Payjp::Customer.retrieve(credit.customer_id)
+      binding.pry
       customer.delete
       credit.delete
       binding.pry

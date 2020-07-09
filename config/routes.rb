@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   end
 
   # creditに関する記述
-  resources :credits, only: [:index, :new , :create, :show, :destroy]
+  resources :credits, only: [:index, :new , :create, :show, :destroy] do
+    collection do
+      post 'pay'
+    end
+  end
 
 end
 

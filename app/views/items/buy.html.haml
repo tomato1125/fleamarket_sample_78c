@@ -24,12 +24,11 @@
     .contents__delivery
       .contents__delivery__font
         配送先
-        = link_to "登録してください", class: ".contents__delivery__record"      
+        = link_to "登録してください", class: ".contents__delivery__record"
     .contents__note
       .contents__note__font
         配送先と支払の入力を完了してください。
     .contents__btn
-      .contents__btn__font
+      = link_to "#", class: "payBtn" do
         購入する
 
-    
