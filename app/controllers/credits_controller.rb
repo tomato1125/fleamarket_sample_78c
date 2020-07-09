@@ -44,10 +44,8 @@ class CreditsController < ApplicationController
     else
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(credit.customer_id)
-      binding.pry
       customer.delete
       credit.delete
-      binding.pry
     end
     redirect_to user_path(current_user.id)
   end
