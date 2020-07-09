@@ -18,17 +18,20 @@
         支払い金額
       .contents__money__num
         ¥2,900
-    -# .contents__method
-    -#   .contents__method__font
-    -#     支払い方法
+    .contents__method
+      .contents__method__font
+        お支払いは登録されているクレジットカードでの決済になります。
     .contents__delivery
       .contents__delivery__font
         配送先
         = link_to "登録してください", class: ".contents__delivery__record"
     .contents__note
       .contents__note__font
-        配送先と支払の入力を完了してください。
+        登録済の配送先が設定されます
+        - if flash.now[:alert]
+          .itemBuyError
+            = flash.now[:alert]
     .contents__btn
-      = link_to "#", class: "payBtn" do
+      = link_to pay_item_path, method: :post, class: "payBtn" do
         購入する
 
