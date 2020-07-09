@@ -13,6 +13,9 @@ class CreditsController < ApplicationController
   end
 
   def new
+    if current_user.credit
+      redirect_to credit_path(current_user.credit.id)
+    end
     @credit = Credit.new
   end
 
@@ -36,6 +39,18 @@ class CreditsController < ApplicationController
   end
 
   def destroy
+    credit = Credit.where(user_id: current_user.id).first
+    binding.pry
+    if credit.blank?
+    else
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      binding.pry
+      customer = Payjp::Customer.retrieve(credit.customer_id)
+      customer.delete
+      credit.delete
+      binding.pry
+    end
+    redirect_to user_path(current_user.id)
   end
 
 
