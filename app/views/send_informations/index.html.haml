@@ -5,48 +5,37 @@
     .SendInformation__inner
       %h2.SendInformation__inner__title
         お届け先住所一覧
+      %p
+        ※ お届け先は３件まで登録できます。
       .sendInformationGroup
-        .table
+        .sendInformationGroup__table1
           %table
             %tbody
               %tr
                 %th.name
                   お名前
-                %th.address
+                %td.address
                   ご住所 / 電話番号
                 %th
-                  変更
+                  登録先の変更
 
-        - @send_informations.each do |data|
-          %table
-            %tbody
-              %tr
-                %th
-                  = data.family_name
-                  = data.first_name
-                %td
-                  住所：
-                  = data.prefecture_id
-                  = data.city
-                  = data.house_number
-                  = data.apartment
-                %th
-                  = link_to edit_send_information_path(data.id) do
-                    変更
-              %tr
-                %td
-                %td
-                  電話番号：
-                  = data.phone_number
-
-            -# .sendAddless__box
-            -#   .sendAddress
-            -#     住所：
-            -#     = user.post_code
-            -#     = user.prefecture_id
-            -#     = user.city
-            -#     = user.house_number
-            -#     = user.apartment
-            -#   .sendPhoneNumber
-            -#     電話番号：
-            -#     = user.phone_number
+        .sendInformationGroup__table2
+          - @send_informations.each do |data|
+            %table
+              %tbody
+                %tr
+                  %th
+                    = data.family_name
+                    = data.first_name
+                  %td
+                    住所：
+                    = data.prefecture_id
+                    = data.city
+                    = data.house_number
+                    = data.apartment
+                    .br
+                    電話番号：
+                    = data.phone_number
+                  %th
+                    = link_to edit_send_information_path(data.id) do
+                      変更する
