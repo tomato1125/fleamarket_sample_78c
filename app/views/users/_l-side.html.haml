@@ -1,6 +1,8 @@
 .l-side
   = link_to user_path(current_user.id), class:"title" do
     マイページ
+  = link_to user_send_informations_path(current_user.id),class: '.l-side__items' do
+    送付先情報一覧
   = link_to  new_credit_path,class: '.l-side__items' do
     支払い方法確認
   = link_to  destroy_user_session_path, method: :delete,class: '.l-side__items' do

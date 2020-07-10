@@ -7,10 +7,9 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
 
-    #@items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
+    @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
     @parent = Itemcategory.find(@item.itemcategory_id)
     @child = @parent.children
-    # binding.pry
     # @grandchild = @child.indirects
   end
 
@@ -23,6 +22,7 @@ class ItemsController < ApplicationController
       flash.now[:alert] = "出品者は購入手続きはできません"
       render :show
     end
+    @item = Item.find(params[:id])
   end
 
   def new
