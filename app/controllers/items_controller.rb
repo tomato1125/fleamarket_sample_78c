@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def index
+    @parents = Itemcategory.where(ancestry: nil)
   end
 
   def buy

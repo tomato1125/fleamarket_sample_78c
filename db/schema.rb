@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_062909) do
+ActiveRecord::Schema.define(version: 2020_07_06_135207) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
@@ -29,7 +29,15 @@ ActiveRecord::Schema.define(version: 2020_07_07_062909) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_itemcategories_on_ancestry"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "produce", null: false
     t.integer "price", null: false
@@ -70,12 +78,12 @@ ActiveRecord::Schema.define(version: 2020_07_07_062909) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "post_code", null: false
+    t.string "post_code", null: false
     t.bigint "prefecture_id", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "apartment"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

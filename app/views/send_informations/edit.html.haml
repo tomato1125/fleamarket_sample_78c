@@ -4,8 +4,8 @@
   .SendInformation__main
     .SendInformation__inner
       %h2.SendInformation__inner__title
-        お届け先住所登録
-      = form_with model: [@user, @send_information], method: :post, id: 'new_send_information', class: "SendInformation__inner__lists", local: true do |f|
+        お届け先住所変更
+      = form_with model: @send_information, method: :patch, id: 'update_send_information', class: "SendInformation__inner__lists", local: true do |f|
         .sendFormGroup
           .sendName.sendFormGroup__box1
             お名前
@@ -60,4 +60,8 @@
               = f.text_field :phone_number, class: "sendFormGroup__inputArea", placeholder: "例) 09012345678"
         .SendInformation__submit
           = button_tag type: 'submit', class: "SendInformation__btn" do
-            登録する
+            変更する
+
+        .link__delete__sendInformation
+          = link_to send_information_path(@send_information), method: :delete do
+            この登録先を削除する
