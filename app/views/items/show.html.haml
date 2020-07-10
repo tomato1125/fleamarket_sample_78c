@@ -50,7 +50,7 @@
                 カテゴリー
               %td
                 = link_to "#" do
-                  = @item.category.name
+                  = @item.itemcategory.name
             %tr
               %th
                 ブランド
@@ -112,7 +112,7 @@
           後ろの商品>
     .relatedItems
       = link_to "#" do
-        = "#{@item.category.name}をもっと見る"
+        = "#{@item.itemcategory.name}をもっと見る"
       .itemsLists
         - if @items
           - @items.each do |i|
