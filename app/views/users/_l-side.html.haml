@@ -1,5 +1,5 @@
 .l-side
-  .title
+  = link_to user_path(current_user.id), class:"title" do
     マイページ
   = link_to  new_credit_path,class: '.l-side__items' do
     支払い方法確認
