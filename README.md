@@ -50,7 +50,7 @@
 |price|integer|null: false|
 |deliveryfee_id|reference|null: false|
 |brand_id|reference||
-|category_id|reference|null: false|
+|itemcategory_id|reference|foreign_key: true|
 |condition_id|reference|null: false|
 |prefecture_id|reference|null: false|
 |deliverydate_id|reference|null: true|
