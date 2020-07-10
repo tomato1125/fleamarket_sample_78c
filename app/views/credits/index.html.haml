@@ -1,0 +1,11 @@
+.Back
+  .Wrapper
+    = render "./users/l-side"
+    .creditIndex
+      .creditIndex__btnarea
+        .creditBtn
+          = link_to new_user_credit_path(current_user.id)  do
+            .Btntext クレジットカードを登録する
+
+
+
