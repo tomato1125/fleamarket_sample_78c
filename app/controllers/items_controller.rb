@@ -5,7 +5,13 @@ class ItemsController < ApplicationController
   before_action :set_item, only:[:show, :buy, :pay]
 
   def show
-    @items = Item.where.not(id: @item.id).where(category_id: @item.category_id)
+    @item = Item.find(params[:id])
+
+    #@items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
+    @parent = Itemcategory.find(@item.itemcategory_id)
+    @child = @parent.children
+    # binding.pry
+    # @grandchild = @child.indirects
   end
 
   def index
