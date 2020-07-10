@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
 
   def index
     @parents = Itemcategory.where(ancestry: nil)
+    # @parent = @parents.find(id: itemcategory.id)
+    # binding.pry
+
+    # @parents = Itemcategory.all.order("id ASC").limit(13)
   end
 
   def buy
