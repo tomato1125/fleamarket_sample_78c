@@ -14,8 +14,6 @@
 
 
 $(function() {
-
-
   $('#cardCreateForm').on('submit', function(e) {
     e.preventDefault()
     console.log("test");
@@ -26,7 +24,6 @@ $(function() {
       exp_year: document.getElementById("credit_exp_year").value,
       cvc: document.getElementById("cvc").value
     };
-
     if (card.number == "" || card.cvc == "") {
       alert("入力もれがあります");
     } else {
