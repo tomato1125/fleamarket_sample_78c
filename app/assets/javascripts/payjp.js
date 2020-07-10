@@ -1,5 +1,5 @@
 
-// v2 実装用の記載　対応待ち
+// v2 実装用に切り替える可能性があるため、現状意図的にコメントアウトでコードを残している物
 //   var payjp = Payjp('pk_test_99db1b441d99a1b4ffd53d89');
 //   console.log(payjp)
 //   var elements = payjp.elements();
@@ -8,9 +8,6 @@
 //   console.log(cardElement);
 // cardElement.mount('#v2-demo')
 //   console.log(a)
-
-
-// Payjp.setPublicKey(gon.payjp_public_key);
 
 
 $(function() {
