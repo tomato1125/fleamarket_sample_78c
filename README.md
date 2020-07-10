@@ -30,12 +30,12 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|post_code|integer|null: false|
+|post_code|string|null: false|
 |prefecture_id|reference|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |apartment|string||
-|phone-number|integer|unique: true|
+|phone-number|string|unique: true|
 |user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
@@ -80,11 +80,9 @@
 # creditテーブル
 |Coumn|Type|Options|
 |-----|----|-------|
-|number|integer|null: false, unique: true|
-|year|integer|null: false|
-|month|integer|null: false|
-|security_code|integer|null: false|
 |user_id|reference|foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 - belongs_to :user
 
