@@ -14,6 +14,9 @@
         %li.CommonHeader__contents__listsLeft__firstItem
           = link_to '#', id: 'headerCategory' do
             カテゴリー
+            %input{name: "parents", type: "hidden", value: @parents, class: 'parents' }
+            %li
+              = @grandchild.name
           -# 実装に時間がかかりそうな為、一度保留とし、後で実装させて頂きます。  
           -# .Itemcategory
           -#   %ul.itemcategory__parent

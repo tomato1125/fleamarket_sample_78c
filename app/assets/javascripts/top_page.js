@@ -1,22 +1,33 @@
 $(function() {
-  function buildHTML() {
+  function buildHTML(parent) {
     let html = `
                 <div class="Itemcategory">
                   <ul class="itemcategory__parent">
                     <li class="parent__list">
                       <a href="#" class="itemcategory__parent--name">
-                        = @parents
+                        ${parent.name}
                       </a>
                     </li>
                   </ul>
                 </div>
                 `
     return html;
-  }
+  };
   $("#headerCategory").on('click', function() {
-    console.log("Hello world");
-    let html = buildHTML();
-    $("#headerCategory").append(html);
+    
+    let insertHTML = '';
+
+    parents = $('.parents').val();
+    $(function(parents) {
+      parent = parents.find(1);
+      console.log(parents.ids);
+      
+    });
+
+    // $.each(parents, function(i, parent) {
+    //   insertHTML += buildHTML(parent);
+    // });
+    // $("#headerCategory").append(insertHTML);
     // $.each(@parents, function(name, parent){
     //   console.log("parent.name");
     //   let html2 = parent.name;
@@ -42,7 +53,4 @@ $(function() {
   });
 
 });
-
-
-      
 

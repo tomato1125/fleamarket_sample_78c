@@ -9,9 +9,20 @@ class ItemsController < ApplicationController
   end
 
   def index
+    
+    @grandchild = Itemcategory.find_by(id: params[:id])
+    binding.pry
+    @child = @grandchild.parent
+    @parent = @child.parent
+    
     @parents = Itemcategory.where(ancestry: nil)
+    @children = Itemcategory.find(params[:parent_id]).children 
+    @grandchildren = Itemcategory.find(params[:child_id]).children
+
+
     # @parent = @parents.find(id: itemcategory.id)
-    # binding.pry
+    # @parent = @parents.find_by(id: itemcategory.id)
+    
 
     # @parents = Itemcategory.all.order("id ASC").limit(13)
   end
