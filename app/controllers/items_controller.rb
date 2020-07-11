@@ -4,16 +4,6 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only:[:show, :buy, :pay]
 
-  def show
-    @item = Item.find(params[:id])
-
-    #@items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
-    @parent = Itemcategory.find(@item.itemcategory_id)
-    @child = @parent.children
-    # binding.pry
-    # @grandchild = @child.indirects
-  end
-
   def index
     @parents = Itemcategory.where(ancestry: nil)
   end
@@ -46,9 +36,29 @@ class ItemsController < ApplicationController
 
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+  
+  end
+
+  def show
+    
+    # @item = Item.find(params[:id])
+
+    #@items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
+    @parent = Itemcategory.find(@item.itemcategory_id)
+    @child = @parent.children
+    #binding.pry
+    # @grandchild = @child.indirects
+  end
+
+  private
+
   def set_item
     @item = Item.find(params[:id])
   end
 
+  
 end
 
