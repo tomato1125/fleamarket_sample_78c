@@ -4,6 +4,15 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only:[:show, :buy, :pay]
 
+  def show
+    @item = Item.find(params[:id])
+
+    @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
+    @parent = Itemcategory.find(@item.itemcategory_id)
+    @child = @parent.children
+    # @grandchild = @child.indirects
+  end
+
   def index
     @parents = Itemcategory.where(ancestry: nil)
   end
@@ -13,6 +22,7 @@ class ItemsController < ApplicationController
       flash.now[:alert] = "出品者は購入手続きはできません"
       render :show
     end
+    @item = Item.find(params[:id])
   end
 
   def new

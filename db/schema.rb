@@ -29,15 +29,14 @@ ActiveRecord::Schema.define(version: 2020_07_09_075933) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
-  create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ancestry"
-    t.index ["ancestry"], name: "index_itemcategories_on_ancestry"
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.text "produce", null: false
     t.integer "price", null: false

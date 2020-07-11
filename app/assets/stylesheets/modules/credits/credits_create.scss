@@ -79,13 +79,14 @@ $form-margin: 32px;
 
 .creditDestroyBtn {
   margin-top: 40px;
-  height: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .DestroyBtn {
   text-decoration: none;
-  text-align: center;
-  margin: 0 auto;
+  padding: 20px 40px;
   text-decoration: none;
   color: white;
+  background-color: $theme-color;
 }
