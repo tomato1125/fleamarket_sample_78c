@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member do
       get 'buy'
       post 'pay'
+      post :search
     end
   end
 

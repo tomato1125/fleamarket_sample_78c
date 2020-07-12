@@ -13,26 +13,23 @@
       %ul.CommonHeader__contents__listsLeft
         %li.CommonHeader__contents__listsLeft__firstItem
           = link_to '#', id: 'headerCategory' do
-            カテゴリー
+            カテゴリーから検索
             %input{name: "parents", type: "hidden", value: @parents, class: 'parents' }
             %li
           -# 実装に時間がかかりそうな為、一度保留とし、後で実装させて頂きます。  
-          .Itemcategory
-            %ul.itemcategory__parent
+          -# .Itemcategory
+          -#   %ul.itemcategory__parent
+          .category_list
+            .parents_list
               - @parents.each do |parent|
-                %li.parent__list
-                  = link_to "#", class: "itemcategory__parent--name" do
-                    = parent.name
-          -#         %ul.itemcategory__child
-          -#           - parent.children.each do |child|
-          -#             %li.child.list
-          -#               = link_to "#", class: "itemcategory__child--name" do
-          -#                 = child.name
-          -#               %ul.itemcategory__grandchild
-          -#                 - child.children.each do |grandchild|
-          -#                   %li.grandchild__list
-          -#                     = link_to "#", class: "itemcategory__child--name" do
-          -#                       = grandchild.name 
+                = link_to search_item_path(parent), class: "parent_category",id: "#{parent.id}" do
+                  = parent.name
+            .children_list
+            .grand_children_list
+
+
+
+
         %li.CommonHeader__contents__listsLeft__secondItem
           = link_to '#' do
             ブランド
