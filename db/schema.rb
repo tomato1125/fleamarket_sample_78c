@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_072654) do
+ActiveRecord::Schema.define(version: 2020_07_10_063826) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2020_07_06_072654) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "image_id"
+    t.bigint "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_item_images_on_image_id"
+    t.index ["item_id"], name: "index_item_images_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "produce", null: false
@@ -44,12 +53,18 @@ ActiveRecord::Schema.define(version: 2020_07_06_072654) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.bigint "auction_id"
+    t.index ["auction_id"], name: "index_items_on_auction_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
     t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
     t.index ["deliveryfee_id"], name: "index_items_on_deliveryfee_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -98,7 +113,12 @@ ActiveRecord::Schema.define(version: 2020_07_06_072654) do
 
   add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "item_images", "images"
+  add_foreign_key "item_images", "items"
   add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "auction_id"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "send_informations", "users"
 end

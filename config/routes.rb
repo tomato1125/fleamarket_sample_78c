@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   resources :send_informations, only: [:new, :edit, :update]
 
   # itemに関する記載箇所
-  resources :items, only: [:index, :show, :new]
+  resources :items, only: [:index, :show, :new, :create, :edit, :update]
   resources :items do
     member do
-      get 'buy'
+      get 'buy', 'p_exhibiting', 'p_transaction', 'p_soldout'
     end
   end
 end
