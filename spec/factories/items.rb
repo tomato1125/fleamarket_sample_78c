@@ -8,7 +8,6 @@ FactoryBot.define do
     prefecture_id {"34"}
     deliverydate_id {"2"}
     price {"23456"}
-    user_id {"1"}
     seller_id {"1"}
     buyer_id {"2"}
     auction_id {"2"}

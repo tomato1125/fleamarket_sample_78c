@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_063826) do
+ActiveRecord::Schema.define(version: 2020_07_13_065308) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number", null: false
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2020_07_10_063826) do
     t.bigint "condition_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "deliverydate_id", null: false
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "seller_id"
@@ -65,7 +64,6 @@ ActiveRecord::Schema.define(version: 2020_07_10_063826) do
     t.index ["deliveryfee_id"], name: "index_items_on_deliveryfee_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -115,7 +113,6 @@ ActiveRecord::Schema.define(version: 2020_07_10_063826) do
   add_foreign_key "images", "items"
   add_foreign_key "item_images", "images"
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "users"
   add_foreign_key "items", "users", column: "auction_id"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"

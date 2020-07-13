@@ -30,8 +30,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
-    if @item.save
+    if @item.save!
       respond_to do |format|
         format.html{redirect_to root_path}
       end

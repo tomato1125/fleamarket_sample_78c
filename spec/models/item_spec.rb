@@ -49,28 +49,11 @@ describe Item, type: :model do
       expect(item.errors[:price]).to include("を入力してください")
     end
 
-    it "is invalid without a user_id" do
-      item = build(:item, user_id: "")
-      item.valid?
-      expect(item.errors[:user_id]).to include("を入力してください")
-    end
-
     it "is invalid without a seller_id" do
       item = build(:item, seller_id: "")
       item.valid?
       expect(item.errors[:seller_id]).to include("を入力してください")
     end
 
-    it "is invalid without a buyer_id" do
-      item = build(:item, buyer_id: "")
-      item.valid?
-      expect(item.errors[:buyer_id]).to include("を入力してください")
-    end
-
-    it "is invalid without a auction_id" do
-      item = build(:item, auction_id: "")
-      item.valid?
-      expect(item.errors[:auction_id]).to include("を入力してください")
-    end
   end
 end

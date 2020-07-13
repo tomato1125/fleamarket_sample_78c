@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :deliverydate_id, presence: true
   validates :price, presence: true
+  validates :seller_id, presence: true
 
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", optional: true,foreign_key: "buyer_id"
