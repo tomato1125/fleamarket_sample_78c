@@ -57,20 +57,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  # def create
-  #   @message = @group.messages.new(message_params)
-  #   if @message.save
-  #     respond_to do |format|
-  #       format.json
-  #     end
-  #   else
-  #     @messages = @group.messages.includes(:user)
-  #     flash.now[:alert] = 'メッセージを入力してください。'
-  #     render :index
-  #   end
-  # end
 
   def update
+    # 編集機能実装で使用するため、一旦コメントアウトしてます。
+    
     # @item = Item.find(params[:id])
     # length = @item.images.length
     # i = 0
