@@ -60,7 +60,7 @@
 - belongs_to :selleruser, class_name:"User"
 - belongs_to :buyeruser, class_name:"User"
 
-- has_many :images
+- has_many :images, dependent: :destroy
 - belongs_to_active_hash :brand_id
 - belongs_to :itemcategory
 - belongs_to_active_hash :condition_id

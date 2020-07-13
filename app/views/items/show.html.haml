@@ -8,7 +8,7 @@
             = link_to "#" do
               編集
           .itemBox__btns--delete.itemBtn
-            = link_to "#" do
+            = link_to item_path(@item), method: :delete do
               削除
       %h2.itemBox__name
         = @item.name
