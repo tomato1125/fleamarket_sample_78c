@@ -19,7 +19,7 @@
           .category_list
             .parents_list
               - @parents.each do |parent|
-                = link_to search_item_path(parent), class: "parent_category",id: "#{parent.id}" do
+                = link_to categories_path, class: "parent_category",id: "#{parent.id}" do
                   = parent.name
             .children_list
             .grand_children_list

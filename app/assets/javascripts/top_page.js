@@ -16,7 +16,7 @@ $(function() {
 
       $.ajax({
         type: 'GET',
-        url: 'items/search',//searchアクションに飛ばす
+        url: 'categories#index',//categories#indexアクションに飛ばす
         data: {parent_id: id},//どの親の要素かを送る
         dataType: 'json'
       }).done(function(children) {
@@ -28,43 +28,42 @@ $(function() {
         });
       });
     });
-  });
     
 
 
     // 孫カテゴリを追加する処理 基本的に子要素と同じ
-    // function buildGrandChildHTML(child){
-    //   let html =`<a class="grand_child_category" id="${child.id}"
-    //              href="/category/${child.id}">${child.name}</a>`;
-    //   return html;
-    // }
-  
-    // $(document).on("mouseover", ".child_category", function () {
-      //子カテゴリーのリストは動的に追加されたHTMLのため
-      // let id = this.id;
-      // console.log(this.id);
+    function buildGrandChildHTML(child){
+      let html =`<a class="grand_child_category" id="${child.id}"
+                 href="/category/${child.id}">${child.name}</a>`;
+      return html;
+    }
+
+    $(document).on("mouseover", ".child_category", function () {
+      // 子カテゴリーのリストは動的に追加されたHTMLのため
+      let id = this.id;
+      console.log(this.id);
       // $(".now-selected-gray").removeClass("now-selected-gray");
       //灰色のcssのため
       // $('#' + id).addClass("now-selected-gray");
       //灰色のcssのため
 
 
-  //     $.ajax({
-  //       type: 'GET',
-  //       url: '/items/search',
-  //       data: {parent_id: id},
-  //       dataType: 'json'
-  //     }).done(function(children) {
-  //       children.forEach(function (child) {
-  //         let html = buildGrandChildHTML(child);
-  //         $(".grand_children_list").append(html);
-  //       })
-  //       $(document).on("mouseover", ".child_category", function () {
-  //         $(".grand_child_category").remove();
-  //       });
-  //     });
-  //   });  
-  // });
+      $.ajax({
+        type: 'GET',
+        url: 'categories#index',
+        data: {parent_id: id},
+        dataType: 'json'
+      }).done(function(children) {
+        children.forEach(function (child) {
+          let html = buildGrandChildHTML(child);
+          $(".grand_children_list").append(html);
+        })
+        $(document).on("mouseover", ".child_category", function () {
+          $(".grand_child_category").remove();
+        });
+      });
+    });
+  });
 
 
 

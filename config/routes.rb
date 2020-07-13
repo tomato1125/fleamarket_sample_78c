@@ -21,14 +21,13 @@ Rails.application.routes.draw do
       get 'buy'
       post 'pay'
     end
-    resources :categories ,only: :index
   end
 
   # creditに関する記述
   resources :credits, only: [:index, :new , :create, :show, :destroy]
 
-  
-  categories
+  # categoryに関する記述
+  resources :categories ,only: :index
 
 end
 
