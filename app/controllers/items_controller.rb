@@ -2,15 +2,15 @@ class ItemsController < ApplicationController
 
   require 'payjp'
 
-  before_action :set_item, only:[:show, :buy, :pay]
+  before_action :set_item, only:[:show, :buy, :pay, :destroy]
 
   def show
     @item = Item.find(params[:id])
-
     @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
-    @parent = Itemcategory.find(@item.itemcategory_id)
-    @child = @parent.children
-    # @grandchild = @child.indirects
+    #商品出品機能の実装後に実装したい為、一時的にコメントアウト
+    #@parent = Itemcategory.find(@item.itemcategory_id)
+    #@child = @parent.children
+    #@grandchild = @child.
   end
 
   def index
@@ -47,21 +47,16 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-  
-  end
-
-  def show
-    
-    # @item = Item.find(params[:id])
-
-    #@items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
-    @parent = Itemcategory.find(@item.itemcategory_id)
-    @child = @parent.children
-    #binding.pry
-    # @grandchild = @child.indirects
-  end
+    if @item.selleruser.id == current_user.id
+      if @item.destroy
+        redirect_to root_path, notice: "削除が完了しました"
+      else 
+        redirect_to root_path, alert: "削除が失敗しました"
+      end
+    else
+      redirect_to root_path, alert: "ユーザーが一致していません"
+    end 
+  end 
 
   private
 
