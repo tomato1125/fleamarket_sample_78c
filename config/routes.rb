@@ -20,12 +20,15 @@ Rails.application.routes.draw do
     member do
       get 'buy'
       post 'pay'
-      post :search
     end
+    resources :categories ,only: :index
   end
 
   # creditに関する記述
   resources :credits, only: [:index, :new , :create, :show, :destroy]
+
+  
+  categories
 
 end
 

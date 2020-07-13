@@ -16,9 +16,6 @@
             カテゴリーから検索
             %input{name: "parents", type: "hidden", value: @parents, class: 'parents' }
             %li
-          -# 実装に時間がかかりそうな為、一度保留とし、後で実装させて頂きます。  
-          -# .Itemcategory
-          -#   %ul.itemcategory__parent
           .category_list
             .parents_list
               - @parents.each do |parent|
