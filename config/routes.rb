@@ -8,13 +8,6 @@ Rails.application.routes.draw do
     resources :send_informations, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
-  # profileに関する記載箇所
-  resources :profiles, only: [:new]
-
-  # send_informationに関する記載箇所
-
-  # itemに関する記載箇所
-  resources :items, only: [:index, :show, :new, :buy]
   resources :items do
     member do
       get 'buy'
@@ -22,8 +15,20 @@ Rails.application.routes.draw do
     end
   end
 
+  # profileに関する記載箇所
+  resources :profiles, only: [:new]
+
+  # send_informationに関する記載箇所
+
+  # itemに関する記載箇所
+  # resources :items do
+  #   member do
+  #     get 'buy'
+  #     post 'pay'
+  #   end
+  # end
+
   # creditに関する記述
   resources :credits, only: [:index, :new , :create, :show, :destroy]
 
 end
-
