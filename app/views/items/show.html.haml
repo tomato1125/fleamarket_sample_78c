@@ -2,7 +2,7 @@
 .wrapper
   .itemMain
     .itemBox
-      -if user_signed_in? && @item.user_id == current_user.id
+      -if user_signed_in? && @item.selleruser.id == current_user.id
         .itemBox__btns
           .itemBox__btns--edit.itemBtn
             = link_to "#" do
@@ -30,8 +30,11 @@
             = @item.deliveryfee.name
       .itemBox__purchase
         .itemBox__purchase--btn
-          = link_to "#" do
+          = link_to buy_item_path do
             購入画面に進む
+      - if flash.now[:alert]
+        .itemBox__purchase--flash
+          = flash.now[:alert]
       .itemBox__detail
         = @item.produce
       .itemBox__table
@@ -41,13 +44,13 @@
               %th
                 出品者
               %td
-                = @item.user.nickname
+                = @item.selleruser.nickname
             %tr
               %th
                 カテゴリー
               %td
                 = link_to "#" do
-                  = @item.category.name
+                  = @item.itemcategory.name
             %tr
               %th
                 ブランド
@@ -109,7 +112,7 @@
           後ろの商品>
     .relatedItems
       = link_to "#" do
-        = "#{@item.category.name}をもっと見る"
+        = "#{@item.itemcategory.name}をもっと見る"
       .itemsLists
         - if @items
           - @items.each do |i|

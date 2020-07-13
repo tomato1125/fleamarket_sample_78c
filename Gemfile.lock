@@ -62,6 +62,8 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    ancestry (3.0.7)
+      activerecord (>= 3.2.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -114,6 +116,10 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.75.0)
@@ -144,6 +150,11 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.3.2)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -258,6 +269,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.1)
+    request_store (1.5.0)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -364,6 +377,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash (~> 2.3.0)
+  ancestry
   bootsnap (>= 1.4.2)
   byebug
   capistrano
@@ -375,9 +389,11 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+  dotenv-rails
   factory_bot_rails
   fog-aws
   font-awesome-sass
+  gon
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.7)
   jquery-rails

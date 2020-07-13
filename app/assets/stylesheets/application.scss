@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+$theme-color: rgb(60,202,206)
+;
+
 @import "reset";
 @import "modules/items/items_buy";
 @import 'modules/items/items';
@@ -9,10 +12,13 @@
 @import 'modules/items/new';
 @import "modules/user";
 @import "modules/profiles";
-@import "modules/users/index";
+@import "modules/users/users_show";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "header";
 @import "footer";
 @import "modules/send_informations/new";
 @import "modules/flash";
+@import "modules/credits/credits_index";
+@import "modules/credits/credits_create";
+@import "modules/send_informations/index";

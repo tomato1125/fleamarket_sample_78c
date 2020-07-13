@@ -91,7 +91,7 @@
       margin-left: 10px;
     }
     &__num{
-      font-size: 25px; 
+      font-size: 25px;
       margin-right: 10px;
       margin-left: 340px;
     }
@@ -104,8 +104,12 @@
     margin: 0px auto;
     align-items: center;
     &__font{
-      font-size: 20px;
+      font-size: 16px;
       margin-left: 10px;
+      & a {
+        text-decoration: none;
+        color: $theme-color;
+      }
     }
   }
   &__delivery{
@@ -146,7 +150,6 @@
   &__btn{
     height: 50px;
     width: 500px;
-    background-color: #3ccace;
     display: flex;
     margin: 0px auto;
     margin-top: 30px;
@@ -154,9 +157,16 @@
     align-items: center;
     justify-content: center;
     &__font{
-      font-size: 15px;
-      color: white;
-      
+      width: 100%;
+
     }
   }
+}
+
+.payBtn {
+  text-decoration: none;
+  color: white;
+  background-color: #3ccace;
+  padding: 20px 80px;
+  border-radius: 4px;
 }

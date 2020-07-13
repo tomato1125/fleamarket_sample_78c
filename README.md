@@ -30,12 +30,12 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|post_code|integer|null: false|
+|post_code|string|null: false|
 |prefecture_id|reference|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |apartment|string||
-|phone-number|integer|unique: true|
+|phone-number|string|unique: true|
 |user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user
@@ -50,7 +50,7 @@
 |price|integer|null: false|
 |deliveryfee_id|reference|null: false|
 |brand_id|reference||
-|category_id|reference|null: false|
+|itemcategory_id|reference|foreign_key: true|
 |condition_id|reference|null: false|
 |prefecture_id|reference|null: false|
 |deliverydate_id|reference|null: true|
@@ -62,7 +62,7 @@
 
 - has_many :images
 - belongs_to_active_hash :brand_id
-- belongs_to_active_hash :category_id
+- belongs_to :itemcategory
 - belongs_to_active_hash :condition_id
 - belongs_to_active_hash :prefecture_id
 - belongs_to_active_hash :deliverydate_id
@@ -80,20 +80,20 @@
 # creditテーブル
 |Coumn|Type|Options|
 |-----|----|-------|
-|number|integer|null: false, unique: true|
-|year|integer|null: false|
-|month|integer|null: false|
-|security_code|integer|null: false|
 |user_id|reference|foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 - belongs_to :user
 
-# categories(active_hash)
+# itemcategoriesテーブル
 |Coumn|Type|Options|
 |-----|----|-------|
 |name|string|null: false|
+|ancestry|string|null: false|
 ### Association
 - has_many :items
+- has_ancestry
 
 # brands(active_hash)
 |Coumn|Type|Options|

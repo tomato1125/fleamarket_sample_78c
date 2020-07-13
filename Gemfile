@@ -77,9 +77,14 @@ gem "mini_magick"
 
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'dotenv-rails'
+gem 'jquery-rails'
+gem 'gon'
 
 gem 'jquery-rails'
 
 group :production do
   gem 'unicorn'
 end
+
+gem 'ancestry'

@@ -3,9 +3,13 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FleamarketSample78c
+    %script{src: "https://js.pay.jp/v1/", type: "text/javascript"}
+    -# 以降のコメントアウトに関しては、余裕があれば実装方法の切り替えを検討するため現時点では残しておく物
+    -# %script{src: "https://js.pay.jp/v2/pay.js"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = include_gon
     = javascript_include_tag 'application'
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
