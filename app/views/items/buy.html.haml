@@ -5,33 +5,42 @@
     .contents__font
       購入内容の確認
     .contents__item
-      = image_tag "show_sample1.png",class: "subImage"
+      = image_tag @item.images[0].image.url ,class: "subImage"
       .contents__item__name
-        商品a
+        = @item.name
       .contents__item__money
         .contents__item__money__font
-          送料込み(税込)
+          = @item.deliveryfee.name
         .comtents__item__money__num
-          ¥2,900
+          = "¥#{@item.price}"
     .contents__money
       .contents__money__font
-        支払い金額
+        商品金額
       .contents__money__num
-        ¥2,900
+        = "¥#{@item.price}"
     .contents__method
       .contents__method__font
-        お支払いは登録されているクレジットカードでの決済になります。
+        - if current_user.credit
+          お支払いは登録されているクレジットカードでの決済になります。
+        - else
+          = link_to new_credit_path do
+            クレジットカードを登録して下さい。
     .contents__delivery
       .contents__delivery__font
         配送先
-        = link_to "登録してください", class: ".contents__delivery__record"
+        - if current_user.send_informations[0]
+          登録済の住所にお届けいたします。
+        - else
+          = link_to  new_user_send_information_path(current_user.id), class: ".contents__delivery__record" do
+            登録してください
     .contents__note
       .contents__note__font
-        登録済の配送先が設定されます
         - if flash.now[:alert]
           .itemBuyError
             = flash.now[:alert]
     .contents__btn
-      = link_to pay_item_path, method: :post, class: "payBtn" do
-        購入する
-
+      - if current_user.send_informations[0] && current_user.credit
+        = link_to pay_item_path, method: :post, class: "payBtn" do
+          購入する
+      - else
+        配送先・並びにカードの登録後購入ができます

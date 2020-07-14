@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+.Back{
+  background-color: #eeeeee;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .Wrapper{
+    background-color:#fefefe;
+    height: 100vh;
+    width: 70vw;
+    margin: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    border: #eeeeee solid 1px;
+    .l-side{
+      background-color: #fafafa ;
+      border: solid #eeeeee 1px;
+      width: 300px;
+      height: 90%;
+      margin-top: 50px;
+      margin-left: 60px;
+      margin-right: 50px;
+      display: block;
+      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
+      & a {
+          border: solid #eeeeee 1px;
+          height: 40px;
+          font-size: 17px;
+          display: block;
+          color: black;
+          text-decoration: none;
+          text-align: start;
+          padding-top: 15px;
+          padding-left: 10px;
+      }
+      }
+      .title{
+        background-color: #eeeeee;
+        border: solid #eeeeee 1px;
+        height: 40px;
+        font-size: 17px;
+        text-align: start;
+        padding-top: 15px;
+        padding-left: 10px;
+      }
+      .l{
+        .l-contents{
+          background-color: #fafafa;
+          border: #eeeeee solid 1px;
+          height: 280px;
+          width: 600px;
+          float: right;
+          margin-right: 50px;
+          margin-top: 50px;
+          padding: 10px;
+        }
+        .l-content{
+          background-color: #fafafa;
+          border: #eeeeee solid 1px;
+          height: 150px;
+          width: 600px;
+          float: right;
+          margin-right: 50px;
+          margin-top: 50px;
+          padding: 10px;
+          &__log-out{
+            height: 50px;
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: #ffffff;
+            margin-top: 50px;
+            margin-left: 50px;
+            & a {
+              text-decoration: none;
+              color: white;
+              background-color: $theme-color;
+              padding:20px 80px;
+            }
+          }
+        }
+    }
+  }
+}

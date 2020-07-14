@@ -331,3 +331,28 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+# カテゴリー一覧
+
+categories = Itemcategory.create(name: "カテゴリー一覧")
+
+
+item = Item.create!(
+  name: "test1",
+  produce: "テスト商品です。",
+  price: 8000,
+  deliveryfee_id: 2,
+  brand_id: 1,
+  itemcategory_id: 1,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  selleruser_id: 1
+)
+
+images = Image.create!([
+   {item_id: 1, image:File.open('./app/assets/images/show_sample4.jpeg',)},
+   {item_id: 1, image:File.open('./app/assets/images/show_sample3.png',)},
+   {item_id: 1, image:File.open('./app/assets/images/show_sample2.png',)},
+   {item_id: 1, image:File.open('./app/assets/images/show_sample1.png',)}
+  ])
