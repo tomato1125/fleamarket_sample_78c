@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_063826) do
+ActiveRecord::Schema.define(version: 2020_07_14_093353) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -53,8 +53,6 @@ ActiveRecord::Schema.define(version: 2020_07_10_063826) do
     t.bigint "condition_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "deliverydate_id", null: false
-    t.bigint "selleruser_id"
-    t.bigint "buyeruser_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "seller_id"
@@ -63,13 +61,11 @@ ActiveRecord::Schema.define(version: 2020_07_10_063826) do
     t.index ["auction_id"], name: "index_items_on_auction_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
-    t.index ["buyeruser_id"], name: "index_items_on_buyeruser_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
     t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
     t.index ["deliveryfee_id"], name: "index_items_on_deliveryfee_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
-    t.index ["selleruser_id"], name: "index_items_on_selleruser_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -117,7 +113,6 @@ ActiveRecord::Schema.define(version: 2020_07_10_063826) do
   add_foreign_key "items", "users", column: "auction_id"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
-  add_foreign_key "items", "users", column: "selleruser_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "send_informations", "users"
 end
