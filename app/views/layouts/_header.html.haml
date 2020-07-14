@@ -12,17 +12,15 @@
     .CommonHeader__contents
       %ul.CommonHeader__contents__listsLeft
         %li.CommonHeader__contents__listsLeft__firstItem
-          = link_to '#', id: 'headerCategory' do
+          = link_to '#', id: 'headerCategory', class: "headerCategory" do
             カテゴリーから検索
-            %input{name: "parents", type: "hidden", value: @parents, class: 'parents' }
-            %li
-          .category_list
-            .parents_list
-              - @parents.each do |parent|
-                = link_to categories_path, class: "parent_category",id: "#{parent.id}" do
-                  = parent.name
-            .children_list
-            .grand_children_list
+            .category_list
+              .parents_list
+                - @parents.each do |parent|
+                  = link_to categories_path, class: "parent_category",id: "#{parent.id}" do
+                    = parent.name
+              .children_list
+              .grand_children_list
 
 
 
