@@ -9,36 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    
-    # @grandchild = Itemcategory.find_by(id: params[:id])
-    # @grandchild = Itemcategory.find_by(itemcategories_id)
-    
-    # @child = @grandchild.parent
-    # @parent = @child.parent
-    
-    # @parents = Itemcategory.where(ancestry: "").limit(13)
     @parents = Itemcategory.where(ancestry: nil)
-    # @children = Itemcategory.find(params[:parent_id]).children 
-    
-    # @category_children = Itemcategory.find(params[:parent_id]).children 
-    # @grandchildren = Itemcategory.find(params[:child_id]).children
-    # binding.pry
-
-    # @parent = @parents.find(id: itemcategory.id)
-    # @parent = @parents.find_by(id: itemcategory.id)
-
-
-    # @parents = Itemcategory.all.order("id ASC").limit(13)
-  end
-
-  def search
-    respond_to do |format|
-      format.html
-      format.json do
-       @children = Itemcategory.find(params[:parent_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-      end
-    end
   end
 
   def buy
