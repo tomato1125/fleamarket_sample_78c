@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
-    @parents = Itemcategory.where(ancestry: nil)
   end
 
   def buy
@@ -102,6 +101,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       [images_attributes: [:image, :_destroy, :id]])
+  end
+
   def pay
     unless current_user.credit
       flash.now[:alert] = "購入にはクレジットカード登録が必須です"
