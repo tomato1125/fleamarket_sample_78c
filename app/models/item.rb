@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   # validates :images, presence: true
   validates :name, presence: true
   validates :produce, presence: true
-  validates :category_id, presence: true
+  validates :itemcategory_id, presence: true
   validates :condition_id, presence: true
   validates :deliveryfee_id, presence: true
   validates :prefecture_id, presence: true
