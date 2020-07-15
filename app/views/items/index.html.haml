@@ -100,6 +100,7 @@
               .pickupContainer__itemsBox__list__link__body
                 %h3.pickupContainer__itemsBox__list__link__body__itemName
                   = item.name
+                  = item.itemcategory.name
                 .pickupContainer__itemsBox__list__link__body__itemDetails
                   %ul
                     %li 
@@ -132,73 +133,57 @@
 
   .pickupContainer
     %h2.pickupContainer__title
-      ピックアップブランド
+      新着おすすめカテゴリー
     .pickupContainer__itemsBox
       .pickupContainer__itemsBox__head
         = link_to "#", class: "pickupContainer__itemsBox__head__link" do
           %h3.pickupContainer__itemsBox__head__title
-            アーカイバ
+            グルメ
       .pickupContainer__itemsBox__lists
-        .pickupContainer__itemsBox__list
-          = link_to "#", class: "pickupContainer__itemsBox__list__link" do
-            .pickupContainer__itemsBox__list__link__img
-              = image_tag @items[1].images[0].image.url, alt: "index_item10"
-            .pickupContainer__itemsBox__list__link__body
-              %h3.pickupContainer__itemsBox__list__link__body__itemName
-                ee
-              .pickupContainer__itemsBox__list__link__body__itemDetails
-                %ul
-                  %li 1000円
-                  %li
-                    = icon("fa", "star", class: "likeIcon")
-                    0
-                %p.pickupContainer__itemTax
-                  (税込)
-        .pickupContainer__itemsBox__list
-          = link_to "#", class: "pickupContainer__itemsBox__list__link" do
-            .pickupContainer__itemsBox__list__link__img
-              = image_tag @items[1].images[0].image.url, alt: "index_item11"
-            .pickupContainer__itemsBox__list__link__body
-              %h3.pickupContainer__itemsBox__list__link__body__itemName
-                product3
-              .pickupContainer__itemsBox__list__link__body__itemDetails
-                %ul
-                  %li 30000円
-                  %li
-                    = icon("fa", "star", class: "likeIcon")
-                    0
-                %p.pickupContainer__itemTax
-                  (税込)
-        .pickupContainer__itemsBox__list
-          = link_to "#", class: "pickupContainer__itemsBox__list__link" do
-            .pickupContainer__itemsBox__list__link__img
-              = image_tag @items[1].images[0].image.url, alt: "index_item12"
-            .pickupContainer__itemsBox__list__link__body
-              %h3.pickupContainer__itemsBox__list__link__body__itemName
-                product2
-              .pickupContainer__itemsBox__list__link__body__itemDetails
-                %ul
-                  %li 20000円
-                  %li
-                    = icon("fa", "star", class: "likeIcon")
-                    0
-                %p.pickupContainer__itemTax
-                  (税込)
-        .pickupContainer__itemsBox__list
-          = link_to "#", class: "pickupContainer__itemsBox__list__link" do
-            .pickupContainer__itemsBox__list__link__img
-              = image_tag @items[1].images[0].image.url, alt: "index_item13"
-            .pickupContainer__itemsBox__list__link__body
-              %h3.pickupContainer__itemsBox__list__link__body__itemName
-                product1
-              .pickupContainer__itemsBox__list__link__body__itemDetails
-                %ul
-                  %li 10000円
-                  %li
-                    = icon("fa", "star", class: "likeIcon")
-                    0
-                %p.pickupContainer__itemTax
-                  (税込)
+        - Itemcategory.find(6).items.first(5).each do |item|
+          .pickupContainer__itemsBox__list
+            = link_to "#", class: "pickupContainer__itemsBox__list__link" do
+              .pickupContainer__itemsBox__list__link__img
+                = image_tag item.images[0].image.url, alt: "index_item01"
+              .pickupContainer__itemsBox__list__link__body
+                %h3.pickupContainer__itemsBox__list__link__body__itemName
+                  = item.name
+                  = item.itemcategory.name
+                .pickupContainer__itemsBox__list__link__body__itemDetails
+                  %ul
+                    %li 
+                      = item.price
+                      円
+                    %li
+                      = icon("fa", "star", class: "likeIcon")
+                      0
+                  %p.pickupContainer__itemTax
+                    (税込)
+
+    .pickupContainer__itemsBox
+      .pickupContainer__itemsBox__head
+        = link_to "#", class: "pickupContainer__itemsBox__head__link" do
+          %h3.pickupContainer__itemsBox__head__title
+            家電
+      .pickupContainer__itemsBox__lists
+        - Itemcategory.find(7).items.first(5).each do |item|
+          .pickupContainer__itemsBox__list
+            = link_to "#", class: "pickupContainer__itemsBox__list__link" do
+              .pickupContainer__itemsBox__list__link__img
+                = image_tag item.images[0].image.url, alt: "index_item01"
+              .pickupContainer__itemsBox__list__link__body
+                %h3.pickupContainer__itemsBox__list__link__body__itemName
+                  = item.name
+                .pickupContainer__itemsBox__list__link__body__itemDetails
+                  %ul
+                    %li 
+                      = item.price
+                      円
+                    %li
+                      = icon("fa", "star", class: "likeIcon")
+                      0
+                  %p.pickupContainer__itemTax
+                    (税込)
 
 .topPage__bottomBanner
   .topPage__bottomBanner__box

@@ -33,7 +33,9 @@ class ItemsController < ApplicationController
     
     # @image = Item.images.find(params[:id])
     # @image = Item.images.find_by(id: image.id)
+    # @item = Item.find(params[:id])
     @items = Item.includes(:images).order('created_at DESC')
+    # binding.pry
   end
 
   def buy

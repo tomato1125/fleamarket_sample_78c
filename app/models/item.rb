@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # validates :images, presence: true
   validates :name, presence: true
   validates :produce, presence: true
   validates :itemcategory_id, presence: true
