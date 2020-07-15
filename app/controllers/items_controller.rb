@@ -79,30 +79,6 @@ class ItemsController < ApplicationController
     # return
   end
 
-  private
-
-  def set_current_user_products
-    if user_signed_in?
-      @items = current_user.products.includes(:seller, :buyer, :auction, :item_images)
-    else
-      redirect_to new_user_session_path
-    end
-  end
-
-  def set_user
-    @user = User.find(seller_id: current_user.id)
-  end
-
-  def item_params
-    params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
-  end
-
-  def item_update_params
-    params.require(:item).permit(
-      :name,
-      [images_attributes: [:image, :_destroy, :id]])
-  end
-
   def pay
     unless current_user.credit
       flash.now[:alert] = "購入にはクレジットカード登録が必須です"
@@ -134,6 +110,28 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_current_user_products
+    if user_signed_in?
+      @items = current_user.products.includes(:seller, :buyer, :auction, :item_images)
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
+  def set_user
+    @user = User.find(seller_id: current_user.id)
+  end
+
+  def item_params
+    params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
+  end
+
+  def item_update_params
+    params.require(:item).permit(
+      :name,
+      [images_attributes: [:image, :_destroy, :id]])
+  end
 
   def set_item
     @item = Item.find(params[:id])
