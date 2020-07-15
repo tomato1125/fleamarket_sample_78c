@@ -91,7 +91,14 @@ class ItemsController < ApplicationController
         customer: customer[:id],
         currency: 'jpy'
       )
-      redirect_to root_path
+      if charge.paid
+        @item.buyer_id = current_user.id
+        @item.save
+        redirect_to root_path
+      else
+        flash.now[:alert] = "購入処理に失敗しました"
+        render :buy
+      end
 
     end
 
