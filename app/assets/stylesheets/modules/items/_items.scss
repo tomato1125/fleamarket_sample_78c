@@ -246,6 +246,7 @@
       padding: 26px 0 60px;
       display: flex;
       justify-content: space-around;
+      overflow: scroll;
       .pickupContainer__itemsBox__list {
         width: 220px;
         display: inline-block;
