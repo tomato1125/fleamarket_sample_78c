@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_040151) do
+ActiveRecord::Schema.define(version: 2020_07_15_035728) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_040151) do
 
   create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancestry"
+    t.string "ancestry", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2020_07_15_040151) do
     t.bigint "condition_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "deliverydate_id", null: false
+    t.bigint "selleruser_id"
+    t.bigint "buyeruser_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "seller_id"
@@ -63,12 +65,14 @@ ActiveRecord::Schema.define(version: 2020_07_15_040151) do
     t.index ["auction_id"], name: "index_items_on_auction_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["buyeruser_id"], name: "index_items_on_buyeruser_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
     t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
     t.index ["deliveryfee_id"], name: "index_items_on_deliveryfee_id"
     t.index ["itemcategory_id"], name: "index_items_on_itemcategory_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+    t.index ["selleruser_id"], name: "index_items_on_selleruser_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -108,7 +112,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_040151) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
-    t.string "password", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -124,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_040151) do
   add_foreign_key "items", "users", column: "auction_id"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "items", "users", column: "selleruser_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "send_informations", "users"
 end
