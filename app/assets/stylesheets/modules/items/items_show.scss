@@ -105,6 +105,9 @@ $link-color: rgb(60,202,206)
         border: 1px solid $link-color;
         width: 100%;
       }
+    .itemSoldMessage {
+      color: red;
+    }
     }
     &--flash {
       color: red;
