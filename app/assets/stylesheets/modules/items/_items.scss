@@ -292,6 +292,9 @@
                 align-items: center;
                 justify-content: space-between;
               }
+              & span {
+                color: red;
+              }
               .likeIcon {
                 display: inline-block;
                 font-size: inherit;

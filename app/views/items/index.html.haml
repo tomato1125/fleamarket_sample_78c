@@ -104,8 +104,12 @@
                 .pickupContainer__itemsBox__list__link__body__itemDetails
                   %ul
                     %li 
-                      = item.price
-                      円
+                      - if item.buyer_id.nil?
+                        = item.price
+                        円
+                      - else
+                        %span
+                          SOLD OUT
                     %li
                       = icon("fa", "star", class: "likeIcon")
                       0
@@ -123,8 +127,12 @@
                 .pickupContainer__itemsBox__list__link__body__itemDetails
                   %ul
                     %li 
-                      = item.price
-                      円
+                      - if item.buyer_id.nil?
+                        = item.price
+                        円
+                      - else
+                        %span
+                          SOLD OUT
                     %li
                       = icon("fa", "star", class: "likeIcon")
                       0
@@ -152,8 +160,12 @@
                 .pickupContainer__itemsBox__list__link__body__itemDetails
                   %ul
                     %li 
-                      = item.price
-                      円
+                      - if item.buyer_id.nil?
+                        = item.price
+                        円
+                      - else
+                        %span
+                          SOLD OUT
                     %li
                       = icon("fa", "star", class: "likeIcon")
                       0
@@ -177,8 +189,12 @@
                 .pickupContainer__itemsBox__list__link__body__itemDetails
                   %ul
                     %li 
-                      = item.price
-                      円
+                      - if item.buyer_id.nil?
+                        = item.price
+                        円
+                      - else
+                        %span
+                          SOLD OUT
                     %li
                       = icon("fa", "star", class: "likeIcon")
                       0
