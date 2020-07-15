@@ -10,12 +10,11 @@ Rails.application.routes.draw do
   end
 
   # profileに関する記載箇所
-  
+
 
   # send_informationに関する記載箇所
 
   # itemに関する記載箇所
-  resources :items, only: [:index, :show, :new, :create, :edit, :update]
   resources :items do
     member do
       get 'buy', 'p_exhibiting', 'p_transaction', 'p_soldout'

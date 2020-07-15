@@ -65,7 +65,7 @@
                   必須
               .categorySelecter
                 .categorySelecter__contents
-                  = f.collection_select :category_id, Category.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "categorySelecter__input"}
+                  = f.collection_select :itemcategory_id, Category.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "categorySelecter__input"}
               .blankMessage
               .productBrandSpace
                 .productBrand

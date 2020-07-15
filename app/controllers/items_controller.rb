@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    if @item.selleruser.id == current_user.id
+    if @item.seller.id == current_user.id
       flash.now[:alert] = "出品者は購入手続きはできません"
       render :show
     end
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
 
   def update
     # 編集機能実装で使用するため、一旦コメントアウトしてます。
-    
+
     # @item = Item.find(params[:id])
     # length = @item.images.length
     # i = 0
@@ -94,7 +94,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :category_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
   end
 
   def item_update_params
@@ -125,13 +125,13 @@ class ItemsController < ApplicationController
     if @item.selleruser.id == current_user.id
       if @item.destroy
         redirect_to root_path, notice: "削除が完了しました"
-      else 
+      else
         redirect_to root_path, alert: "削除が失敗しました"
       end
     else
       redirect_to root_path, alert: "ユーザーが一致していません"
-    end 
-  end 
+    end
+  end
 
   private
 
@@ -139,6 +139,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  
+
 end
 
