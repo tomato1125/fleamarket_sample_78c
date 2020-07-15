@@ -1,0 +1,10 @@
+.Back
+  .Wrapper
+    = render "./users/l-side"
+    .creditCreate
+      .creditCreate__title
+        %h1 クレジットカードは登録済みです
+      .creditDestroyBtn
+        = link_to credit_path, method: :delete, class:"DestroyBtn" do
+          削除する
+
