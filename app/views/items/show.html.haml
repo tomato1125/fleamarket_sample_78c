@@ -32,7 +32,7 @@
         .itemBox__purchase--btn
           - if @item.buyer_id
             .itemSoldMessage
-              この商品は既に誰かが購入済みです！
+              この商品は既に売却済みです！
           - else
             = link_to buy_item_path do
               購入画面に進む

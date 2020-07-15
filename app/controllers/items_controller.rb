@@ -80,8 +80,13 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    unless current_user.credit
-      flash.now[:alert] = "購入にはクレジットカード登録が必須です"
+    if @item.buyer_id
+      flash.now[:alert] = "商品は既に売却済みでした"
+      root_path
+    end
+
+    unless current_user.credit || @item.send_informations
+      flash.now[:alert] = "カード登録もしくは配送先登録がが未了です"
       render :buy
     else
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
