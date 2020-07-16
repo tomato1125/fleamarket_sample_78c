@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       profile:
+      sent_information:
     attributes:
       profile:
         family_name: 名字
@@ -9,9 +10,6 @@ ja:
         family_name_kana: 名字のカナ
         first_name_kana: 名前のカナ
         birth_date: 生年月日
-    models:
-      send_information:
-    attributes:
       send_information:
         family_name: 名字
         first_name: 名前
