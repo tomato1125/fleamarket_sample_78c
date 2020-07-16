@@ -22,7 +22,7 @@ $(function() {
 
       $.ajax({
         type: 'GET',
-        url: 'categories#index',//categories#indexアクションに送る
+        url: '/categories',//categories#indexアクションに送る
         data: {parent_id: id},//どの親の要素かを送る
         dataType: 'json'
       }).done(function(children) {
@@ -46,7 +46,7 @@ $(function() {
 
       $.ajax({
         type: 'GET',
-        url: 'categories#index',
+        url: '/categories',
         data: {parent_id: id},
         dataType: 'json'
       }).done(function(children) {
