@@ -6,7 +6,7 @@
       .AccountPage__box--name
         %h2 ログインページ
       .AccountPage__box--form
-        = form_for(resource, as: resource_name, url: new_user_session_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
           .FormField
