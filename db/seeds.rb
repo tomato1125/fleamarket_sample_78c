@@ -347,7 +347,7 @@
 #   condition_id: 1,
 #   prefecture_id: 1,
 #   deliverydate_id: 1,
-#   seller: 1
+#   seller_id: 1
 # )
 
 # images = Image.create!([
@@ -356,6 +356,7 @@
 #    {item_id: 1, image:File.open('./app/assets/images/show_sample2.png',)},
 #    {item_id: 1, image:File.open('./app/assets/images/show_sample1.png',)}
 #   ])
+
 
 # トップページ一覧表示用画像
 # images = Image.create!([
@@ -398,7 +399,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "ピアノ",
@@ -411,11 +412,11 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "判子",
-#   produce: "",
+#   produce: "なし",
 #   price: 2000,
 #   deliveryfee_id: 2,
 #   itemcategory_id: 1296,
@@ -424,7 +425,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "グローブ",
@@ -437,11 +438,11 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "バット",
-#   produce: "",
+#   produce: "新品",
 #   price: 10000,
 #   deliveryfee_id: 2,
 #   itemcategory_id: 995,
@@ -450,7 +451,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "クロワッサン",
@@ -463,8 +464,8 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
-#   buyer: 2
+#   seller_id: 1,
+#   buyer_id: 2
 #   },
 #   {
 #   name: "冷蔵庫",
@@ -477,7 +478,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "バッグ",
@@ -490,7 +491,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "テレビ",
@@ -503,11 +504,11 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "猫のご飯",
-#   produce: "",
+#   produce: "なし",
 #   price: 400,
 #   deliveryfee_id: 2,
 #   itemcategory_id: 1250,
@@ -516,7 +517,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-02,
 #   updated_at: 2020-07-02,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "さんまの塩焼きグリーンカレー",
@@ -529,7 +530,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "餃子チリソース",
@@ -542,7 +543,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "学食カレー",
@@ -555,7 +556,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "コンポ",
@@ -568,8 +569,8 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
-#   buyer: 2
+#   seller_id: 1,
+#   buyer_id: 2
 #   },
 #   {
 #   name: "ドライヤー",
@@ -582,7 +583,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "シェーバー",
@@ -595,7 +596,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "タラバガニ",
@@ -608,7 +609,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 # {
 #   name: "ソーセージ",
@@ -621,7 +622,7 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "押し寿司",
@@ -634,11 +635,11 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "シャープペンシル",
-#   produce: "",
+#   produce: "なし",
 #   price: 1000,
 #   deliveryfee_id: 2,
 #   itemcategory_id: 1296,
@@ -647,11 +648,11 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "ホッチキス",
-#   produce: "",
+#   produce: "なし",
 #   price: 500,
 #   deliveryfee_id: 2,
 #   itemcategory_id: 1296,
@@ -660,11 +661,11 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "セロハンテープ",
-#   produce: "",
+#   produce: "なし",
 #   price: 400,
 #   deliveryfee_id: 2,
 #   itemcategory_id: 1296,
@@ -673,11 +674,11 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   },
 #   {
 #   name: "レターボックス",
-#   produce: "",
+#   produce: "なし",
 #   price: 1500,
 #   deliveryfee_id: 2,
 #   itemcategory_id: 1296,
@@ -686,37 +687,6 @@
 #   deliverydate_id: 1,
 #   created_at: 2020-07-01,
 #   updated_at: 2020-07-01,
-#   seller: 1
+#   seller_id: 1
 #   }
 # ])
-
-
-# データ追加テスト
-items = Item.create!([
-  {
-  name: "ソファ",
-  produce: "新品",
-  price: 80000,
-  deliveryfee_id: 2,
-  itemcategory_id: 461,
-  condition_id: 1,
-  prefecture_id: 1,
-  deliverydate_id: 1,
-  created_at: 2020-07-02,
-  updated_at: 2020-07-02,
-  seller: 1
-  },
-  {
-  name: "ピアノ",
-  produce: "中古",
-  price: 30000,
-  deliveryfee_id: 2,
-  itemcategory_id: 720,
-  condition_id: 1,
-  prefecture_id: 1,
-  deliverydate_id: 1,
-  created_at: 2020-07-02,
-  updated_at: 2020-07-02,
-  seller: 1
-  }
-])
