@@ -84,7 +84,6 @@ class ItemsController < ApplicationController
       flash.now[:alert] = "商品は既に売却済みでした"
       root_path
     end
-
     unless current_user.credit || @item.send_informations
       flash.now[:alert] = "カード登録もしくは配送先登録がが未了です"
       render :buy
