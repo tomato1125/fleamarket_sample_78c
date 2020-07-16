@@ -10,11 +10,16 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     if @profile.save
       redirect_to current_user
-    else 
+    else
       @user = User.find(params[:user_id])
       render action: :new
     end
   end
+
+  def index
+    @profile = Profile.find_by(user_id: current_user.id)
+  end
+
 
   private
   def profile_params
