@@ -2,7 +2,7 @@
 .wrapper
   .itemMain
     .itemBox
-      -if user_signed_in? && @item.selleruser.id == current_user.id
+      -if user_signed_in? && @item.seller.id == current_user.id
         .itemBox__btns
           .itemBox__btns--edit.itemBtn
             = link_to "#" do
@@ -30,8 +30,12 @@
             = @item.deliveryfee.name
       .itemBox__purchase
         .itemBox__purchase--btn
-          = link_to buy_item_path do
-            購入画面に進む
+          - if @item.buyer_id
+            .itemSoldMessage
+              この商品は既に売却済みです！
+          - else
+            = link_to buy_item_path do
+              購入画面に進む
       - if flash.now[:alert]
         .itemBox__purchase--flash
           = flash.now[:alert]
@@ -44,7 +48,7 @@
               %th
                 出品者
               %td
-                = @item.selleruser.nickname
+                = @item.seller.nickname
             %tr
               %th
                 カテゴリー
@@ -55,7 +59,8 @@
               %th
                 ブランド
               %td
-                = @item.brand.name
+                - if @item.brand
+                  = @item.brand.name
             %tr
               %th
                 商品のサイズ

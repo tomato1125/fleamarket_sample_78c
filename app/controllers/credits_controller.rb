@@ -31,7 +31,7 @@ class CreditsController < ApplicationController
       )
       @credit = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @credit.save
-        redirect_to user_path(current_user.id)
+        redirect_to request.referer || users_path(current_user.id)
       else
         render :new
       end
