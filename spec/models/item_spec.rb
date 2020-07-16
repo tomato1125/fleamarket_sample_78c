@@ -13,10 +13,10 @@ describe Item, type: :model do
       expect(item.errors[:produce]).to include("を入力してください")
     end
 
-    it "is invalid without a category_id" do
-      item = build(:item, category_id: "")
+    it "is invalid without a itemcategory_id" do
+      item = build(:item, itemcategory_id: "")
       item.valid?
-      expect(item.errors[:category_id]).to include("を入力してください")
+      expect(item.errors[:itemcategory_id]).to include("を入力してください")
     end
 
     it "is invalid without a condition_id" do
