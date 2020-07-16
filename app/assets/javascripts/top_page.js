@@ -1,9 +1,6 @@
 $(function() {
-console.log("JS")
   // 親カテゴリーを追加するための処理
   $(document).on("mouseover", "#headerCategory", function() {
-    // $(document).on("mouseover", ".child_category", function () {
-    console.log("oya")
     let id = this.id;
     $(".category_list").css("display", "flex");
     $(".child_category").remove();
@@ -18,7 +15,6 @@ console.log("JS")
     }
   
     $(document).on("mouseover", ".parent_category", function() {
-    // $(".parent_category").on("mouseover", function() {
       let id = this.id;//どのリンクにマウスが乗ってるのか取得
       $(".child_category").remove();
       $(".grand_child_category").remove();
@@ -67,7 +63,6 @@ console.log("JS")
 
   // マウスがカテゴリーから離れた際の処理
   $(document).on("mouseout", ".grand_child_category", function () {
-  // $(".mainTopVisual").on("mouseover", function() {
     $(".category_list").css("display", "none");
   });
 });
