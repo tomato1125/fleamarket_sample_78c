@@ -76,11 +76,10 @@ ActiveRecord::Schema.define(version: 2020_07_15_021508) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "birth_day", null: false
-    t.bigint "user_id"
+    t.date "birth_date", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "send_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,6 +119,5 @@ ActiveRecord::Schema.define(version: 2020_07_15_021508) do
   add_foreign_key "items", "users", column: "auction_id"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
-  add_foreign_key "profiles", "users"
   add_foreign_key "send_informations", "users"
 end
