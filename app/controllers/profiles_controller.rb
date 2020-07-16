@@ -2,19 +2,28 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:new]
 
   def new
-    @profile = Profile.new
     @user = User.find(params[:user_id])
+    if @user.profile
+      redirect_to user_path(current_user.id), alert: "既に登録済みです"
+    else
+    @profile = Profile.new
+    end
   end
 
   def create
     @profile = Profile.new(profile_params)
     if @profile.save
       redirect_to current_user
-    else 
+    else
       @user = User.find(params[:user_id])
       render action: :new
     end
   end
+
+  def index
+    @profile = Profile.find_by(user_id: current_user.id)
+  end
+
 
   private
   def profile_params
