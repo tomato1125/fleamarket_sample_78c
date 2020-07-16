@@ -25,17 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    # @items = Item.includes(:images).order('id ASC')
-    # @images = Image.order('item_id ASC')
-    # @thumbnail = @item.images.first
-    # @image = @item.images.find(params[:id])
-    # @image = @item.images.find_by(id: image.id)
-    
-    # @image = Item.images.find(params[:id])
-    # @image = Item.images.find_by(id: image.id)
-    # @item = Item.find(params[:id])
     @items = Item.includes(:images).order('created_at DESC')
-    # binding.pry
   end
 
   def buy

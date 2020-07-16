@@ -146,9 +146,9 @@
       .pickupContainer__itemsBox__head
         = link_to "#", class: "pickupContainer__itemsBox__head__link" do
           %h3.pickupContainer__itemsBox__head__title
-            グルメ
+            = Itemcategory.find(1268).name
       .pickupContainer__itemsBox__lists
-        - Itemcategory.find(6).items.first(5).each do |item|
+        - Itemcategory.find(1268).items.last(5).each do |item|
           .pickupContainer__itemsBox__list
             = link_to "#", class: "pickupContainer__itemsBox__list__link" do
               .pickupContainer__itemsBox__list__link__img
@@ -156,7 +156,6 @@
               .pickupContainer__itemsBox__list__link__body
                 %h3.pickupContainer__itemsBox__list__link__body__itemName
                   = item.name
-                  = item.itemcategory.name
                 .pickupContainer__itemsBox__list__link__body__itemDetails
                   %ul
                     %li 
@@ -176,9 +175,9 @@
       .pickupContainer__itemsBox__head
         = link_to "#", class: "pickupContainer__itemsBox__head__link" do
           %h3.pickupContainer__itemsBox__head__title
-            家電
+            = Itemcategory.find(1296).name
       .pickupContainer__itemsBox__lists
-        - Itemcategory.find(7).items.first(5).each do |item|
+        - Itemcategory.find(1296).items.last(5).each do |item|
           .pickupContainer__itemsBox__list
             = link_to "#", class: "pickupContainer__itemsBox__list__link" do
               .pickupContainer__itemsBox__list__link__img
