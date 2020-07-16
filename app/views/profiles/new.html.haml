@@ -5,6 +5,11 @@
     .InformationsPage__box
       .InformationsPage__box--name
         %h2 本人確認情報入力
+      - if @profile.errors.any?
+        .profileErrorField
+          - @profile.errors.full_messages.each do |e|
+            .profileErrorMessages
+              = e
       .InformationsPage__box--form
         = form_with model: [@user, @profile], id: 'new_send_information', class: "SendInformation__inner__lists", local: true do |f|
           .InformationsFormField
