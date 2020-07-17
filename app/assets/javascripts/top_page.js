@@ -1,7 +1,6 @@
 $(function() {
-
   // 親カテゴリーを追加するための処理
-  $("#headerCategory").on("mouseover", function() {
+  $(document).on("mouseover", "#headerCategory", function() {
     let id = this.id;
     $(".category_list").css("display", "flex");
     $(".child_category").remove();
@@ -15,14 +14,14 @@ $(function() {
       return html;
     }
   
-    $(".parent_category").on("mouseover", function() {
+    $(document).on("mouseover", ".parent_category", function() {
       let id = this.id;//どのリンクにマウスが乗ってるのか取得
       $(".child_category").remove();
       $(".grand_child_category").remove();
 
       $.ajax({
         type: 'GET',
-        url: 'categories#index',//categories#indexアクションに送る
+        url: '/categories',//categories#indexアクションに送る
         data: {parent_id: id},//どの親の要素かを送る
         dataType: 'json'
       }).done(function(children) {
@@ -46,7 +45,7 @@ $(function() {
 
       $.ajax({
         type: 'GET',
-        url: 'categories#index',
+        url: '/categories',
         data: {parent_id: id},
         dataType: 'json'
       }).done(function(children) {
@@ -63,7 +62,7 @@ $(function() {
     });
 
   // マウスがカテゴリーから離れた際の処理
-  $(".mainTopVisual").on("mouseover", function() {
+  $(document).on("mouseout", ".grand_child_category", function () {
     $(".category_list").css("display", "none");
   });
 });

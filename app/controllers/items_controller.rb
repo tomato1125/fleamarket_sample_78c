@@ -30,11 +30,10 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
-    @parents = Itemcategory.where(ancestry: nil)
   end
 
   def buy
-    if @item.selleruser.id == current_user.id
+    if @item.seller.id == current_user.id
       flash.now[:alert] = "出品者は購入手続きはできません"
       render :show
     end
@@ -78,7 +77,7 @@ class ItemsController < ApplicationController
 
   def update
     # 編集機能実装で使用するため、一旦コメントアウトしてます。
-    
+
     # @item = Item.find(params[:id])
     # length = @item.images.length
     # i = 0
@@ -98,7 +97,48 @@ class ItemsController < ApplicationController
     # return
   end
 
-  private
+  def pay
+    if @item.buyer_id
+      flash.now[:alert] = "商品は既に売却済みでした"
+      root_path
+    end
+    unless current_user.credit || @item.send_informations
+      flash.now[:alert] = "カード登録もしくは配送先登録がが未了です"
+      render :buy
+    else
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
+      charge = Payjp::Charge.create(
+        amount: @item.price,
+        customer: customer[:id],
+        currency: 'jpy'
+      )
+      if charge.paid
+        @item.buyer_id = current_user.id
+        @item.save
+        redirect_to root_path
+      else
+        flash.now[:alert] = "購入処理に失敗しました"
+        render :buy
+      end
+
+    end
+
+  end
+
+  def destroy
+    if @item.selleruser.id == current_user.id
+      if @item.destroy
+        redirect_to root_path, notice: "削除が完了しました"
+      else
+        redirect_to root_path, alert: "削除が失敗しました"
+      end
+    else
+      redirect_to root_path, alert: "ユーザーが一致していません"
+    end
+  end
+
+  
 
   def set_current_user_products
     if user_signed_in?
@@ -112,6 +152,8 @@ class ItemsController < ApplicationController
     @user = User.find(seller_id: current_user.id)
   end
 
+private
+
   def item_params
     params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
   end
@@ -120,41 +162,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       [images_attributes: [:image, :_destroy, :id]])
-  def pay
-    unless current_user.credit
-      flash.now[:alert] = "購入にはクレジットカード登録が必須です"
-      render :buy
-    else
-      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-      customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
-      charge = Payjp::Charge.create(
-        amount: @item.price,
-        customer: customer[:id],
-        currency: 'jpy'
-      )
-      redirect_to root_path
-
-    end
-
   end
 
-  def destroy
-    if @item.selleruser.id == current_user.id
-      if @item.destroy
-        redirect_to root_path, notice: "削除が完了しました"
-      else 
-        redirect_to root_path, alert: "削除が失敗しました"
-      end
-    else
-      redirect_to root_path, alert: "ユーザーが一致していません"
-    end 
-  end 
 
-  
-
-  
-
-  
-  end
 end
 

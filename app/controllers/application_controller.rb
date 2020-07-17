@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
     @parents = Itemcategory.where(ancestry: nil)
   end
 
-
   protected
 
   def configure_permitted_parameters
@@ -27,8 +26,9 @@ class ApplicationController < ActionController::Base
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == Rails.application.credentials[:basic_auth][:user] &&
-      password == Rails.application.credentials[:basic_auth][:pass]
+      username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+      # username == Rails.application.credentials[:basic_auth][:user] &&
+      # password == Rails.application.credentials[:basic_auth][:pass]
     end
   end
 end

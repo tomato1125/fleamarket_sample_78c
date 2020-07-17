@@ -10,7 +10,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.references  :condition, null: false
       t.references  :prefecture, null: false
       t.references  :date, null: false
-      t.references  :user, foreign_key: true
       t.timestamps
     end
   end

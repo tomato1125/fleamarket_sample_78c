@@ -40,8 +40,8 @@
     &--form{
       display: flex;
       justify-content: center;
-      
-      
+
+
       .InformationsFormField{
         margin: 24px;
         .InformationsFormField__lavel{
@@ -73,7 +73,7 @@
             height: 48px;
             width: 76px;
             margin-top: 8px;
-            
+
             border: 1px solid #ccc;
             border-radius: 4px;
           }
@@ -98,4 +98,9 @@
       }
     }
   }
+}
+
+.profileErrorMessages {
+  text-align: center;
+  color: red;
 }

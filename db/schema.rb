@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_065308) do
+ActiveRecord::Schema.define(version: 2020_07_15_021508) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -29,14 +29,23 @@ ActiveRecord::Schema.define(version: 2020_07_13_065308) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
-  create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "image_id"
+    t.bigint "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "ancestry"
+    t.index ["image_id"], name: "index_item_images_on_image_id"
+    t.index ["item_id"], name: "index_item_images_on_item_id"
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "itemcategories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "ancestry"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "produce", null: false
     t.integer "price", null: false
@@ -54,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_065308) do
     t.index ["auction_id"], name: "index_items_on_auction_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
-    #t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
     t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
     t.index ["deliveryfee_id"], name: "index_items_on_deliveryfee_id"
@@ -68,11 +77,10 @@ ActiveRecord::Schema.define(version: 2020_07_13_065308) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "birth_day", null: false
-    t.bigint "user_id"
+    t.date "birth_date", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "send_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,14 +102,13 @@ ActiveRecord::Schema.define(version: 2020_07_13_065308) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,10 +117,9 @@ ActiveRecord::Schema.define(version: 2020_07_13_065308) do
   add_foreign_key "images", "items"
   add_foreign_key "item_images", "images"
   add_foreign_key "item_images", "items"
+  add_foreign_key "items", "itemcategories"
   add_foreign_key "items", "users", column: "auction_id"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
-  add_foreign_key "items", "itemcategories"
-  add_foreign_key "profiles", "users"
   add_foreign_key "send_informations", "users"
 end
