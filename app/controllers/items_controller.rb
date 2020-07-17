@@ -44,15 +44,12 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.build()
     @itemcategory = ["選択してください"]
-    Itemcategory.where(ancestry: nil).each do |parent|
-      @itemcategory << parent.name
+    Itemcategory.where(ancestry: nil).pluck(:name)
     end
   end
 
   def get_itemcategory_children  
     @itemcategory_children = Itemcategory.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-    #category = Itemcategory.find(params[:parent_name])
-    #@itemcategory_children = category.children
   end
 
   def get_itemcategory_grandchildren
