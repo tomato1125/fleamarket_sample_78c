@@ -1,3 +1,14 @@
+
+users = User.create!([
+  {nickname: "guest", email: "guest@guest.com",password:"guest1234"},
+  {nickname: "sakamoto", email: "sakamoto@sakamoto.com",password:"sakamoto1234"},
+  {nickname: "tanaka", email: "tanaka@tanaka.com",password:"tanaka1234"},
+  {nickname: "urakawa", email: "urakawa@urakawa.com",password:"urakawa1234"},
+  {nickname: "yoshida", email: "yoshida@yoshida.com",password:"yoshida1234"},
+  {nickname: "okayama", email: "okayama@okayama.com",password:"okayama1234"},
+ ])
+
+
 lady = Itemcategory.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
