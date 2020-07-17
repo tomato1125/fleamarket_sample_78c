@@ -2,7 +2,7 @@
 .wrapper
   .itemMain
     .itemBox
-      -if user_signed_in? && @item.selleruser.id == current_user.id
+      -if user_signed_in? && @item.seller_id == current_user.id
         .itemBox__btns
           .itemBox__btns--edit.itemBtn
             = link_to "#" do
@@ -44,13 +44,16 @@
               %th
                 出品者
               %td
-                = @item.selleruser.nickname
+                = @nickname
             %tr
               %th
                 カテゴリー
               %td
-                = link_to "#" do
-                  = @item.itemcategory.name
+                = @grandchild.name
+                %br
+                = @child.name
+                %br
+                = @parent.name
             %tr
               %th
                 ブランド
