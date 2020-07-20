@@ -2,7 +2,6 @@
 .wrapper
   .itemMain
     .itemBox
-      -# -if user_signed_in? && @item.seller.id == current_user.id
       -if user_signed_in? && @item.seller_id == current_user.id
         .itemBox__btns
           .itemBox__btns--edit.itemBtn
@@ -49,7 +48,6 @@
               %th
                 出品者
               %td
-                -# = @item.seller.nickname
                 = @nickname
             %tr
               %th
