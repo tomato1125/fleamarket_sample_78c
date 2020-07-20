@@ -651,7 +651,7 @@ items = Item.create!([
 
 
 # トップページ一覧表示用画像
-images = Image.create!([
+images = Image.create([
   {item_id: 1, image:File.open('./app/assets/images/index_item01.png',)},
   {item_id: 2, image:File.open('./app/assets/images/index_item02.png',)},
   {item_id: 3, image:File.open('./app/assets/images/index_item03.png',)},
