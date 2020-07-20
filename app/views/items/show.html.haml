@@ -33,7 +33,7 @@
           - if @item.buyer_id
             .itemSoldMessage
               この商品は既に売却済みです！
-          - elsif @item.seller_id == current_user.id
+          - elsif user_signed_in? && @item.seller_id == current_user.id
             .itemSoldMessage
               出品者は購入手続きができません！
           - else

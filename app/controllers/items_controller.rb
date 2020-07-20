@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only:[:show, :buy, :pay, :destroy]
   before_action :set_category, only:[:show]
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, except:[:show, :index]
 
 
 
