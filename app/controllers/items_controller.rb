@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   before_action :set_item, only:[:show, :buy, :pay, :destroy]
+  before_action :set_category, only:[:show]
   # before_action :authenticate_user!
 
 
@@ -24,12 +25,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
-    @parent = Itemcategory.find(@item.itemcategory_id)
-    @child = @parent.parent
-    @grandchild = @child.parent
-    @nickname = User.find(@item.seller_id).nickname
+    # @grandchild = Itemcategory.find(@item.itemcategory_id)
+    # @child = @grandchild.parent
+    # @parent = @child.parent
   end
 
   def index
@@ -48,6 +47,12 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.build()
     @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
+  end
+
+  def set_category
+    @grandchild = Itemcategory.find(@item.itemcategory_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def get_itemcategory_children

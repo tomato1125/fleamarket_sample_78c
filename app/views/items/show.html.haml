@@ -51,16 +51,16 @@
               %th
                 出品者
               %td
-                = @nickname
+                = @item.seller.nickname
             %tr
               %th
                 カテゴリー
               %td
-                = @grandchild.name
+                = @parent.name
                 %br
                 = @child.name
                 %br
-                = @parent.name
+                = @grandchild.name
             %tr
               %th
                 ブランド
