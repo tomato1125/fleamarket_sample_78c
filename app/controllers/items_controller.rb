@@ -36,8 +36,12 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    if @item.seller.id == current_user.id
-      flash.now[:alert] = "出品者は購入手続きはできません"
+    if @item.seller.id == current_user.id || @item.buyer_id
+      if @item.seller.id == current_user.id
+        flash.now[:alert] = "出品者は購入手続きはできません"
+      else
+        flash.now[:alert] = "この商品は既に購入されています"
+      end
       set_category
       render :show
     end
