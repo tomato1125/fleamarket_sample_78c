@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: [:new]
+  before_action :authenticate_user!
 
   def new
     @user = User.find(params[:user_id])
