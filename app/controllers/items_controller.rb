@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     @parent = Itemcategory.find(@item.itemcategory_id)
     @child = @parent.parent
     @grandchild = @child.parent
-    @nickname = User.find(@item.seller_id).nickname 
+    @nickname = User.find(@item.seller_id).nickname
   end
 
   def index
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
     @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
 
-  def get_itemcategory_children  
+  def get_itemcategory_children
     @itemcategory_children = Itemcategory.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
@@ -157,9 +157,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  
+
   # 下記は使用しないため、一旦コメントアウトします。
-  
+
   # def set_current_user_products
   #   if user_signed_in?
   #     @items = current_user.products.includes(:seller, :buyer, :auction, :item_images)
