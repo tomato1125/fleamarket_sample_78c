@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       get 'buy', 'p_exhibiting', 'p_transaction', 'p_soldout'
       post 'pay'
     end
+    collection do
+      get 'itemcategory/get_itemcategory_children', to: 'items#get_itemcategory_children', defaults: { format: 'json' }
+      get 'itemcategory/get_itemcategory_grandchildren', to: 'items#get_itemcategory_grandchildren', defaults: { format: 'json' }
+    end
   end
 
   # creditに関する記述
