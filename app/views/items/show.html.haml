@@ -33,6 +33,9 @@
           - if @item.buyer_id
             .itemSoldMessage
               この商品は既に売却済みです！
+          - elsif @item.seller_id == current_user.id
+            .itemSoldMessage
+              出品者は購入手続きができません！
           - else
             = link_to buy_item_path do
               購入画面に進む
