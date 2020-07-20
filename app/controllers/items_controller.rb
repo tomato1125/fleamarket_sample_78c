@@ -66,7 +66,9 @@ class ItemsController < ApplicationController
         format.html{redirect_to root_path}
       end
     else
-      redirect_to new_item_path, alert: "必須項目を入力してください"
+      @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
+      flash.now[:alert] = "必須項目を入力してください"
+      render :new
     end
   end
 
