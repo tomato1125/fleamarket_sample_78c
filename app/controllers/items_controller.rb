@@ -15,13 +15,17 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only:[:show, :buy, :pay, :destroy]
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def show
     @item = Item.find(params[:id])
     @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
-    #商品出品機能の実装後に実装したい為、一時的にコメントアウト
-    #@parent = Itemcategory.find(@item.itemcategory_id)
-    #@child = @parent.children
-    #@grandchild = @child.
+    @parent = Itemcategory.find(@item.itemcategory_id)
+    @child = @parent.parent
+    @grandchild = @child.parent
+    @nickname = User.find(@item.seller_id).nickname 
   end
 
   def index
@@ -39,6 +43,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build()
+    @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
+  end
+
+  def get_itemcategory_children  
+    @itemcategory_children = Itemcategory.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_itemcategory_grandchildren
+    @itemcategory_grandchildren = Itemcategory.find("#{params[:child_id]}").children
   end
 
   def create
@@ -120,7 +133,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  
 
   def set_current_user_products
     if user_signed_in?
@@ -134,6 +147,8 @@ class ItemsController < ApplicationController
     @user = User.find(seller_id: current_user.id)
   end
 
+private
+
   def item_params
     params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
   end
@@ -142,10 +157,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       [images_attributes: [:image, :_destroy, :id]])
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
 
 
