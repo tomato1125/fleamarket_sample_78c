@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get 'buy', 'p_exhibiting', 'p_transaction', 'p_soldout'
+      get 'update_done'
       post 'pay'
     end
     collection do

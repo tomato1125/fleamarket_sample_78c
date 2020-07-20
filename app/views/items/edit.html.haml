@@ -1,1 +1,201 @@
-= render partial: 'form'
+.productlisting
+  .productlistingPage
+    .header
+      .headerlogo
+        = image_tag src="logo.png", size: "140x40"
+    .products
+      .formselecter
+        = form_with model: @item, id: "item-dropzone", local: true do |f|
+          .productImage
+            .productImageSpace
+              .productImageSpace__name
+                出品画像
+              .required
+                必須
+            .productImageIntroduce
+              最大5枚までアップロードできます
+            .imageUpload
+              .prev-content
+                - @item.images.each_with_index do |image,i|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      .delete-box
+                        .delete-btn{data:{delete_id: i}} 削除
+              .label-content
+                //プレビューの数に合わせてforオプションを指定
+                = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box" do
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :images do |i|
+                  //プレビューが出ている分のfile_fieldを設置
+                  = i.file_field :image, class:"hidden-field"
+                  = i.check_box :_destroy, class:"hidden-field"
+                  //5つのfile_fieldを準備するに当たって、足りない分を表示
+                - @item.images.length.upto(4) do |i|
+                  %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+            .imageExistenceContent
+
+          .productIntroduce
+            .productNameSpace
+              .productName__name
+                商品名
+              .required
+                必須
+            .productNameForm
+              .productNameForm__contents
+                = f.text_field :name, class: 'productNameForm__input', placeholder: '40文字以内'
+            .ContentExistenceWord
+            .productIntroduceContent
+              .productIntroduceSpace
+                .introduceContent
+                  商品の説明
+                .required
+                  必須
+              .productIntroduceForm
+                .productIntroduceForm__contents
+                  = f.text_area :produce, {cols: "30", class: "productIntroduceForm__Input", placeholder: "商品の説明（必須1,000文字以内）\n(色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "10"}
+
+              .CharacterLimit
+                .CharacterLimit__wordlimit
+                  0/1000
+          .productDetails
+            .detailWord
+              商品の詳細
+            .productCategorySpace
+              .productCategory
+                .productCategory__name
+                  カテゴリー
+                .required
+                  必須
+              .categorySelecter
+                .categorySelecter__contents
+                  = f.collection_select :itemcategory_id, Category.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "categorySelecter__input"}
+              .blankMessage
+              .productBrandSpace
+                .productBrand
+                  .productBrand__name
+                    ブランド
+                  .optional
+                    任意
+                .productBrandSelecter
+                  .productBrandSelecter__contents
+                    = f.collection_select :brand_id, Brand.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "productBrandSelecter__input"}
+              .productConditionSpace
+                .productCondition
+                  .productCondition__name
+                    商品の状態
+                  .required
+                    必須
+                .conditionSelecter
+                  .conditionSelecter__contents
+                    = f.collection_select :condition_id, Condition.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "conditionSelecter__input"}
+                .blankMessage
+          .sendInfomation
+            .sendWord
+              %p.sendWord__title
+                配送について
+              .send__icon
+                = link_to '#' do
+                  = icon('far', 'question-circle', class: 'questionmark')
+            .sendFeeBurdenSpace
+              .sendFeeBurden
+                .sendFeeBurden__name
+                  配送料の負担
+                .required
+                  必須
+              .sendFeeBurdenSelect
+                .sendFeeBurdenSelect__contents
+                  = f.collection_select :deliveryfee_id, Deliveryfee.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "sendFeeBurdenSelect__input"}
+            .shipfromSpace
+              .shipfrom
+                .shipfrom__name
+                  発送元の地域
+                .required
+                  必須
+              .shipfromSelecter
+                .shipfromSelecter__contents
+                  = f.collection_select :prefecture_id, Prefecture.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "shipfromSelecter__input"}
+            .shippingdaysSpace
+              .shippingdays
+                .shippingdays__name
+                  発送までの日数
+                .required
+                  必須
+              .shippingdaysSelecter
+                .shippingdaysSelecter__contents
+                  = f.collection_select :deliverydate_id, Deliverydate.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "shippingdaysSelecter__input"}
+          .productPrice
+            .productPriceWord
+              %p.productPriceWord__title
+                価格（¥300~9,999,999）
+              .productPriceWord__icon
+                = link_to '#' do
+                  = icon('far', 'question-circle', class: 'questionmark')
+            .sellingPriceSpace
+              .sellingPrice
+                .sellingPrice__name
+                  販売価格
+                .required
+                  必須
+              .sellingPriceForm
+                %p.sellingPriceForm__symbol
+                  ¥
+                .sellingPriceSelecter
+                  .sellingPriceSelecter__contents
+                    = f.number_field :price, min: '300', max: '9999999', class: 'sellingPriceSelecter__input', placeholder: '0', id: 'inputPrice'
+                    -# = f.= number_with_delimiter(number, {class: })
+            .sellingFee
+              %p.sellingFee__word
+                販売手数料(10%)
+              .sellingFee__price
+            .selesProfit
+              %p.selesProfit__word
+                販売利益
+              = f.number_field :profitprice, style: "display: none", id:"price", class: 'selesProfit__price'
+              .selesProfit__rightBar2
+          .buttonSpace
+            .Button
+              = f.button :button, { name: "変更する", type: "submit", class: "Button__send" } do
+                変更する
+              .returnButton
+                = link_to item_path(@item.id), class: "Button__save" do
+                  キャンセル
+      .precautions
+        %p.precautionsWord
+          禁止されている
+          = link_to '#', class: 'precautions__link' do
+            行為
+          および
+          = link_to '#', class: 'precautions__link' do
+            出品物
+          を必ずご確認ください。
+          = link_to '#', class: 'precautions__link' do
+            偽ブランド品
+          や
+          = link_to '#', class: 'precautions__link' do
+            窃盗品
+          などの販売は犯罪であり、法律に
+          %br
+          より処罰される可能性があります。また、出品をもちまして
+          = link_to '#', class: 'precautions__link' do
+            加盟店契約
+          に同意したことになります。
+  .PageFooder
+    .fooderContents
+      %ul.lists
+        %li.lists__firstItem
+          = link_to '#' do
+            プライバシーポリシー
+        %li.lists__secondItem
+          = link_to '#' do
+            メルカリ利用規約
+        %li.lists__thirdItem
+          = link_to '#' do
+            特定商取引に関する表記
+    .fooderLogo
+      .iconlogo
+        = image_tag src="logo-white.png", size: "140x40"
+      .copyright
+        ©︎ FURIMA, Inc.

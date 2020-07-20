@@ -5,7 +5,7 @@
       -if user_signed_in? && @item.seller_id == current_user.id
         .itemBox__btns
           .itemBox__btns--edit.itemBtn
-            = link_to "#" do
+            = link_to edit_item_path(@item) do
               編集
           .itemBox__btns--delete.itemBtn
             = link_to item_path(@item), method: :delete do
