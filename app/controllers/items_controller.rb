@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
   def buy
     if @item.seller.id == current_user.id
       flash.now[:alert] = "出品者は購入手続きはできません"
+      set_category
       render :show
     end
     @item = Item.find(params[:id])
@@ -100,35 +101,17 @@ class ItemsController < ApplicationController
     return
   end
 
-  private
-
-  def set_current_user_products
-    if user_signed_in?
-      @items = current_user.products.includes(:seller, :buyer, :auction, :item_images)
-    else
-      redirect_to new_user_session_path
-    end
-  end
-
-  def set_user
-    @user = User.find(seller_id: current_user.id)
-  end
-
-  def item_params
-    params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
-  end
-
-  def item_update_params
-    params.require(:item).permit(
-      :name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id,
-      [images_attributes: [:image, :_destroy, :id]])
-  end
-
   def pay
     if @item.buyer_id
       flash.now[:alert] = "商品は既に売却済みでした"
       root_path
     end
+
+    if current_user.id == @item.seller_id
+      flash.now[:alert] = "出品者は購入できません。"
+      root_path
+    end
+
     unless current_user.credit || @item.send_informations
       flash.now[:alert] = "カード登録もしくは配送先登録がが未了です"
       render :buy
@@ -153,6 +136,7 @@ class ItemsController < ApplicationController
 
   end
 
+
   def destroy
     if @item.seller.id == current_user.id
       if @item.destroy
@@ -164,6 +148,33 @@ class ItemsController < ApplicationController
       redirect_to root_path, alert: "ユーザーが一致していません"
     end
   end
+
+  private
+
+  def set_current_user_products
+    if user_signed_in?
+      @items = current_user.products.includes(:seller, :buyer, :auction, :item_images)
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
+  def set_user
+    @user = User.find(seller_id: current_user.id)
+  end
+
+  def item_params
+    params.require(:item).permit(:name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
+  end
+
+  def item_update_params
+    params.require(:item).permit(
+      :name, :price, :produce, :deliveryfee_id, :brand_id, :itemcategory_id, :condition_id, :prefecture_id, :deliverydate_id,
+      [images_attributes: [:image, :_destroy, :id]])
+  end
+
+
+
 
 
   # 下記は使用しないため、一旦コメントアウトします。
