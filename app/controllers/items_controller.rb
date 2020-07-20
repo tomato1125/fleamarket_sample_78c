@@ -88,7 +88,7 @@ class ItemsController < ApplicationController
       flash.now[:alert] = "カード登録もしくは配送先登録がが未了です"
       render :buy
     else
-      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      Payjp.api_key = Rails.application.credentials[:PAYJP][:payjp_secret_key]
       customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
       charge = Payjp::Charge.create(
         amount: @item.price,
