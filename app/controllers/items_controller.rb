@@ -26,9 +26,6 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
-    # @grandchild = Itemcategory.find(@item.itemcategory_id)
-    # @child = @grandchild.parent
-    # @parent = @child.parent
   end
 
   def index
@@ -54,12 +51,6 @@ class ItemsController < ApplicationController
     @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
 
-  def set_category
-    @grandchild = Itemcategory.find(@item.itemcategory_id)
-    @child = @grandchild.parent
-    @parent = @child.parent
-  end
-
   def get_itemcategory_children
     @itemcategory_children = Itemcategory.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
@@ -81,11 +72,20 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    if current_user.id != @item.seller_id
+      flash.now[:alert] = "編集は出品者しかできません"
+      set_category
+      render :show
+    end
   end
 
 
   def update
     @item = Item.find(params[:id])
+    if current_user.id != @item.seller_id
+      flash.now[:alert] = "編集は出品者しかできません"
+      render :edit and return
+    end
     length = @item.images.length
     i = 0
     while i < length do
@@ -177,7 +177,11 @@ class ItemsController < ApplicationController
       [images_attributes: [:image, :_destroy, :id]])
   end
 
-
+  def set_category
+    @grandchild = Itemcategory.find(@item.itemcategory_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
+  end
 
 
 
