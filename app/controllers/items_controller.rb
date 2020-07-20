@@ -2,6 +2,12 @@ class ItemsController < ApplicationController
   # before_action :set_current_user_items,only:[:p_transaction,:p_exhibiting,:p_soldout]
   # before_action :set_user,only:[:p_transaction,:p_exhibiting,:p_soldout]
 
+  require 'payjp'
+
+  before_action :set_item, only:[:show, :buy, :pay, :destroy]
+  # before_action :authenticate_user!
+
+
 
   def p_exhibiting #出品中のアクション
   end
@@ -12,9 +18,6 @@ class ItemsController < ApplicationController
   def p_soldout #売却済みのアクション
   end
 
-  require 'payjp'
-
-  before_action :set_item, only:[:show, :buy, :pay, :destroy]
 
   def set_item
     @item = Item.find(params[:id])
