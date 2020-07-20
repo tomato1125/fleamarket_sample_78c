@@ -20,7 +20,7 @@ class CreditsController < ApplicationController
   end
 
   def create
-    Payjp.api_key =  ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key =  Rails.application.credentials[:PAYJP][:payjp_secret_key]
     if params['payjp-token'].blank?
       render :new
     else
@@ -31,7 +31,7 @@ class CreditsController < ApplicationController
       )
       @credit = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @credit.save
-        redirect_to user_path(current_user.id)
+        redirect_to request.referer || users_path(current_user.id)
       else
         render :new
       end

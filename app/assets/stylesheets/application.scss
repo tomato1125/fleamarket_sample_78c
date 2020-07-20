@@ -12,7 +12,8 @@ $theme-color: rgb(60,202,206)
 @import 'modules/items/new';
 @import 'modules/items/edit';
 @import "modules/user";
-@import "modules/profiles";
+@import "modules/profiles/profiles_new";
+@import "modules/profiles/profiles_index";
 @import "modules/users/users_show";
 @import "font-awesome-sprockets";
 @import "font-awesome";

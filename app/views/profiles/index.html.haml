@@ -1,0 +1,35 @@
+.Back
+  .Wrapper
+    = render "./users/l-side"
+    .profileIndex
+      - if @profile
+        .profileContents
+          .profileContents__title
+            名字
+          .profileContents__column
+            = @profile.family_name
+        .profileContents
+          .profileContents__title
+            名前
+          .profileContents__column
+            = @profile.first_name
+        .profileContents
+          .profileContents__title
+            名字カナ
+          .profileContents__column
+            = @profile.family_name_kana
+        .profileContents
+          .profileContents__title
+            名前カナ
+          .profileContents__column
+            = @profile.first_name_kana
+        .profileContents
+          .profileContents__title
+            生年月日
+          .profileContents__column
+            = @profile.birth_date
+      - else
+        %h1 現在登録されておりません
+        .profileCreate
+        = link_to new_user_profile_path(current_user.id), class:"profileCreateBtn" do
+          登録する

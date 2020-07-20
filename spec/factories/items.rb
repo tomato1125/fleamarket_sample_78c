@@ -4,7 +4,7 @@ FactoryBot.define do
 
     name {"editテスト"}
     produce {"食べ物の紹介"}
-    # itemcategory_id {"1"}
+    itemcategory_id {"9999999"}
     condition_id {"88888888"}
     deliveryfee_id {"3"}
     prefecture_id {"34"}
