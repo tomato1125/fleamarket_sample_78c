@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+
   //カテゴリーボックスのオプション
   $(function(){
     function appendOption(itemcategory){
@@ -90,4 +90,3 @@ $(document).on('turbolinks:load', function(){
       }
     });
   })
-})

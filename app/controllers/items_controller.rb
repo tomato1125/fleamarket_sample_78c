@@ -45,6 +45,8 @@ class ItemsController < ApplicationController
     @item.images.build()
     @itemcategory = ["選択してください"]
     Itemcategory.where(ancestry: nil).pluck(:name)
+    Itemcategory.where(ancestry: nil).each do |parent|
+      @itemcategory << parent.name
     end
   end
 
