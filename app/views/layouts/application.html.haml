@@ -17,3 +17,9 @@
     = render 'layouts/notifications'
     = yield
     = render "layouts/footer"
+    .topItemBtn
+      = link_to new_item_path do
+        .topItemText
+          %span 出品する
+        .topItemIcon
+          %i.fas.fa-camera
