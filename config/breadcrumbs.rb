@@ -6,6 +6,11 @@ crumb :users do
   link "#{current_user.nickname}のマイページ", new_user_registration_path
 end
 
+crumb :profiles_index do
+  link "本人確認情報",user_profiles_path(current_user)
+  parent :users
+end
+
 crumb :send_informations_index do 
   link "お届け先住所", user_send_informations_path(current_user)
   parent :users
