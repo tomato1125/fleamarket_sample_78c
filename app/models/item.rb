@@ -20,6 +20,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :deliverydate
   belongs_to_active_hash :deliveryfee
+  has_many :comments, dependent: :destroy
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
