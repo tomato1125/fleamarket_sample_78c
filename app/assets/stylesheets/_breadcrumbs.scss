@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+.breadcrumb-list{
+  padding: 0 60px;
+  margin-bottom: 10px;
+  &__menu{
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin: 0 auto;
+    max-width: 1040px;
+    width: 100%;
+    a{
+      text-decoration:none;
+      color: #333333;
+    }
+  }
+}
