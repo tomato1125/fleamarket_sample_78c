@@ -6,7 +6,7 @@
   width: 35px;
   height: 20px;
   margin-left: 8px;
-  padding: 0 4px;
+  padding: 0 5px;
   line-height: 1.8em;
   background-color: #3ccace;
 }
@@ -57,107 +57,52 @@ a {
   display: block;
   margin: 16px auto 0;
   display: flex;
-  border: 1px dotted #ccc;
-  background-color: #EEEEEE;
+  flex-wrap: wrap;
   cursor: pointer;
-  
-  #preview , #preview2{
-    display: flex;
 
-    .img_view {
+  .prev-content {
+    display: flex;
+    .preview-box {
       height: 162px;
       width: 112px;
       margin: 0 15px 10px 0;
-
+      .upper-box {
+        height: 112px;
+        width: 100%;
         img{
           width: 112px;
           height: 112px;
         }
       }
-
-      .btn_wrapper {
+      .lower-box {
         display: flex;
         text-align: center;
-
-        .btn.edit {
+        .delete-box {
           color: #00b0ff;
-          width: 50%;
+          width: 100%;
           height: 50px;
           line-height: 50px;
           border: 1px solid #eee;
           background: #f5f5f5;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           cursor: pointer;
+          .delete-btn {
+            background-color: #f5f5f5;
+            line-height: 40px;
+            width: 60px;
+          }
         }
-
-        .btn.delete {
-          color: #00b0ff;
-          width: 50%;
-          height: 50px;
-          line-height: 50px;
-          border: 1px solid #eee;
-          background: #f5f5f5;
-          cursor: pointer;
-        }
-      }
-    }
-
-  //投稿クリックエリアのCSS
-  .dropzone-area {
-    margin-bottom: 10px;
-    width: 620px;
-
-    .dropzone-box {
-      display: block;
-      border: 1px dashed #ccc;
-      position: relative;
-      background: #f5f5f5;
-      width: 100%;
-      height: 162px;
-      cursor: pointer;
-
-      .fas.fa-camera {
-        position: absolute;
-        top: 35%;
-        left: 16px;
-        right: 16px;
-        text-align: center;
-        font-size: 25px;
-        line-height: 1.5;
-        font-weight: bold;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        pointer-events: none;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-      }
-
-      .labelContents {
-        position: absolute;
-        top: 50%;
-        left: 16px;
-        right: 16px;
-        text-align: center;
-        font-size: 14px;
-        line-height: 1.5;
-        font-weight: bold;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        pointer-events: none;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-      }
-      .input_area {
-        display: none;
       }
     }
   }
+
   //投稿クリックエリアのCSS
-  .dropzone-area2{
-    display: none;
+  .label-content{
     margin-bottom: 10px;
     width: 620px;
-
-    .dropzone-box {
+    .label-box {
       display: block;
       border: 1px dashed #ccc;
       position: relative;
@@ -165,24 +110,7 @@ a {
       width: 100%;
       height: 162px;
       cursor: pointer;
-
-      .fas.fa-camera {
-        position: absolute;
-        top: 35%;
-        left: 16px;
-        right: 16px;
-        text-align: center;
-        font-size: 25px;
-        line-height: 1.5;
-        font-weight: bold;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        pointer-events: none;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-      }
-
-      .labelContents {
+      &__text-visible {
         position: absolute;
         top: 50%;
         left: 16px;
@@ -197,13 +125,19 @@ a {
         white-space: pre-wrap;
         word-wrap: break-word;
       }
-      .input_area {
-        display: none;
-      }
+    }
+  }
+
+  //file_fieldのcss
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .hidden-checkbox {
+      display: none;
     }
   }
 }
-
 
 .ImageUploadIntroduce {
   margin: 0 0;
@@ -231,12 +165,12 @@ a {
 
 .productNameForm {
   margin-top: 16px;
-  width: 99%;
+  width: 100%;
   &__input {
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 40px;
-    width: 96%;
+    width: 100%;
     padding: 0 16px;
   }
 }
@@ -260,7 +194,7 @@ a {
 }
 
 .productIntroduceForm {
-  width: 97%;
+  width: 100%;
   margin-top: 16px;
   &__contents {
     width: 100%;
@@ -322,6 +256,7 @@ a {
     padding: 0 56px 0 4px;
     height: 40px;
     width: 100%;
+    margin-bottom: 10px;
     cursor: pointer;
   }
 }
@@ -340,29 +275,34 @@ a {
     font-weight: bold;
     color: #333333;
   }
-}
-.optional {
-  font-size: 12px;
-  font-weight: bold;
-  color: #ffffff;
-  border-radius: 3px;
-  width: 25px;
-  height: 20px;
-  margin-left: 8px;
-  padding: 0 4px;
-  line-height: 1.8em;
-  background-color: #C0C0C0;
+  .optional {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 3px;
+    width: 35px;
+    height: 20px;
+    margin-left: 8px;
+    padding: 0 5px;
+    line-height: 1.8em;
+    background-color: #C0C0C0;
+  }
 }
 
-.productBrandForm {
+.productBrandSelecter {
   margin-top: 16px;
   width: 100%;
-  &__Content {
-    border: 1px solid #ccc;
-    padding: 0 16px;
-    border-radius: 4px;
-    width: 95%;
+  &__contents {
+    width: 100%;
     height: 40px;
+  }
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 56px 0 4px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
   }
 }
 
@@ -559,19 +499,22 @@ a {
 }
 
 .selesProfit {
-  margin-top: 16px;
-  padding-top: 4px;
+  margin-top: 25px;
+  padding-top: 25px;
   border-top: 1px solid #C0C0C0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   &__word {
-    font-size: 14px;
+    font-size: 25px;
     color: #333333;
   }
   &__price {
-    font-size: 14px;
+    font-size: 25px;
     color: #333333;
+  }
+  &__rightBar2 {
+    font-size: 25px;
   }
 }
 
@@ -582,6 +525,7 @@ a {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0 40px;
   &__send {
     min-height: 48px;
     color: #FFFFFF;
@@ -591,10 +535,12 @@ a {
     border-radius: 5px;
     cursor: pointer;
     background-color: #3ccace;
-    width: 400px;
+    width: 100%;
   }
-  &__save {
-    min-height: 48px;
+}
+.returnButton {
+  margin-top: 30px;
+  line-height: 48px;
     color: #000000;
     font-size: 16px;
     font-weight: bold;
@@ -604,11 +550,10 @@ a {
     cursor: pointer;
     background-color: #C0C0C0;
     width: 400px;
-  }
-}
-.returnButton {
-  margin-top: 30px;
+    display: block;
+    text-align: center;
   a {
+    color: #ffffff;
     text-decoration: none;
   }
 }

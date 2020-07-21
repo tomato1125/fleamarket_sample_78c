@@ -1,3 +1,14 @@
+
+users = User.create!([
+  {nickname: "guest", email: "guest@guest.com",password:"guest1234"},
+  {nickname: "sakamoto", email: "sakamoto@sakamoto.com",password:"sakamoto1234"},
+  {nickname: "tanaka", email: "tanaka@tanaka.com",password:"tanaka1234"},
+  {nickname: "urakawa", email: "urakawa@urakawa.com",password:"urakawa1234"},
+  {nickname: "yoshida", email: "yoshida@yoshida.com",password:"yoshida1234"},
+  {nickname: "okayama", email: "okayama@okayama.com",password:"okayama1234"},
+ ])
+
+
 lady = Itemcategory.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
@@ -332,27 +343,331 @@ others_8.children.create([{name: "オフィス用品一般"},{name: "オフィ�
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
-# カテゴリー一覧
 
-categories = Itemcategory.create(name: "カテゴリー一覧")
-
-
-# item = Item.create!(
-#   name: "test1",
-#   produce: "テスト商品です。",
-#   price: 8000,
-#   deliveryfee_id: 2,
-#   brand_id: 1,
-#   itemcategory_id: 1,
-#   condition_id: 1,
-#   prefecture_id: 1,
-#   deliverydate_id: 1,
-#   selleruser_id: 1
-# )
-
-# images = Image.create!([
-#    {item_id: 1, image:File.open('./app/assets/images/show_sample4.jpeg',)},
-#    {item_id: 1, image:File.open('./app/assets/images/show_sample3.png',)},
-#    {item_id: 1, image:File.open('./app/assets/images/show_sample2.png',)},
-#    {item_id: 1, image:File.open('./app/assets/images/show_sample1.png',)}
-#   ])
+# トップページ一覧表示用アイテム
+items = Item.create!([
+  {
+  name: "ソファ",
+  produce: "新品",
+  price: 80000,
+  deliveryfee_id: 2,
+  itemcategory_id: 490,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item01.png',)}]
+  },
+  {
+  name: "ピアノ",
+  produce: "中古",
+  price: 30000,
+  deliveryfee_id: 2,
+  itemcategory_id: 720,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item02.png',)}]
+  },
+  {
+  name: "判子",
+  produce: "なし",
+  price: 2000,
+  deliveryfee_id: 2,
+  itemcategory_id: 1285,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item03.png',)}]
+  },
+  {
+  name: "グローブ",
+  produce: "新品",
+  price: 10000,
+  deliveryfee_id: 2,
+  itemcategory_id: 994,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item04.png',)}]
+  },
+  {
+  name: "バット",
+  produce: "新品",
+  price: 10000,
+  deliveryfee_id: 2,
+  itemcategory_id: 995,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item05.png',)}]
+  },
+  {
+  name: "クロワッサン",
+  produce: "焼き立て",
+  price: 1000,
+  deliveryfee_id: 2,
+  itemcategory_id: 1269,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  buyer_id: 2,
+  images_attributes: [{image:File.open('./app/assets/images/index_item06.png',)}]
+  },
+  {
+  name: "冷蔵庫",
+  produce: "新品",
+  price: 150000,
+  deliveryfee_id: 2,
+  itemcategory_id: 947,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item07.png',)}]
+  },
+  {
+  name: "バッグ",
+  produce: "ブランド品",
+  price: 300000,
+  deliveryfee_id: 2,
+  itemcategory_id: 95,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item08.png',)}]
+  },
+  {
+  name: "テレビ",
+  produce: "新品",
+  price: 50000,
+  deliveryfee_id: 2,
+  itemcategory_id: 908,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item09.png',)}]
+  },
+  {
+  name: "猫のご飯",
+  produce: "なし",
+  price: 400,
+  deliveryfee_id: 2,
+  itemcategory_id: 1250,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-02,
+  updated_at: 2020-07-02,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item10.jpeg',)}]
+  },
+  {
+  name: "さんまの塩焼きグリーンカレー",
+  produce: "激辛",
+  price: 1000,
+  deliveryfee_id: 2,
+  itemcategory_id: 1268,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item11.png',)}]
+  },
+  {
+  name: "餃子チリソース",
+  produce: "甘口",
+  price: 800,
+  deliveryfee_id: 2,
+  itemcategory_id: 1268,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item12.png',)}]
+  },
+  {
+  name: "学食カレー",
+  produce: "中辛",
+  price: 400,
+  deliveryfee_id: 2,
+  itemcategory_id: 1268,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item13.png',)}]
+  },
+  {
+  name: "コンポ",
+  produce: "中古",
+  price: 10000,
+  deliveryfee_id: 2,
+  itemcategory_id: 924,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  buyer_id: 2,
+  images_attributes: [{image:File.open('./app/assets/images/index_item14.png',)}]
+  },
+  {
+  name: "ドライヤー",
+  produce: "新品",
+  price: 8000,
+  deliveryfee_id: 2,
+  itemcategory_id: 926,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item15.png',)}]
+  },
+  {
+  name: "シェーバー",
+  produce: "新品",
+  price: 5000,
+  deliveryfee_id: 2,
+  itemcategory_id: 929,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item16.png',)}]
+  },
+  {
+  name: "タラバガニ",
+  produce: "新鮮",
+  price: 20000,
+  deliveryfee_id: 2,
+  itemcategory_id: 1266,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item17.png',)}]
+  },
+  {
+  name: "ソーセージ",
+  produce: "冷蔵",
+  price: 5000,
+  deliveryfee_id: 2,
+  itemcategory_id: 1268,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item18.png',)}]
+  },
+  {
+  name: "押し寿司",
+  produce: "冷蔵",
+  price: 2000,
+  deliveryfee_id: 2,
+  itemcategory_id: 1268,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item19.png',)}]
+  },
+  {
+  name: "シャープペンシル",
+  produce: "なし",
+  price: 1000,
+  deliveryfee_id: 2,
+  itemcategory_id: 1285,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item20.png',)}]
+  },
+  {
+  name: "ホッチキス",
+  produce: "なし",
+  price: 500,
+  deliveryfee_id: 2,
+  itemcategory_id: 1285,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item21.png',)}]
+  },
+  {
+  name: "セロハンテープ",
+  produce: "なし",
+  price: 400,
+  deliveryfee_id: 2,
+  itemcategory_id: 1285,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item22.png',)}]
+  },
+  {
+  name: "レターボックス",
+  produce: "なし",
+  price: 1500,
+  deliveryfee_id: 2,
+  itemcategory_id: 1285,
+  condition_id: 1,
+  prefecture_id: 1,
+  deliverydate_id: 1,
+  created_at: 2020-07-01,
+  updated_at: 2020-07-01,
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item23.png',)}]
+  }
+])

@@ -1,154 +1,99 @@
-$(document).on('turbolinks:load', function(){
-  var dropzone = $('.dropzone-area');
-  var dropzone2 = $('.dropzone-area2');
-  var dropzone_box = $('.dropzone-box');
-  var images = [];
-  var inputs  =[];
-  var input_area = $('.input_area');
-  var preview = $('#preview');
-  var preview2 = $('#preview2');
+$(function(){
+// $(document).on('turbolinks:load', function(){
+  //共通の定数を定義==================================================================
+  const prevContent = $('.label-content').prev();
 
-  $(document).on('change', 'input[type= "file"].upload-image',function(event) {
-    var file = $(this).prop('files')[0];
-    var reader = new FileReader();
-    inputs.push($(this));
-    var img = $(`<div class= "img_view"><img></div>`);
-    reader.onload = function(e) {
-      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>');
-      img.append(btn_wrapper);
-      img.find('img').attr({
-        src: e.target.result
-      })
-    }
-    reader.readAsDataURL(file);
-    images.push(img);
-
-    if (images.length <= 4) {
-      $('#preview').empty();
-      $.each(images, function(index, image) {
-        image.data('image', index);
-        preview.append(image);
-      })
-      dropzone.css({
-        'width': `calc(100% - (20% * ${images.length}))`
-      })
-
-      // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
-    } else if (images.length == 5) {
-      $("#preview").empty();
-      $.each(images, function(index, image) {
-        image.data("image", index);
-        preview.append(image);
-      });
-      dropzone2.css({
-        display: "block"
-      });
-      dropzone.css({
-        display: "none"
-      });
-      preview2.empty();
-
-      // 画像が６枚以上のとき
-    } else if (images.length >= 6) {
-      // １〜５枚目の画像を抽出
-      var pickup_images1 = images.slice(0, 5);
-
-      // １〜５枚目を１段目に表示
-      $('#preview').empty();
-      $.each(pickup_images1, function(index, image) {
-        image.data('image', index);
-        preview.append(image);
-      })
-
-      // ６枚目以降の画像を抽出
-      var pickup_images2 = images.slice(5);
-
-      // ６枚目以降を２段目に表示
-      $.each(pickup_images2, function(index, image) {
-        image.data('image', index + 5);
-        preview2.append(image);
-      })
-
-      dropzone.css({
-        'display': 'none'
-      })
-      dropzone2.css({
-        'display': 'block',
-        'width': `calc(100% - (20% * ${images.length - 5}))`
-      })
-
-      // 画像が１０枚になったら枠を消す
-      if (images.length == 10) {
-        dropzone2.css({
-          display: "none"
-        });
-      }
-    }
-    var new_image = $(`<input name="item_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
-    input_area.prepend(new_image);
-  });
-  $(document).on('click', '.delete', function() {
-    var target_image = $(this).parent().parent();
-    $.each(inputs, function(index, input){
-      if ($(this).data('image') == target_image.data('image')){
-        $(this).remove();
-        target_image.remove();
-        var num = $(this).data('image');
-        images.splice(num, 1);
-        inputs.splice(num, 1);
-        if(inputs.length == 0) {
-          $('input[type= "file"].upload-image').attr({
-            'data-image': 0
-          })
-        }
-      }
-    })
-    $('input[type= "file"].upload-image:first').attr({
-      'data-image': inputs.length
-    })
-    $.each(inputs, function(index, input) {
-      var input = $(this)
-      input.attr({
-        'data-image': index
-      })
-      $('input[type= "file"].upload-image:first').after(input)
-    })
-    if (images.length >= 5) {
-      dropzone2.css({
-        'display': 'block'
-      })
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        preview2.append(image);
-      })
-      dropzone2.css({
-        'width': `calc(100% - (135px * ${images.length - 5}))`
-      })
-      if(images.length == 9) {
-        dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
-      }
-      if(images.length == 8) {
-        dropzone2.find('i').replaceWith('<p>ココをクリックしてください</p>')
-      }
+  //プレビューのhtmlを定義============================================================
+  function buildHTML(id,image) {
+    var html = `<div class="preview-box">
+                  <div class="upper-box">
+                    <img src=${image} alt="preview">
+                  </div>
+                  <div class="lower-box">
+                    <div class="delete-box">
+                      <div class="delete-btn" data-delete-id= ${id}>削除</div>
+                    </div>
+                  </div>
+                </div>`
+    return html;
+  }
+  //ラベルのwidth・id・forの値を変更==================================================
+  function setLabel(count) {
+    //プレビューが5個あったらラベルを隠す
+    if (count == 5) { 
+      $('.label-content').hide();
     } else {
-      dropzone.css({
-        'display': 'block'
-      })
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        preview.append(image);
-      })
-      dropzone.css({
-        'width': `calc(100% - (135px * ${images.length}))`
-      })
+      //プレビューが4個以下の場合はラベルを表示
+      $('.label-content').show();
+      //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
+      labelWidth = (620 - parseInt($(prevContent).css('width')));
+      $('.label-content').css('width', labelWidth);
+      //id・forの値を変更
+      $('.label-box').attr({for: `item_images_attributes_${count}_image`});
     }
-    if(images.length == 4) {
-      dropzone2.css({
-        'display': 'none'
-      })
+  }
+
+  //編集ページ(items/:i/edit)へリンクした際のアクション==================================
+  if (window.location.href.match(/\/items\/\d+\/edit/)){
+    //プレビューの数を取得
+    var count = $('.preview-box').length;
+    //countに応じてラベルのwidth・id・forの値を変更
+    setLabel(count) 
+  }
+
+  //プレビューの追加=================================================================
+  $(document).on('change', '.hidden-field', function() {
+    //hidden-fieldのidの数値のみ取得
+    var id = $(this).attr('id').replace(/[^0-9]/g, '');
+    //選択したfileのオブジェクトを取得
+    var file = this.files[0];
+    var reader = new FileReader();
+    //readAsDataURLで指定したFileオブジェクトを読み込む
+    reader.readAsDataURL(file);
+    //読み込み時に発火するイベント
+    reader.onload = function() {
+      var image = this.result;
+      //htmlを作成
+      var html = buildHTML(id,image);
+      //ラベルの直前のプレビュー群にプレビューを追加
+      $(prevContent).append(html);
+      //プレビューの数を取得
+      var count = $('.preview-box').length;
+      //countに応じてラベルのwidth・id・forの値を変更
+      setLabel(count);
     }
-    if(images.length == 3) {
-      dropzone.find('i').replaceWith('<p>ココをクリックしてください</p>')
+  });
+
+  // 画像の削除=====================================================================
+  $(document).on('click', '.delete-btn', function() {
+    var id = $(this).attr('data-delete-id')
+    //削除用チェックボックスがある場合はチェックボックスにチェックを入れる
+    if ($(`#item_images_attributes_${id}__destroy`).length) {
+      $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+    }
+    //画像を消去
+    $(this).parent().parent().parent().remove();
+    //フォームの中身を削除
+    $(`#item_images_attributes_${id}_image`).val("");
+    //プレビューの数を取得
+    var count = $('.preview-box').length;
+    //countに応じてラベルのwidth・id・forの値を変更
+    setLabel(count);
+  });
+
+  $('#inputPrice').on('input', function() {  //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
+    var data = $('#inputPrice').val();  // val()でフォームのvalueを取得(数値)
+    var profit = Math.round(data * 0.9)  // 手数料計算を行う｡dataにかけているのが0.9なのは単に引きたい手数料が10%のため｡Math.roundは、引数で与えた数値を四捨五入して、最も近似の整数を返す。
+    var fee = (data - profit)  // 入力した数値から計算結果(profit)を引く｡それが手数料となる｡
+    $('.sellingFee__price').html(fee)  //  手数料の表示｡html()は追加ではなく､上書き｡入力値が変わる度に表示も変わるようにする｡（appendとは異なる）
+    $('.sellingFee__price').prepend('¥')  // 手数料の前に¥マークを付けたいので
+    $('.selesProfit__rightBar2').html(profit)
+    $('.selesProfit__rightBar2').prepend('¥')
+    $('#price').val(profit)  // 計算結果を格納用フォームに追加｡もし､入力値を追加したいのなら､今回はdataを引数に持たせる｡
+    if(profit == '-') {  // もし､計算結果が''なら表示も消す｡
+    $('.selesProfit__rightBar2').html('');
+    $('.sellingFee__price').html('');
     }
   })
 });
+

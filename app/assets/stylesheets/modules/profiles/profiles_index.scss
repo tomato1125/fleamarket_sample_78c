@@ -1,0 +1,39 @@
+
+.profileIndex {
+  width: 100%;
+  height: 90%;
+  margin-top: 100px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+
+  .profileContents {
+    width: 20%;
+    height: 100px;
+    text-align: center;
+
+    &__title {
+      height: 40%;
+      background-color: $theme-color;
+      border: 1px solid gray;
+      border-radius: 2px;
+    }
+
+    &__column {
+      height: 60%;
+      background-color: white;
+      border: 1px solid gray;
+      border-radius: 2px;
+    }
+  }
+}
+
+.profileCreate {
+  height: 50px;
+  &Btn {
+    text-decoration: none;
+    background-color: $theme-color;
+    height: 24px;
+    color: white;
+  }
+}

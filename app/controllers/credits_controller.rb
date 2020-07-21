@@ -2,7 +2,7 @@ class CreditsController < ApplicationController
 
   require 'payjp'
 
-  before_action :authenticate_user!,only: [:new,:create]
+  before_action :authenticate_user!
 
 
 
@@ -20,7 +20,7 @@ class CreditsController < ApplicationController
   end
 
   def create
-    Payjp.api_key =  ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key =  Rails.application.credentials[:PAYJP][:payjp_secret_key]
     if params['payjp-token'].blank?
       render :new
     else

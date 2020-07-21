@@ -1,6 +1,7 @@
 class SendInformationsController < ApplicationController
   before_action :set_user
   before_action :maxLengthValid_sendInformation, only: [:new, :create]
+  before_action :authenticate_user!
 
   def index
     @send_informations = @user.send_informations

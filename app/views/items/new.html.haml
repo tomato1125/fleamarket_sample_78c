@@ -13,22 +13,19 @@
               .required
                 必須
             .productImageIntroduce
-              最大10枚までアップロードできます
-            = f.fields_for :images do |image|
-              .imageUpload
-                #preview
-                .dropzone-area
-                  = image.label :image, class: "dropzone-box", for: "upload-image" do
-                    .input_area
-                      = image.file_field :image, accept: "image/*", id: "upload-image", class: "upload-image"
-                    %p.fas.fa-camera
-                    %p.labelContents クリックしてファイルをアップロード
-              .imageUpload
-                #preview2
-                .dropzone-area2
-                  = image.label :image, class: "dropzone-box", for: "upload-image" do
-                    %p.fas.fa-camera
-                    %p.labelContents クリックしてファイルをアップロード
+              最大5枚までアップロードできます
+            .imageUpload
+              .prev-content
+              .label-content
+                %label{for: "item_images_attributes_0_image", class: "label-box"}
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :images do |i|
+                  = i.file_field :image, class:"hidden-field"
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
             .imageExistenceContent
 
           .productIntroduce
@@ -65,7 +62,7 @@
                   必須
               .categorySelecter
                 .categorySelecter__contents
-                  = f.collection_select :itemcategory_id, Category.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "categorySelecter__input"}
+                  = f.select :itemcategory, @itemcategory, {}, {class: 'categorySelecter__input', id: 'parent_itemcategory'}
               .blankMessage
               .productBrandSpace
                 .productBrand
@@ -73,10 +70,9 @@
                     ブランド
                   .optional
                     任意
-                .productBrandForm
-                  .productBrandForm__contents
-                    = f.collection_select :brand_id, Brand.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "productBrandForm__Content"}
-                    -# = f.text_field :brand_id, class: 'productBrandForm__Content', placeholder: '例)シャネル'
+                .productBrandSelecter
+                  .productBrandSelecter__contents
+                    = f.collection_select :brand_id, Brand.all.collect, :id, :name, {include_blank: "選択してください"}, {class: "productBrandSelecter__input"}
               .productConditionSpace
                 .productCondition
                   .productCondition__name
@@ -139,24 +135,25 @@
                   ¥
                 .sellingPriceSelecter
                   .sellingPriceSelecter__contents
-                    = f.number_field :price, class: 'sellingPriceSelecter__input', placeholder: '0'
+                    = f.number_field :price, min: '300', max: '9999999', class: 'sellingPriceSelecter__input', placeholder: '0', id: 'inputPrice'
+                    -# = f.= number_with_delimiter(number, {class: })
             .sellingFee
               %p.sellingFee__word
                 販売手数料(10%)
-              %span.sellingFee__price
-                ー
+              .sellingFee__price
             .selesProfit
               %p.selesProfit__word
                 販売利益
-              %span.selesProfit__price
-                ー
+              -# %input{style: "display: none", id:"price", class: 'selesProfit__price'}
+              = f.number_field :profit, style: "display: none", id:"price", class: 'selesProfit__price'
+              .selesProfit__rightBar2
           .buttonSpace
             .Button
-              = f.button name: "出品する", type: "submit", class: "Button__send"
-              = f.button name: "下書きを保存", type: "submit", class: "Button__save"
+              = f.button :button, { name: "変更する", type: "submit", class: "Button__send" } do
+                出品する
               .returnButton
                 = link_to '#' do
-                  もどる
+                  キャンセル
       .precautions
         %p.precautionsWord
           禁止されている
