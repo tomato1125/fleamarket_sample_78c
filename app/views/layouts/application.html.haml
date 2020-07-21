@@ -14,6 +14,7 @@
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render "layouts/header"
+    = render './devise/shared/breadcrumbs'
     = render 'layouts/notifications'
     = yield
     = render "layouts/footer"

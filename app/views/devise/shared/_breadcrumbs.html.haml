@@ -1,0 +1,24 @@
+.breadcrumb-list
+  .breadcrumb-list__menu
+    - case params.values_at :controller, :action
+
+    - when ['registrations', 'new']
+      - breadcrumb :new_user_registration
+
+    - when ['users', 'show']
+      - breadcrumb :users
+
+    - when ['send_informations', 'index']
+      - breadcrumb :send_informations_index
+
+    - when ['send_informations', 'new']
+      - breadcrumb :send_information_new
+
+    - when ['send_informations', 'edit']
+      - breadcrumb :send_information_edit
+
+    - when ['credits', 'new']
+      - breadcrumb :new_credit
+
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+

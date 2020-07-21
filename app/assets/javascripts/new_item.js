@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
+// $(document).on('turbolinks:load', function(){
   //共通の定数を定義==================================================================
   const prevContent = $('.label-content').prev();
 
