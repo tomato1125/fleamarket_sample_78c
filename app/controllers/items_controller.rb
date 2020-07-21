@@ -132,7 +132,7 @@ class ItemsController < ApplicationController
       if charge.paid
         @item.buyer_id = current_user.id
         @item.save
-        redirect_to root_path
+        redirect_to root_path, alert: "購入完了しました"
       else
         flash.now[:alert] = "購入処理に失敗しました"
         render :buy
