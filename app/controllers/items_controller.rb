@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
 
 
