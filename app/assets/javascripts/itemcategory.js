@@ -63,7 +63,8 @@
     });
     // 子カテゴリー選択後のイベント
     $('.categorySelecter__contents').on('change','#child_itemcategory', function(){
-      let childId = $('#child_itemcategory option:selected').data('itemcategory');
+      let childId = $('#child_itemcategory option:selected').val();
+      console.log(childId);
       if (childId != "選択してください"){
         $.ajax({
           url: '/items/itemcategory/get_itemcategory_grandchildren',

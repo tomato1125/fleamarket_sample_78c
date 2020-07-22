@@ -72,8 +72,10 @@
               .categorySelecter
                 .categorySelecter__contents
                   = f.collection_select(:itemcategory, @itemcategory, :name,:name,{selected: @item.itemcategory.parent.parent.name},{class: "categorySelecter__input",id: "parent_itemcategory"})
-                  = f.collection_select(:itemcategory, @childrencategory, :id,:name,{selected: @item.itemcategory.parent.id},{class: "categorySelecter__input",id: "children_wrapper"})
-                  = f.collection_select(:itemcategory, @grandchildrencategory, :id,:name,{selected: @item.itemcategory.id},{class: "categorySelecter__input",id: "grandchildren_wrapper"})
+                  .categorySelector__contents__choose#children_wrapper
+                    = f.collection_select(:itemcategory, @childrencategory, :id,:name,{selected: @item.itemcategory.parent.id},{class: "categorySelecter__input",id: "child_itemcategory"})
+                  .categorySelector__contents__choose#grandchildren_wrapper
+                    = f.collection_select(:itemcategory, @grandchildrencategory, :id,:name,{selected: @item.itemcategory.id},{class: "categorySelecter__input",id: "grandchild_itemcategory"})
               .blankMessage
               .productBrandSpace
                 .productBrand
