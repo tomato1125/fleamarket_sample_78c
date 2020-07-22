@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build()
-    @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
+    set_category_sellector
   end
 
   def get_itemcategory_children
@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
         format.html{redirect_to root_path}
       end
     else
-      @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
+      set_category_sellector
       flash.now[:alert] = "必須項目を入力してください"
       render :new
     end
@@ -74,6 +74,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    set_category_sellector
     if current_user.id != @item.seller_id
       flash.now[:alert] = "編集は出品者しかできません"
       set_category
@@ -86,6 +87,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if current_user.id != @item.seller_id
       flash.now[:alert] = "編集は出品者しかできません"
+      set_category_sellector
       render :edit and return
     end
     length = @item.images.length
@@ -183,6 +185,10 @@ class ItemsController < ApplicationController
     @grandchild = Itemcategory.find(@item.itemcategory_id)
     @child = @grandchild.parent
     @parent = @child.parent
+  end
+
+  def set_category_sellector
+    @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
 
 
