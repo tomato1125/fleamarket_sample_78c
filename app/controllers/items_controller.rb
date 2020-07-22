@@ -26,6 +26,8 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
+    @comment = Comment.new
+    @commentALL = @item.comments
   end
 
   def index
@@ -184,7 +186,6 @@ class ItemsController < ApplicationController
     @child = @grandchild.parent
     @parent = @child.parent
   end
-
 
 
   # 下記は使用しないため、一旦コメントアウトします。
