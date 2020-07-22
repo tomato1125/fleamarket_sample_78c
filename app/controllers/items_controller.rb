@@ -74,6 +74,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
     set_category_sellector
     if current_user.id != @item.seller_id
       flash.now[:alert] = "編集は出品者しかできません"
