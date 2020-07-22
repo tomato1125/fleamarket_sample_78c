@@ -36,7 +36,7 @@
 
     // 親カテゴリー選択後のイベント
     $('#parent_itemcategory').on('change', function(){
-      let parentItemcategory = document.getElementById('parent_itemcategory').value; 
+      let parentItemcategory = document.getElementById('parent_itemcategory').value;
       if (parentItemcategory != "選択してください"){
         $.ajax({
           url: '/items/itemcategory/get_itemcategory_children',
@@ -57,15 +57,14 @@
           alert('再度カテゴリーを選択してください');
         })
       }else{
-        $('#children_wrapper').remove(); 
-        $('#grandchildren_wrapper').remove();  
+        $('#children_wrapper').remove();
+        $('#grandchildren_wrapper').remove();
       }
     });
-
     // 子カテゴリー選択後のイベント
     $('.categorySelecter__contents').on('change','#child_itemcategory', function(){
       let childId = $('#child_itemcategory option:selected').data('itemcategory');
-      if (childId != "選択してください"){ 
+      if (childId != "選択してください"){
         $.ajax({
           url: '/items/itemcategory/get_itemcategory_grandchildren',
           type: 'GET',
@@ -86,7 +85,7 @@
           alert('再度カテゴリーを選択してください');
         })
       }else{
-        $('#grandchildren_wrapper').remove(); 
+        $('#grandchildren_wrapper').remove();
       }
     });
   })

@@ -74,8 +74,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
-    set_category_sellector
+    @itemcategory = Itemcategory.where(ancestry: nil)
+    @childrencategory = @item.itemcategory.parent.parent.children
+    @grandchildrencategory = @item.itemcategory.parent.children
     if current_user.id != @item.seller_id
       flash.now[:alert] = "編集は出品者しかできません"
       set_category
@@ -88,7 +89,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if current_user.id != @item.seller_id
       flash.now[:alert] = "編集は出品者しかできません"
-      set_category_sellector
+      @itemcategory = Itemcategory.where(ancestry: nil)
       render :edit and return
     end
     length = @item.images.length

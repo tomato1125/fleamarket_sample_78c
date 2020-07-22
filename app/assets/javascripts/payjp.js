@@ -13,7 +13,6 @@
 $(function() {
   $('#cardCreateForm').on('submit', function(e) {
     e.preventDefault()
-    console.log("test");
     Payjp.setPublicKey('pk_test_99db1b441d99a1b4ffd53d89');
     var card = {
       number: document.getElementById("card-number").value,
