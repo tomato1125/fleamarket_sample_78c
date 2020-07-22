@@ -62,7 +62,7 @@ $(function() {
     });
 
   // マウスがカテゴリーから離れた際の処理
-  $(document).on("mouseleave", ".grand_children_list", function () {
+  $(document).on("mouseleave", ".category_list", function () {
     $(".category_list").css("display", "none");
   });
 });
