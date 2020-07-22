@@ -351,13 +351,14 @@ items = Item.create!([
   produce: "新品",
   price: 80000,
   deliveryfee_id: 2,
-  itemcategory_id: 461,
+  itemcategory_id: 490,
   condition_id: 1,
   prefecture_id: 1,
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item01.png',)}]
   },
   {
   name: "ピアノ",
@@ -370,20 +371,22 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item02.png',)}]
   },
   {
   name: "判子",
   produce: "なし",
   price: 2000,
   deliveryfee_id: 2,
-  itemcategory_id: 1296,
+  itemcategory_id: 1285,
   condition_id: 1,
   prefecture_id: 1,
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item03.png',)}]
   },
   {
   name: "グローブ",
@@ -396,7 +399,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item04.png',)}]
   },
   {
   name: "バット",
@@ -409,7 +413,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item05.png',)}]
   },
   {
   name: "クロワッサン",
@@ -423,7 +428,8 @@ items = Item.create!([
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
   seller_id: 1,
-  buyer_id: 2
+  buyer_id: 2,
+  images_attributes: [{image:File.open('./app/assets/images/index_item06.png',)}]
   },
   {
   name: "冷蔵庫",
@@ -436,7 +442,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item07.png',)}]
   },
   {
   name: "バッグ",
@@ -449,7 +456,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item08.png',)}]
   },
   {
   name: "テレビ",
@@ -462,7 +470,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item09.png',)}]
   },
   {
   name: "猫のご飯",
@@ -475,7 +484,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item10.jpeg',)}]
   },
   {
   name: "さんまの塩焼きグリーンカレー",
@@ -488,7 +498,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item11.png',)}]
   },
   {
   name: "餃子チリソース",
@@ -501,7 +512,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item12.png',)}]
   },
   {
   name: "学食カレー",
@@ -514,7 +526,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item13.png',)}]
   },
   {
   name: "コンポ",
@@ -528,7 +541,8 @@ items = Item.create!([
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
   seller_id: 1,
-  buyer_id: 2
+  buyer_id: 2,
+  images_attributes: [{image:File.open('./app/assets/images/index_item14.png',)}]
   },
   {
   name: "ドライヤー",
@@ -541,7 +555,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item15.png',)}]
   },
   {
   name: "シェーバー",
@@ -554,7 +569,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item16.png',)}]
   },
   {
   name: "タラバガニ",
@@ -567,7 +583,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item17.png',)}]
   },
   {
   name: "ソーセージ",
@@ -580,7 +597,8 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item18.png',)}]
   },
   {
   name: "押し寿司",
@@ -593,86 +611,63 @@ items = Item.create!([
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item19.png',)}]
   },
   {
   name: "シャープペンシル",
   produce: "なし",
   price: 1000,
   deliveryfee_id: 2,
-  itemcategory_id: 1296,
+  itemcategory_id: 1285,
   condition_id: 1,
   prefecture_id: 1,
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item20.png',)}]
   },
   {
   name: "ホッチキス",
   produce: "なし",
   price: 500,
   deliveryfee_id: 2,
-  itemcategory_id: 1296,
+  itemcategory_id: 1285,
   condition_id: 1,
   prefecture_id: 1,
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item21.png',)}]
   },
   {
   name: "セロハンテープ",
   produce: "なし",
   price: 400,
   deliveryfee_id: 2,
-  itemcategory_id: 1296,
+  itemcategory_id: 1285,
   condition_id: 1,
   prefecture_id: 1,
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item22.png',)}]
   },
   {
   name: "レターボックス",
   produce: "なし",
   price: 1500,
   deliveryfee_id: 2,
-  itemcategory_id: 1296,
+  itemcategory_id: 1285,
   condition_id: 1,
   prefecture_id: 1,
   deliverydate_id: 1,
   created_at: 2020-07-01,
   updated_at: 2020-07-01,
-  seller_id: 1
+  seller_id: 1,
+  images_attributes: [{image:File.open('./app/assets/images/index_item23.png',)}]
   }
 ])
-
-
-# トップページ一覧表示用画像
-images = Image.create!([
-  {item_id: 1, image:File.open('./app/assets/images/index_item01.png',)},
-  {item_id: 2, image:File.open('./app/assets/images/index_item02.png',)},
-  {item_id: 3, image:File.open('./app/assets/images/index_item03.png',)},
-  {item_id: 4, image:File.open('./app/assets/images/index_item04.png',)},
-  {item_id: 5, image:File.open('./app/assets/images/index_item05.png',)},
-  {item_id: 6, image:File.open('./app/assets/images/index_item06.png',)},
-  {item_id: 7, image:File.open('./app/assets/images/index_item07.png',)},
-  {item_id: 8, image:File.open('./app/assets/images/index_item08.png',)},
-  {item_id: 9, image:File.open('./app/assets/images/index_item09.png',)},
-  {item_id: 10, image:File.open('./app/assets/images/index_item10.jpeg',)},
-  {item_id: 11, image:File.open('./app/assets/images/index_item11.png',)},
-  {item_id: 12, image:File.open('./app/assets/images/index_item12.png',)},
-  {item_id: 13, image:File.open('./app/assets/images/index_item13.png',)},
-  {item_id: 14, image:File.open('./app/assets/images/index_item14.png',)},
-  {item_id: 15, image:File.open('./app/assets/images/index_item15.png',)},
-  {item_id: 16, image:File.open('./app/assets/images/index_item16.png',)},
-  {item_id: 17, image:File.open('./app/assets/images/index_item17.png',)},
-  {item_id: 18, image:File.open('./app/assets/images/index_item18.png',)},
-  {item_id: 19, image:File.open('./app/assets/images/index_item19.png',)},
-  {item_id: 20, image:File.open('./app/assets/images/index_item20.png',)},
-  {item_id: 21, image:File.open('./app/assets/images/index_item21.png',)},
-  {item_id: 22, image:File.open('./app/assets/images/index_item22.png',)},
-  {item_id: 23, image:File.open('./app/assets/images/index_item23.png',)}
- ])

@@ -2,7 +2,7 @@ class CreditsController < ApplicationController
 
   require 'payjp'
 
-  before_action :authenticate_user!,only: [:new,:create]
+  before_action :authenticate_user!
 
 
 

@@ -57,12 +57,12 @@ $(function() {
     });
 
     // 孫カテゴリーにマウスオーバーした際の処理
-    $(document).on("mouseover", ".grand_child_category", function () {
+    $(document).on("mouseover", ".grand_child_list", function () {
       let id = this.id;
     });
 
   // マウスがカテゴリーから離れた際の処理
-  $(document).on("mouseout", ".grand_child_category", function () {
+  $(document).on("mouseleave", ".grand_children_list", function () {
     $(".category_list").css("display", "none");
   });
 });
