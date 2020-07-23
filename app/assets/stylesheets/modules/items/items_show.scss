@@ -299,7 +299,6 @@ $link-color: rgb(60,202,206)
     width: 100%;
     line-height: 40px;
     background: #FDF5E6;
-    // border: 1px solid #000000;
     border-radius: 10px;
     z-index: 0;
   }
@@ -317,10 +316,7 @@ $link-color: rgb(60,202,206)
       z-index: 0;
     }
     .comment_content:after {
-      // border-style: solid;
       border-width: 11px 0 11px 11px;
-      // border-color: transparent transparent transparent #000000;
-      // content: "";
       position: absolute;
       top: 50%; right: -12px;
       margin-top: -10px;
@@ -368,10 +364,8 @@ $link-color: rgb(60,202,206)
     display: inline-block;
     padding: 0 15px;
     width: 100%;
-    // min-width: 500px;
     line-height: 40px;
     background: #EEEEEE;
-    // border: 1px solid #000000;
     border-radius: 10px;
     z-index: 0;
   }
@@ -397,10 +391,7 @@ $link-color: rgb(60,202,206)
     z-index: 0;
   }
   .comment_content_other:after {
-    // border-style: solid;
     border-width: 11px 12px 11px 0;
-    // border-color: transparent #000000 transparent transparent;
-    // content: "";
     position: absolute;
     top: 50%; left: -12px;
     margin-top: -10px;
