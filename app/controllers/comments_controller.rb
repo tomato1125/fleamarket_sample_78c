@@ -1,28 +1,35 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only:[:update, :destroy, :restore]
+  before_action :set_comment, only: [:update,:destroy,:restore]
   before_action :check_user, only: [:update,:destroy,:restore]
 
   def create
     @comment = Comment.new(comment_params)
     @seller_of_item = User.find(@comment.item.seller_id)
-    @comment.save
-    redirect_to item_path(@comment.item.id)
+    if @comment.save
+        respond_to do |format|
+          format.json
+      end
+    else
+      flash[:alert] = "保存できていません"
+      redirect_to item_path(params[:id])
+    end
   end
 
   def update
     @comment.update(delete_check:1)
-    redirect_to item_path(@comment.item.id)
   end
 
   def destroy
     @comment.destroy
-    redirect_to item_path(@comment.item.id)
   end
 
   def restore
     @comment.update(delete_check:0)
-    redirect_to item_path(@comment.item.id)
+    @seller_of_item = User.find(@comment.item.seller_id)
+    respond_to do |format|
+    format.json
   end
+end
 
 private
   def comment_params
@@ -39,5 +46,4 @@ private
       redirect_to root_path
     end
   end
-end
 end

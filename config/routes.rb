@@ -15,11 +15,6 @@ Rails.application.routes.draw do
 
   # itemに関する記載箇所
   resources :items do
-    resources :comments, only:[:create,:update,:destroy] do
-      collection do
-        get 'restore'
-      end
-    end
     member do
       get 'buy', 'p_exhibiting', 'p_transaction', 'p_soldout'
       get 'update_done'
@@ -29,7 +24,12 @@ Rails.application.routes.draw do
       get 'itemcategory/get_itemcategory_children', to: 'items#get_itemcategory_children', defaults: { format: 'json' }
       get 'itemcategory/get_itemcategory_grandchildren', to: 'items#get_itemcategory_grandchildren', defaults: { format: 'json' }
     end
+  end
 
+  resources :comments, only:[:create,:update,:destroy] do
+    member do
+      get 'restore'
+    end
   end
 
   # creditに関する記述

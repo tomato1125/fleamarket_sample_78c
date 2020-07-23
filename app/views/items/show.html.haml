@@ -104,6 +104,43 @@
               %i.fa.fa-flag
               不適切な商品の通報
     .commentBox
+      .comment_list
+        - if user_signed_in?
+          - @commentALL.each do |comment|
+            - if comment.user_id == current_user.id   
+              -#   ===================================
+              -#   コメントユーザーとログインユーザーが同一の場合  
+              -#   ===================================
+              .comment_Me.comment_one_block{data:{index: comment.id}}                   
+                - if comment.delete_check == 1   # 削除済の場合
+                  .comment_content
+                    = render 'items/comment_delete_restore_btn',comment: comment 
+                - else   # 削除されていない場合
+                  .comment_content
+                    = comment.comment
+                    .comment_create_at
+                      = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                    - if comment.item.seller == current_user
+                      .comment_delete.me_pre_delete{data:{index: comment.id}}     
+                        = link_to '削除する', comment_path(comment.id) ,method: :patch
+                  = render 'items/comment_name',comment: comment                    
+            - else 
+              -#   ===================================
+              -#   コメントユーザーとログインユーザーが異なる場合の場合  
+              -#   ===================================
+              .comment_Other.comment_one_block{data:{index: comment.id}}    
+                = render 'items/comment_name',comment: comment               
+                - if comment.delete_check == 1   # 削除済の場合
+                  .comment_content_other
+                    = render 'items/comment_delete_restore_btn',comment: comment               
+                - else    # 削除されていない場合
+                  .comment_content_other
+                    = comment.comment
+                    .comment_create_at
+                      = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                    - if comment.item.seller == current_user   # 出品者とログインユーザーが等しい場合
+                      .comment_delete.other_pre_delete{data:{index: comment.id}}     
+                        = link_to '削除する', comment_path(comment.id) ,method: :patch
       -# .comment_list
       -#   - if user_signed_in?
       -#     - @commentALL.each do |comment|
@@ -112,44 +149,59 @@
       -#           - if comment.delete_check == 1
       -#             .comment_content
       -#               出品者によりこのコメントは削除されました。
-      -#             = render 'items/comment_delete_restore_btn',comment: comment
-      -#             - else
-      -#               .comment_content
-      -#                 = comment.comment
+      -#               - if comment.item.seller == current_user    # 出品者とログインユーザーが等しい場合
+      -#                 .comment_restore{data:{index: comment.id}} 
+      -#                   = link_to "復元する", restore_comments_path(comment.id)
+      -#                 .comment_delete.complete_delete{data:{index: comment.id}}     
+      -#                   = link_to '完全に削除する', comment_path(comment.id) ,method: :delete
+      -#               - else   #出品者とログインユーザーが違う場合
+      -#                 .comment_content
+      -#                   = comment.comment
       -#                   .comment_create_at
       -#                     = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
       -#                   - if comment.item.seller == current_user
       -#                     .comment_delete.me_pre_delete{data:{index: comment.id}}
       -#                       = link_to '削除する', comment_path(comment.id) ,method: :patch
-      -#             = render 'items/comment_name', comment: comment
-      -#           - else
+      -#                   .comment_user_name
+      -#                     = comment.user.nickname
+      -#                     - if comment.user ==  comment.item.seller  # コメントユーザーと出品者が同じ場合
+      -#                       .seller_display
+      -#                         出品者
+      -#           - else  # comment.delete_check == 0 のとき
       -#             .comment_Other.comment_one_block{data:{index: comment.id}}
-      -#               = render 'items/comment_name', comment: comment
-      -#               - if cooment.delete_check == 1
+      -#               .commet_user_name
+      -#                 = comment.user.nickname
+      -#                 - if comment.user ==  comment.item.seller  # コメントユーザーと出品者が同じ場合
+      -#                   .seller_display
+      -#                     出品者
+      -#               - if comment.delete_check == 1
       -#                 .comment_content_other
       -#                   出品者によりこのコメントは削除されました
-      -#                   = render 'items/comment_delete_restore_btn', comment: comment
+      -#                   - if comment.item.seller == current_user    # 出品者とログインユーザーが等しい場合
+      -#                     .comment_restore{data:{index: comment.id}} 
+      -#                       = link_to "復元する",restore_comments_path(comment.id)
+      -#                     .comment_delete.complete_delete{data:{index: comment.id}}     
+      -#                       = link_to '完全に削除する', comment_path(comment.id) ,method: :delete
       -#               - else
       -#                 .comment_content_other
       -#                   = comment.comment
-      -#                   .comment_create_at("%Y年%m月%d日 %H時%M分")
-      -#                     = comment.item.seller == current_user
+      -#                   .comment_create_at
+      -#                     = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
       -#                   - if comment.item.seller == current_user
       -#                     .comment_delete.other_pre_delete{data:{index: comment.id}}
       -#                       = link_to '削除する', comment_path(comment.id), method: :patch
-      -# = form_with model: @comment ,method: :post, class: "commentBox__form",local: true do |f|
-      -#   = f.text_area :comment, id: "comment_body", class: "commentBox__inputArea", wrap: "soft"
-      -#   = f.hidden_field :item_id, value: @item.id
-      = form_with url:"#",method: :post, class: "commentBox__form",local: true do |f|
-        = f.text_area :comment, class: "commentBox__inputArea"
-        %p.commentBox__inputArea--notice
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br
-          不適切な言葉遣いなどは利用制限や退会処分となることがあります。
-        .commentBox__inputArea--submit
-          = button_tag type: 'submit',class: "submitBtn" do
-            %i.fa.fa-comment
-            コメントする
+      - if user_signed_in?
+        = form_with model: @comment ,class: "new_comment",local: true do |f|
+          = f.text_area :comment, id: "comment_body", class: "commentBox__inputArea", rows:2, wrap: "soft"
+          = f.hidden_field :item_id, value: @item.id
+          %p.commentBox__inputArea--notice
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不適切な言葉遣いなどは利用制限や退会処分となることがあります。
+          .commentBox__inputArea--submit
+            = button_tag type: 'submit',class: "submitBtn" do
+              %i.fa.fa-comment
+              コメントする
     %ul.links
       %li
         =link_to "#" do

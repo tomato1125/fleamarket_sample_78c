@@ -66,10 +66,12 @@ class ItemsController < ApplicationController
     if @item.save
       respond_to do |format|
         format.html{redirect_to root_path}
+        format.json
       end
     else
       set_category_sellector
       flash.now[:alert] = "必須項目を入力してください"
+      @item.images.build
       render :new
     end
   end
