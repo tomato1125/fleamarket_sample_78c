@@ -15,7 +15,8 @@
       .itemBox__body
         %ul
           %li.itemBox__body--main
-            = image_tag @item.images[0].image.url,size: "560x346",class: "mainImage"
+            - if @item.images[0]
+              = image_tag @item.images[0].image.url,size: "560x346",class: "mainImage"
           %ul.itemBox__body--others
             - @item.images.each do |i|
               %li
