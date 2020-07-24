@@ -116,7 +116,7 @@
                 - if comment.delete_check == 1   # 削除済の場合
                   .comment_content
                     = render 'items/comment_delete_restore_btn',comment: comment 
-                - else   # 削除されていない場合
+                - else   # 削除されていない場合(delete_check == 0)
                   .comment_content
                     = comment.comment
                     .comment_create_at

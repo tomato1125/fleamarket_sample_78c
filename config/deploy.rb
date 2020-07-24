@@ -1,6 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "3.14.1"
 
+# チーム開発のアプリ名、リポジトリ名を記述
 set :application, "fleamarket_sample_78c"
 set :repo_url, "git@github.com:tomato1125/fleamarket_sample_78c.git"
 
