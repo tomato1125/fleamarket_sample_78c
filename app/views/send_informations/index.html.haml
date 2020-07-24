@@ -31,7 +31,7 @@
                     = data.first_name
                   %td
                     住所：
-                    = data.prefecture_id
+                    = Prefecture.find(data.prefecture_id).name
                     = data.city
                     = data.house_number
                     = data.apartment
