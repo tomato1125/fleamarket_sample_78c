@@ -2,12 +2,8 @@
   .breadcrumb-list__menu
     - case params.values_at :controller, :action
 
-    -# case文で記述
-
     - when ['registrations', 'new']
       - breadcrumb :new_user_registration
-         -# - when ['controller', 'アクション名'] ← 値
-          -# breadcrumb :breadcrumbs.rbで指定したメソッド
 
     - when ['profiles', 'index']
       - breadcrumb :profiles_index
@@ -28,4 +24,4 @@
       - breadcrumb :new_credit
 
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
-     -# 実際に表示されると、「　= breadcrumbs separator: "   〉  "　」となる
+
