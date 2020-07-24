@@ -76,6 +76,17 @@
 ### Association
 - belongs_to :item
 
+# commentテーブル
+|Coumn|Type|Options|
+|-----|----|-------|
+|item_id|reference|foreign_key: true|
+|user_id|reference|foreign_key: true|
+|delete_check|integer|default: 0|
+|comment|string||
+### Association
+- belongs_to :user
+- belongs_to :item
+
 
 # creditテーブル
 |Coumn|Type|Options|
