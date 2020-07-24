@@ -1,9 +1,14 @@
 $(function(){
-// $(document).on('turbolinks:load', function(){
-  //共通の定数を定義==================================================================
+  //================================================================
+  //共通の定数を定義
+  //==================================================================
+  // label-contentの直前に配置されている要素(今回はprev-content)を取得する
+  
   const prevContent = $('.label-content').prev();
 
-  //プレビューのhtmlを定義============================================================
+  //============================================================
+  //プレビューのhtmlを定義
+  //============================================================
   function buildHTML(id,image) {
     var html = `<div class="preview-box">
                   <div class="upper-box">
@@ -17,7 +22,10 @@ $(function(){
                 </div>`
     return html;
   }
-  //ラベルのwidth・id・forの値を変更==================================================
+
+  //==================================================
+  //ラベルのwidth・id・forの値を変更
+  //==================================================
   function setLabel(count) {
     //プレビューが5個あったらラベルを隠す
     if (count == 5) { 
@@ -25,15 +33,17 @@ $(function(){
     } else {
       //プレビューが4個以下の場合はラベルを表示
       $('.label-content').show();
-      //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
-      labelWidth = (620 - parseInt($(prevContent).css('width')));
+      //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定(prevcontentのwidthを取って、大枠(width:620px)から引き算する)
+      labelWidth = (620 - parseInt($(prevContent).css('width')));  //parseIntは文字列を整数に変換するjavascriptの関数
       $('.label-content').css('width', labelWidth);
       //id・forの値を変更
       $('.label-box').attr({for: `item_images_attributes_${count}_image`});
     }
   }
 
-  //編集ページ(items/:i/edit)へリンクした際のアクション==================================
+  //====================================================
+  //編集ページ(items/:i/edit)へリンクした際のアクション
+  //====================================================
   if (window.location.href.match(/\/items\/\d+\/edit/)){
     //プレビューの数を取得
     var count = $('.preview-box').length;
@@ -41,17 +51,22 @@ $(function(){
     setLabel(count) 
   }
 
-  //プレビューの追加=================================================================
+  //=======================================================
+  //プレビューの追加
+  //=======================================================
+  //hidden-fielsの値が変更したとき発火
   $(document).on('change', '.hidden-field', function() {
     //hidden-fieldのidの数値のみ取得
-    var id = $(this).attr('id').replace(/[^0-9]/g, '');
+    var id = $(this).attr('id').replace(/[^0-4]/g, '');
     //選択したfileのオブジェクトを取得
     var file = this.files[0];
+    // PC内にあるファイルをアプリケーションに非同期で読み込む
     var reader = new FileReader();
     //readAsDataURLで指定したFileオブジェクトを読み込む
     reader.readAsDataURL(file);
     //読み込み時に発火するイベント
     reader.onload = function() {
+      // 直前に実行されたイベント（imageファイルの読み込み）を変数imageに代入
       var image = this.result;
       //htmlを作成
       var html = buildHTML(id,image);
@@ -64,10 +79,12 @@ $(function(){
     }
   });
 
-  // 画像の削除=====================================================================
+  //=====================================================================
+  // 画像の削除
+  //=====================================================================
   $(document).on('click', '.delete-btn', function() {
     var id = $(this).attr('data-delete-id')
-    //削除用チェックボックスがある場合はチェックボックスにチェックを入れる
+    //削除用チェックボックスにチェックを入れる
     if ($(`#item_images_attributes_${id}__destroy`).length) {
       $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
     }
@@ -81,6 +98,10 @@ $(function(){
     setLabel(count);
   });
 
+
+  //=====================================================================
+  // 手数料の計算
+  //=====================================================================
   $('#inputPrice').on('input', function() {  //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
     var data = $('#inputPrice').val();  // val()でフォームのvalueを取得(数値)
     var profit = Math.round(data * 0.9)  // 手数料計算を行う｡dataにかけているのが0.9なのは単に引きたい手数料が10%のため｡Math.roundは、引数で与えた数値を四捨五入して、最も近似の整数を返す。

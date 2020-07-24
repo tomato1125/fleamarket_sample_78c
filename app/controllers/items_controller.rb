@@ -26,6 +26,8 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.where.not(id: @item.id).where(itemcategory_id: @item.itemcategory_id)
+    @comment = Comment.new
+    @commentALL = @item.comments
   end
 
   def index
@@ -64,10 +66,12 @@ class ItemsController < ApplicationController
     if @item.save
       respond_to do |format|
         format.html{redirect_to root_path}
+        format.json
       end
     else
       set_category_sellector
       flash.now[:alert] = "必須項目を入力してください"
+      @item.images.build
       render :new
     end
   end
@@ -192,7 +196,6 @@ class ItemsController < ApplicationController
   def set_category_sellector
     @itemcategory = Itemcategory.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
-
 
 
   # 下記は使用しないため、一旦コメントアウトします。

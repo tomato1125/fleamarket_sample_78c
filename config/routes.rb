@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments, only:[:create,:update,:destroy] do
+    member do
+      get 'restore'
+    end
+  end
+
   # creditに関する記述
   resources :credits, only: [:index, :new , :create, :show, :destroy]
 

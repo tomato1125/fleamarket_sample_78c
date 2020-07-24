@@ -105,16 +105,55 @@
               %i.fa.fa-flag
               不適切な商品の通報
     .commentBox
-      = form_with url:"#",method: :post, class: "commentBox__form",local: true do |f|
-        = f.text_area :comment, class: "commentBox__inputArea"
-        %p.commentBox__inputArea--notice
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br
-          不適切な言葉遣いなどは利用制限や退会処分となることがあります。
-        .commentBox__inputArea--submit
-          = button_tag type: 'submit',class: "submitBtn" do
-            %i.fa.fa-comment
-            コメントする
+      .comment_list
+        - if user_signed_in?
+          - @commentALL.each do |comment|
+            - if comment.user_id == current_user.id   
+              -#   ===================================
+              -#   コメントユーザーとログインユーザーが同一の場合  
+              -#   ===================================
+              .comment_Me.comment_one_block{data:{index: comment.id}}                   
+                - if comment.delete_check == 1   # 削除済の場合
+                  .comment_content
+                    = render 'items/comment_delete_restore_btn',comment: comment 
+                - else   # 削除されていない場合
+                  .comment_content
+                    = comment.comment
+                    .comment_create_at
+                      = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                    - if comment.item.seller == current_user
+                      .comment_delete.me_pre_delete{data:{index: comment.id}}     
+                        = link_to '削除する', comment_path(comment.id) ,method: :patch
+                  = render 'items/comment_name',comment: comment                    
+            - else 
+              -#   ===================================
+              -#   コメントユーザーとログインユーザーが異なる場合の場合  
+              -#   ===================================
+              .comment_Other.comment_one_block{data:{index: comment.id}}    
+                = render 'items/comment_name',comment: comment               
+                - if comment.delete_check == 1   # 削除済の場合
+                  .comment_content_other
+                    = render 'items/comment_delete_restore_btn',comment: comment               
+                - else    # 削除されていない場合
+                  .comment_content_other
+                    = comment.comment
+                    .comment_create_at
+                      = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                    - if comment.item.seller == current_user   # 出品者とログインユーザーが等しい場合
+                      .comment_delete.other_pre_delete{data:{index: comment.id}}     
+                        = link_to '削除する', comment_path(comment.id) ,method: :patch
+      - if user_signed_in?
+        = form_with model: @comment ,class: "new_comment",local: true do |f|
+          = f.text_area :comment, id: "comment_body", class: "commentBox__inputArea", rows:2, wrap: "soft"
+          = f.hidden_field :item_id, value: @item.id
+          %p.commentBox__inputArea--notice
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不適切な言葉遣いなどは利用制限や退会処分となることがあります。
+          .commentBox__inputArea--submit
+            = button_tag type: 'submit',class: "submitBtn" do
+              %i.fa.fa-comment
+              コメントする
     %ul.links
       %li
         =link_to "#" do
